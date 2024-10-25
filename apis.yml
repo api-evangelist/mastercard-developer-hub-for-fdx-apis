@@ -26,7 +26,7 @@ apis:
     - type: Documentation
       url: https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#authorization-server
     - type: OpenAPI
-      url: https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#authorization-server    
+      url: fdx-authorization-api-openapi.yaml
     - type: MockServer
       url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server 
     - type: GitHubRepository
@@ -44,7 +44,7 @@ apis:
     - type: Documentation
       url: https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
     - type: OpenAPI
-      url: https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server    
+      url: fdx-resource-api-openapi.yaml
     - type: MockServer
       url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server    
     - type: GitHubRepository
