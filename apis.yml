@@ -1,0 +1,58 @@
+aid: mastercard-fdx
+name: Mastercard Developer Hub for FDX APIs
+type: Index
+description: |-
+  The Financial Data Exchange (FDX) is a nonprofit industry standards body that created the FDX API, a technical standard for user-permissioned financial data sharing. The FDX API standard, like other data sharing methods used in open banking, gives consumers more control over who can access their financial data. The open banking industry is founded on the principles of interoperability, which are being advanced by forthcoming rulemaking from the The Consumer Financial Protection Bureau (CFPB).
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+- Banking
+- Open Banking
+- FDX
+created: '2024-10-25'
+modified: '2024-10-25'
+url: https://github.com/api-search/mastercard-developer-hub-for-fdx-apis/apis.yml
+specificationVersion: '0.18'
+apis:
+- aid: mastercard-fdx:authorization-api
+  name: Mastercard FDX Authorization API
+  description: Dynamic Client Registration, Token, Introspection, Authorize API.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: http://example.com
+  baseURL: http://api.example.com
+  tags:
+    - FDX
+    - Authorization
+  properties:
+    - type: Documentation
+      url: https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#authorization-server
+    - type: OpenAPI
+      url: https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#authorization-server    
+    - type: MockServer
+      url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server 
+    - type: GitHubRepository
+      url: https://github.com/Mastercard/Fdx-Mock-Auth-Server    
+- aid: mastercard-fdx:resource-api
+  name: Mastercard FDX Resource API
+  description: FDX Mock Resource Server API reference for developers.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: http://example.com
+  baseURL: http://api.example.com
+  tags:
+    - FDX
+    - Payments
+  properties:
+    - type: Documentation
+      url: https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
+    - type: OpenAPI
+      url: https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server    
+    - type: MockServer
+      url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server    
+    - type: GitHubRepository
+      url: https://github.com/Mastercard/Fdx-Mock-Resource-Server    
+common:
+- type: Signup
+  url: https://example.com/signup
+maintainers:
+- FN: Kin Lane
+  X-twitter: apievangelist
+  email: info@apievangelist.com
