@@ -13,6 +13,7 @@ modified: '2024-10-25'
 url: https://github.com/api-search/mastercard-developer-hub-for-fdx-apis/apis.yml
 specificationVersion: '0.18'
 apis:
+
 - aid: mastercard-fdx:authorization-api
   name: Mastercard FDX Authorization API
   description: Dynamic Client Registration, Token, Introspection, Authorize API.
@@ -31,6 +32,7 @@ apis:
       url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server 
     - type: GitHubRepository
       url: https://github.com/Mastercard/Fdx-Mock-Auth-Server    
+
 - aid: mastercard-fdx:resource-api
   name: Mastercard FDX Resource API
   description: FDX Mock Resource Server API reference for developers.
@@ -49,61 +51,36 @@ apis:
       url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server    
     - type: GitHubRepository
       url: https://github.com/Mastercard/Fdx-Mock-Resource-Server    
+
 common:
-- type: Regulations
-  url: https://www.consumerfinance.gov/about-us/newsroom/cfpb-proposes-rule-to-jumpstart-competition-and-accelerate-shift-to-open-banking/
-- type: FAPI
-  url: https://openid.net/wg/fapi/
-- type: Implementation Checklist
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/
-- type: Authentication
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/auth-server/#oauth-20-vs-openid-connect-oidc
+
+# Hub / Portal
+- type: Portal
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation
+
+# Onboarding
 - type: SequenceDiagrams
   url: https://developer.mastercard.com/fdx-dev-hub/documentation/sequence-diagrams/
 - type: UserJourney
   url: https://developer.mastercard.com/fdx-dev-hub/documentation/user-exp/
-- type: Simulator
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#run-in-postman
-- type: Resources
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/links-resources/
-- type: PostmanCollection
-  url: https://www.postman.com/ma-fdx-dev-hub/fdx-developer-hub/collection/p928zhg/mastercard-developer-hub-for-fdx-apis
-- type: PostmanWorkspace
-  url: https://www.postman.com/ma-fdx-dev-hub/fdx-developer-hub/overview
-- type: ErrorCodes
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/code-and-formats/
-- type: Enumerators
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/fdx-enums/
-- type: ReleaseHistory
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/release-history/
-- type: FAQ
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/support/#faq
-- type: Support
-  url: https://developer.mastercard.com/support
-- type: DynamicClientRegistration
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/auth-server/#dynamic-client-registration
-- type: DockerContainer
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#instructions-for-building-a-docker-image
-- type: RuninPostman
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#run-in-postman
-- type: Blog
-  url: https://developer.mastercard.com/blog
+- type: Implementation Checklist
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/  
 - type: Signup
   url: https://developer.mastercard.com/account/sign-up
 - type: Login
   url: https://developer.mastercard.com/account/log-in
-- type: Terms o fUse
-  url: https://developer.mastercard.com/terms-of-use
-- type: Privacy
-  url: https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy.html
-- type: Status
-  url: https://developer.mastercard.com/api-status
-- type: Forum
-  url: https://forum.developer.mastercard.com/s/
+- type: Authentication
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/auth-server/#oauth-20-vs-openid-connect-oidc
+- type: DynamicClientRegistration
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/auth-server/#dynamic-client-registration
+- type: Simulator
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#run-in-postman  
+
+# Standards
+- type: FAPI
+  url: https://openid.net/wg/fapi/
 - type: FDX
-  url: https://financialdataexchange.org/
-- type: TestUserProfiles
-  url: https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/#test-user-profiles
+  url: https://financialdataexchange.org/  
 - type: OpenID
   url: https://openid.net/specs/openid-connect-core-1_0.html
 - type: OAuth20AuthorizationServerMetadata
@@ -118,6 +95,53 @@ common:
   url: https://datatracker.ietf.org/doc/html/rfc9126
 - type: OAuth20RichAuthorizationRequests
   url: https://datatracker.ietf.org/doc/html/rfc9396  
+
+# Postman
+- type: RuninPostman
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#run-in-postman
+- type: PostmanCollection
+  url: https://www.postman.com/ma-fdx-dev-hub/fdx-developer-hub/collection/p928zhg/mastercard-developer-hub-for-fdx-apis
+- type: PostmanWorkspace
+  url: https://www.postman.com/ma-fdx-dev-hub/fdx-developer-hub/overview
+
+# Implementation
+- type: DockerContainer
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#instructions-for-building-a-docker-image
+
+# Resources
+- type: Resources
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/links-resources/
+- type: ErrorCodes
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/code-and-formats/
+- type: Enumerators
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/fdx-enums/
+- type: TestUserProfiles
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/#test-user-profiles
+
+# Change / Monitoring
+- type: Status
+  url: https://developer.mastercard.com/api-status
+- type: ReleaseHistory
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/release-history/
+
+# Support
+- type: FAQ
+  url: https://developer.mastercard.com/fdx-dev-hub/documentation/support/#faq
+- type: Support
+  url: https://developer.mastercard.com/support
+- type: Forum
+  url: https://forum.developer.mastercard.com/s/  
+- type: Blog
+  url: https://developer.mastercard.com/blog  
+
+# Legal / Compliance
+- type: TermsOfService
+  url: https://developer.mastercard.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy.html
+- type: Regulations
+  url: https://www.consumerfinance.gov/about-us/newsroom/cfpb-proposes-rule-to-jumpstart-competition-and-accelerate-shift-to-open-banking/
+
 maintainers:
 - FN: Kin Lane
   X-twitter: apievangelist
