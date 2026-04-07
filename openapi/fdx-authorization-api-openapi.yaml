@@ -839,16 +839,16 @@ components:
       description: This url will be launched by client for user authentication. No response applicable.
 
 tags:
-  - name: Resource Token
-    description: API to generate OAuth 2.0 token.
   - name: Dynamic Client Registration
     description: >-
       As per [RFC 7591 - OAuth 2.0 Dynamic Client Registration Protocol
       (ietf.org)](https://datatracker.ietf.org/doc/html/rfc7591)
-  - name: PAR+RAR Authorize
-    description: "Please refer RFC - [RFC 9126 - OAuth 2.0 Pushed Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9126) and [RFC 9396 - OAuth 2.0 Rich Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9396) for implementation."
   - name: Non PAR Authorize
     description: >-
       [https://datatracker.ietf.org/doc/html/rfc6749](https://datatracker.ietf.org/doc/html/rfc6749)
+  - name: PAR+RAR Authorize
+    description: "Please refer RFC - [RFC 9126 - OAuth 2.0 Pushed Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9126) and [RFC 9396 - OAuth 2.0 Rich Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9396) for implementation."
+  - name: Resource Token
+    description: API to generate OAuth 2.0 token.
   - name: Token Introspection
     description: API to check whether the OAuth Token is currently active.

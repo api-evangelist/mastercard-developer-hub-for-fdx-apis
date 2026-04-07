@@ -19,14 +19,14 @@ security:
 tags:
   - name: Application Check Controller
     description: health check and check the status application
-  - name: Upload Data
-    description: Upload accounts and transaction for user.
-  - name: User APIs
-    description: Return user response.
   - name: Consent
     description: Return consent and save consent for user.
   - name: Data Resource APIs
     description: "Return list of account, account details,transactions,contact details, payments info and statements details of user."
+  - name: Upload Data
+    description: Upload accounts and transaction for user.
+  - name: User APIs
+    description: Return user response.
 paths:
   /consent/{consentId}:
     get:
