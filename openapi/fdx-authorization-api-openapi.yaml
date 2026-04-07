@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: FDX Authorization Server
+  title: Mastercard Developer Hub for FDX APIs FDX Authorization Server
   version: 1.0.0
   description: Dynamic Client Registration, Token, Introspection, Authorize API
   contact:
@@ -15,7 +15,7 @@ paths:
     post:
       tags:
         - Dynamic Client Registration
-      summary: Client Registration Request
+      summary: Mastercard Developer Hub for FDX APIs Client Registration Request
       description: Request to Register Client
       operationId: registerClient
       requestBody:
@@ -29,7 +29,7 @@ paths:
     post:
       tags:
         - Resource Token
-      summary: Get Token
+      summary: Mastercard Developer Hub for FDX APIs Get Token
       description: Get Token as per grant_type
       operationId: getToken
       requestBody:
@@ -43,7 +43,7 @@ paths:
     get:
       tags:
         - Dynamic Client Registration
-      summary: Get Client
+      summary: Mastercard Developer Hub for FDX APIs Get Client
       description: Get a specific client data identified with clientId
       operationId: getClient
       parameters:
@@ -56,7 +56,7 @@ paths:
     put:
       tags:
         - Dynamic Client Registration
-      summary: Update Client
+      summary: Mastercard Developer Hub for FDX APIs Update Client
       description: Update data for a specific client identified with clientId
       operationId: modifyClient
       parameters:
@@ -71,7 +71,7 @@ paths:
     delete:
       tags:
         - Dynamic Client Registration
-      summary: Delete Client
+      summary: Mastercard Developer Hub for FDX APIs Delete Client
       description: Delete data for a specific client identified with clientId
       operationId: deleteClient
       parameters:
@@ -90,7 +90,7 @@ paths:
     post:
       tags:
         - PAR+RAR Authorize
-      summary: Submit an Authorization Request
+      summary: Mastercard Developer Hub for FDX APIs Submit an Authorization Request
       description: Clients can submit their authorization requests to this endpoint to receive a request URI for user redirection.
       operationId: authorizeViaParRar
       requestBody:
@@ -104,19 +104,19 @@ paths:
     get:
       tags:
         - Non PAR Authorize
-      summary: User Authorization Endpoint
+      summary: Mastercard Developer Hub for FDX APIs User Authorization Endpoint
       description: This endpoint allows users to authorize a client application to access their resources. It returns an authorization code or token based on the grant type and flow. (Don't hit copy the url from curl)
       operationId: parAuthorizeDonTHitCopyTheUrlFromCurl
       parameters:
-          - $ref: '#/components/parameters/clientIdQuery'
-          - $ref: '#/components/parameters/ResponseType'
-          - $ref: '#/components/parameters/CodeChallenge'
-          - $ref: '#/components/parameters/CodeChallengeMethod'
-          - $ref: '#/components/parameters/RequestUri'
-          - $ref: '#/components/parameters/Scope'
-          - $ref: '#/components/parameters/RedirectUri'
-          - $ref: '#/components/parameters/RequestJWT'
-          - $ref: '#/components/parameters/State'
+        - $ref: '#/components/parameters/clientIdQuery'
+        - $ref: '#/components/parameters/ResponseType'
+        - $ref: '#/components/parameters/CodeChallenge'
+        - $ref: '#/components/parameters/CodeChallengeMethod'
+        - $ref: '#/components/parameters/RequestUri'
+        - $ref: '#/components/parameters/Scope'
+        - $ref: '#/components/parameters/RedirectUri'
+        - $ref: '#/components/parameters/RequestJWT'
+        - $ref: '#/components/parameters/State'
       responses:
         '200':
           $ref: '#/components/responses/AuthorizeURL'
@@ -124,7 +124,7 @@ paths:
     post:
       tags:
         - Token Introspection
-      summary: Token Introspection Endpoint
+      summary: Mastercard Developer Hub for FDX APIs Token Introspection Endpoint
       description: This endpoint allows clients to validate an access token and retrieve its metadata, such as its validity, scopes, and associated user details.
       operationId: introspectionToken
       requestBody:
@@ -846,7 +846,7 @@ tags:
       As per [RFC 7591 - OAuth 2.0 Dynamic Client Registration Protocol
       (ietf.org)](https://datatracker.ietf.org/doc/html/rfc7591)
   - name: PAR+RAR Authorize
-    description: "Please refer RFC -\_[RFC 9126 - OAuth 2.0 Pushed Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9126)\_and\_[RFC 9396 - OAuth 2.0 Rich Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9396)\_for implementation."
+    description: "Please refer RFC - [RFC 9126 - OAuth 2.0 Pushed Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9126) and [RFC 9396 - OAuth 2.0 Rich Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9396) for implementation."
   - name: Non PAR Authorize
     description: >-
       [https://datatracker.ietf.org/doc/html/rfc6749](https://datatracker.ietf.org/doc/html/rfc6749)

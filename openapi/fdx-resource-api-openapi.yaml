@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Fdx Resource API
+  title: Mastercard Developer Hub for FDX APIs Fdx Resource API
   description: FDX Mock Resource Server API reference for developers
   termsOfService: https://mastercard.com
   contact:
@@ -26,14 +26,13 @@ tags:
   - name: Consent
     description: Return consent and save consent for user.
   - name: Data Resource APIs
-    description: "Return list of account, account details,transactions,contact details,\
-    \ payments info and statements details of user."
+    description: "Return list of account, account details,transactions,contact details, payments info and statements details of user."
 paths:
   /consent/{consentId}:
     get:
       tags:
         - Consent
-      summary: Get Consent by consent Id
+      summary: Mastercard Developer Hub for FDX APIs Get Consent by consent Id
       description: Return particular consent response by consent id.
       operationId: getConsent
       parameters:
@@ -82,7 +81,7 @@ paths:
     put:
       tags:
         - Consent
-      summary: Update Consent by consent Id
+      summary: Mastercard Developer Hub for FDX APIs Update Consent by consent Id
       description: Return updated consent response.
       operationId: updateConsent
       parameters:
@@ -131,7 +130,7 @@ paths:
                   consentShareDurationSeconds: 600
                   userId: fdxuser
       responses:
-        '200' :
+        '200':
           description: OK
           content:
             application/json:
@@ -141,7 +140,7 @@ paths:
                 customerId: fdxuser
                 consentId: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
                 endDate: 1720607740194
-        '401' :
+        '401':
           description: Unauthorized
           content:
             application/json:
@@ -155,7 +154,7 @@ paths:
     post:
       tags:
         - User APIs
-      summary: Save user
+      summary: Mastercard Developer Hub for FDX APIs Save user
       description: Return saved user response.
       operationId: saveUser
       parameters:
@@ -187,7 +186,7 @@ paths:
                   userId: fdxuser1
         required: true
       responses:
-        '200' :
+        '200':
           description: OK
           content:
             '*/*':
@@ -197,7 +196,7 @@ paths:
     post:
       tags:
         - Upload Data
-      summary: add transactions details for user Id
+      summary: Mastercard Developer Hub for FDX APIs add transactions details for user Id
       description: Return transactions response.
       operationId: addTransactions
       requestBody:
@@ -338,7 +337,7 @@ paths:
     post:
       tags:
         - Upload Data
-      summary: add account for user Id
+      summary: Mastercard Developer Hub for FDX APIs add account for user Id
       description: Return accounts response.
       operationId: addAccount
       parameters:
@@ -392,7 +391,7 @@ paths:
                         example: USD
                       currencyRate:
                         nullable: true
-                        example: null
+                        example:
                       originalCurrencyCode:
                         type: string
                         example: USD
@@ -463,7 +462,7 @@ paths:
                   balanceType: ASSET
                   currency:
                     currencyCode: USD
-                    currencyRate: null
+                    currencyRate:
                     originalCurrencyCode: USD
                   currentBalance: 4984.46
                   description: My Checking Acc XXXX3223
@@ -497,7 +496,7 @@ paths:
                     balanceType: ASSET
                     currency:
                       currencyCode: USD
-                      currencyRate: null
+                      currencyRate:
                       originalCurrencyCode: USD
                     currentBalance: 4984.46
                     description: My Checking Acc XXXX3223
@@ -528,7 +527,7 @@ paths:
     post:
       tags:
         - Consent
-      summary: Register Consent
+      summary: Mastercard Developer Hub for FDX APIs Register Consent
       description: Save user consent into db
       operationId: registerConsent
       parameters:
@@ -596,7 +595,7 @@ paths:
     get:
       tags:
         - User APIs
-      summary: Get user by user Id
+      summary: Mastercard Developer Hub for FDX APIs Get user by user Id
       description: Return user response.
       operationId: getUser
       parameters:
@@ -625,7 +624,7 @@ paths:
     get:
       tags:
         - Application Check Controller
-      summary: Status check
+      summary: Mastercard Developer Hub for FDX APIs Status check
       description: status check for application
       operationId: getStartupStatus
       responses:
@@ -639,7 +638,7 @@ paths:
     get:
       tags:
         - Application Check Controller
-      summary: shutdown application
+      summary: Mastercard Developer Hub for FDX APIs shutdown application
       description: Return the status of shutdown.
       operationId: shutdown
       responses:
@@ -653,7 +652,7 @@ paths:
     get:
       tags:
         - Application Check Controller
-      summary: liveness check
+      summary: Mastercard Developer Hub for FDX APIs liveness check
       description: liveness check for application
       operationId: validateLiveness
       responses:
@@ -667,7 +666,7 @@ paths:
     get:
       tags:
         - Application Check Controller
-      summary: health check
+      summary: Mastercard Developer Hub for FDX APIs health check
       description: health check for application
       operationId: getHealth
       responses:
@@ -682,7 +681,7 @@ paths:
     get:
       tags:
         - Data Resource APIs
-      summary: Get all accounts of user.
+      summary: Mastercard Developer Hub for FDX APIs Get all accounts of user.
       description: Return list of user accounts.
       operationId: getAccountsList
       parameters:
@@ -748,7 +747,7 @@ paths:
     get:
       tags:
         - Data Resource APIs
-      summary: Get account details by account id.
+      summary: Mastercard Developer Hub for FDX APIs Get account details by account id.
       description: Return in-depth account details for particular account.
       operationId: getAccountsDetails
       parameters:
@@ -781,7 +780,7 @@ paths:
                 status: OPEN
                 productName: Cash Management
                 currency:
-                  currencyRate: null
+                  currencyRate:
                   currencyCode: USD
                   originalCurrencyCode: USD
                 interestYtd: 14.15
@@ -821,7 +820,7 @@ paths:
     get:
       tags:
         - Data Resource APIs
-      summary: Get transaction details by account id.
+      summary: Mastercard Developer Hub for FDX APIs Get transaction details by account id.
       description: Return list of transaction details for particular account.
       operationId: getTransactions
       parameters:
@@ -919,7 +918,7 @@ paths:
     get:
       tags:
         - Data Resource APIs
-      summary: Get statements details by account id.
+      summary: Mastercard Developer Hub for FDX APIs Get statements details by account id.
       description: Return list of statements details for particular account.
       operationId: getStatements
       parameters:
@@ -948,7 +947,7 @@ paths:
     get:
       tags:
         - Data Resource APIs
-      summary: Get statements details by account id and statement Id.
+      summary: Mastercard Developer Hub for FDX APIs Get statements details by account id and statement Id.
       description: Return statements response for particular account in pdf format.
       operationId: getStatementsByStatementId
       parameters:
@@ -984,7 +983,7 @@ paths:
     get:
       tags:
         - Data Resource APIs
-      summary: Get payment networks details by account id.
+      summary: Mastercard Developer Hub for FDX APIs Get payment networks details by account id.
       description: Return payment networks details for particular account.
       operationId: getPaymentNetworksDetails
       parameters:
@@ -1048,7 +1047,7 @@ paths:
     get:
       tags:
         - Data Resource APIs
-      summary: Get contact details by account id.
+      summary: Mastercard Developer Hub for FDX APIs Get contact details by account id.
       description: Return in-depth contact details for particular account.
       operationId: getContactsDetails
       parameters:
@@ -1132,7 +1131,7 @@ paths:
     get:
       tags:
         - Consent
-      summary: Get Account by user Id
+      summary: Mastercard Developer Hub for FDX APIs Get Account by user Id
       description: Return user account response.
       operationId: getAccountsByUserId
       parameters:
@@ -1161,9 +1160,9 @@ paths:
                   $ref: '#/components/schemas/Accounts'
                 example:
                   - page:
-                      nextOffset: null
+                      nextOffset:
                       total: 4
-                    links: null
+                    links:
                     accounts:
                       - accountCategory: DEPOSIT_ACCOUNT
                         accountType: CHECKING
@@ -1194,7 +1193,7 @@ paths:
                         status: OPEN
                         balanceAsOf: 1590969600000
                         accountNumber: '4623054403'
-                        accountNumberDisplay: ...4403
+                        accountNumberDisplay: '...4403'
                         productName: Invest Trade
                         description: My Investment Acc XXXXX4403
                         availableCashBalance: 381.31
@@ -1205,7 +1204,7 @@ paths:
                         status: OPEN
                         balanceAsOf: 1559829311754
                         accountNumber: '00008000461791'
-                        accountNumberDisplay: ...6884
+                        accountNumberDisplay: '...6884'
                         productName: Credit Card
                         description: My Business Credit Card Acc XXXX68844
                         currentBalance: 102911.98
@@ -2027,7 +2026,7 @@ components:
         lastActivityDate:
           type: string
           description: This field indicate lastActivityDate
-          example: 2019-07-31T12:00:00.000Z
+          example: 2019-07-31T12:00:00Z
       description: This field indicate list of holders
       example: list of holders
     DeliveryAddress:
