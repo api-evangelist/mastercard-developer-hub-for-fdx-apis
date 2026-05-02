@@ -15,7 +15,7 @@ tags:
   - FDX
   - Open Banking
 created: 2024-10-25T00:00:00Z
-modified: '2026-03-16'
+modified: '2026-04-28'
 url: https://github.com/api-search/mastercard-developer-hub-for-fdx-apis/apis.yml
 specificationVersion: '0.18'
 apis:
@@ -33,7 +33,7 @@ apis:
         url: >-
           https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#authorization-server
       - type: OpenAPI
-        url: fdx-authorization-api-openapi.yaml
+        url: openapi/fdx-authorization-api-openapi.yaml
       - type: MockServer
         url: >-
           https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
@@ -53,7 +53,7 @@ apis:
         url: >-
           https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
       - type: OpenAPI
-        url: fdx-resource-api-openapi.yaml
+        url: openapi/fdx-resource-api-openapi.yaml
       - type: MockServer
         url: >-
           https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server

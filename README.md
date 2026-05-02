@@ -16,7 +16,7 @@ The Financial Data Exchange (FDX) is a nonprofit industry standards body that cr
 ## Timestamps
 
 - **Created:** 2024-10-25 00:00:00+00:00 
-- **Modified:** 2026-03-16 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
@@ -33,7 +33,7 @@ Dynamic Client Registration, Token, Introspection, Authorize API.
 #### Properties
 
 - [Documentation](https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#authorization-server)
-- [OpenAPI](fdx-authorization-api-openapi.yaml)
+- [OpenAPI](openapi/fdx-authorization-api-openapi.yaml)
 - [MockServer](https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server)
 - [GitHubRepository](https://github.com/Mastercard/Fdx-Mock-Auth-Server)
 
@@ -50,7 +50,7 @@ FDX Mock Resource Server API reference for developers.
 #### Properties
 
 - [Documentation](https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server)
-- [OpenAPI](fdx-resource-api-openapi.yaml)
+- [OpenAPI](openapi/fdx-resource-api-openapi.yaml)
 - [MockServer](https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server)
 - [GitHubRepository](https://github.com/Mastercard/Fdx-Mock-Resource-Server)
 
