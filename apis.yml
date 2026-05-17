@@ -70,7 +70,7 @@ common:
   - type: Implementation Checklist
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/
-  - type: Signup
+  - type: SignUp
     url: https://developer.mastercard.com/account/sign-up
   - type: Login
     url: https://developer.mastercard.com/account/log-in
@@ -123,7 +123,7 @@ common:
   - type: TestUserProfiles
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/#test-user-profiles
-  - type: Status
+  - type: StatusPage
     url: https://developer.mastercard.com/api-status
   - type: ReleaseHistory
     url: >-
