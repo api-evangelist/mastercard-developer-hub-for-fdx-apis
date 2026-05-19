@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mastercard Developer Hub for FDX APIs FDX Authorization Server — Token Introspection
+  description: 'Mastercard Developer Hub for FDX APIs FDX Authorization Server — Token Introspection. 1 operations. Lead operation:
+    Mastercard Developer Hub for FDX APIs Token Introspection Endpoint. Self-contained Naftiko capability covering one Mastercard
+    Developer Hub For Fdx Apis business surface.'
+  tags:
+  - Mastercard Developer Hub For Fdx Apis
+  - Token Introspection
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY: MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fdx-authorization-token-introspection
+    baseUri: http://localhost:8080
+    description: Mastercard Developer Hub for FDX APIs FDX Authorization Server — Token Introspection business capability.
+      Self-contained, no shared references.
+    resources:
+    - name: oauth2-introspect
+      path: /oauth2/introspect
+      operations:
+      - name: introspectiontoken
+        method: POST
+        description: Mastercard Developer Hub for FDX APIs Token Introspection Endpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: fdx-authorization-token-introspection-rest
+    port: 8080
+    description: REST adapter for Mastercard Developer Hub for FDX APIs FDX Authorization Server — Token Introspection. One
+      Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/oauth2/introspect
+      name: oauth2-introspect
+      description: REST surface for oauth2-introspect.
+      operations:
+      - method: POST
+        name: introspectiontoken
+        description: Mastercard Developer Hub for FDX APIs Token Introspection Endpoint
+        call: fdx-authorization-token-introspection.introspectiontoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fdx-authorization-token-introspection-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Mastercard Developer Hub for FDX APIs FDX Authorization Server — Token Introspection. One
+      tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: mastercard-developer-hub-fdx-apis
+      description: Mastercard Developer Hub for FDX APIs Token Introspection Endpoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fdx-authorization-token-introspection.introspectiontoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

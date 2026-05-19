@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mastercard Developer Hub for FDX APIs FDX Authorization Server — PAR+RAR Authorize
+  description: 'Mastercard Developer Hub for FDX APIs FDX Authorization Server — PAR+RAR Authorize. 1 operations. Lead operation:
+    Mastercard Developer Hub for FDX APIs Submit an Authorization Request. Self-contained Naftiko capability covering one
+    Mastercard Developer Hub For Fdx Apis business surface.'
+  tags:
+  - Mastercard Developer Hub For Fdx Apis
+  - PAR+RAR Authorize
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY: MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fdx-authorization-par-rar-authorize
+    baseUri: http://localhost:8080
+    description: Mastercard Developer Hub for FDX APIs FDX Authorization Server — PAR+RAR Authorize business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: oauth2-par
+      path: /oauth2/par
+      operations:
+      - name: authorizeviaparrar
+        method: POST
+        description: Mastercard Developer Hub for FDX APIs Submit an Authorization Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: fdx-authorization-par-rar-authorize-rest
+    port: 8080
+    description: REST adapter for Mastercard Developer Hub for FDX APIs FDX Authorization Server — PAR+RAR Authorize. One
+      Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/oauth2/par
+      name: oauth2-par
+      description: REST surface for oauth2-par.
+      operations:
+      - method: POST
+        name: authorizeviaparrar
+        description: Mastercard Developer Hub for FDX APIs Submit an Authorization Request
+        call: fdx-authorization-par-rar-authorize.authorizeviaparrar
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fdx-authorization-par-rar-authorize-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Mastercard Developer Hub for FDX APIs FDX Authorization Server — PAR+RAR Authorize. One tool
+      per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: mastercard-developer-hub-fdx-apis
+      description: Mastercard Developer Hub for FDX APIs Submit an Authorization Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fdx-authorization-par-rar-authorize.authorizeviaparrar
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

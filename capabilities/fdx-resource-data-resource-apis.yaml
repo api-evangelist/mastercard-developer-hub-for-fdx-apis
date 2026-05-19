@@ -1,0 +1,397 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mastercard Developer Hub for FDX APIs Fdx Resource API — Data Resource APIs
+  description: 'Mastercard Developer Hub for FDX APIs Fdx Resource API — Data Resource APIs. 7 operations. Lead operation:
+    Mastercard Developer Hub for FDX APIs Get all accounts of user.. Self-contained Naftiko capability covering one Mastercard
+    Developer Hub For Fdx Apis business surface.'
+  tags:
+  - Mastercard Developer Hub For Fdx Apis
+  - Data Resource APIs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY: MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fdx-resource-data-resource-apis
+    baseUri: http://localhost:9090
+    description: Mastercard Developer Hub for FDX APIs Fdx Resource API — Data Resource APIs business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: fdx-v6-accounts
+      path: /fdx/v6/accounts
+      operations:
+      - name: getaccountslist
+        method: GET
+        description: Mastercard Developer Hub for FDX APIs Get all accounts of user.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: This field indicate the Access Token id
+          required: true
+    - name: fdx-v6-accounts-accountId
+      path: /fdx/v6/accounts/{accountId}
+      operations:
+      - name: getaccountsdetails
+        method: GET
+        description: Mastercard Developer Hub for FDX APIs Get account details by account id.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: This field indicate the Access Token id
+          required: true
+        - name: accountId
+          in: path
+          type: string
+          description: This field indicate the account ID
+          required: true
+    - name: fdx-v6-accounts-accountId-contact
+      path: /fdx/v6/accounts/{accountId}/contact
+      operations:
+      - name: getcontactsdetails
+        method: GET
+        description: Mastercard Developer Hub for FDX APIs Get contact details by account id.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: This field indicate the Access Token id
+          required: true
+        - name: accountId
+          in: path
+          type: string
+          description: This field indicate the account ID
+          required: true
+    - name: fdx-v6-accounts-accountId-payment-networks
+      path: /fdx/v6/accounts/{accountId}/payment-networks
+      operations:
+      - name: getpaymentnetworksdetails
+        method: GET
+        description: Mastercard Developer Hub for FDX APIs Get payment networks details by account id.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: This field indicate the Access Token id
+          required: true
+        - name: accountId
+          in: path
+          type: string
+          description: This field indicate the account ID
+          required: true
+    - name: fdx-v6-accounts-accountId-statements
+      path: /fdx/v6/accounts/{accountId}/statements
+      operations:
+      - name: getstatements
+        method: GET
+        description: Mastercard Developer Hub for FDX APIs Get statements details by account id.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: This field indicate the Access Token id
+          required: true
+        - name: accountId
+          in: path
+          type: string
+          description: This field indicate the account ID
+          required: true
+    - name: fdx-v6-accounts-accountId-statements-statementId
+      path: /fdx/v6/accounts/{accountId}/statements/{statementId}
+      operations:
+      - name: getstatementsbystatementid
+        method: GET
+        description: Mastercard Developer Hub for FDX APIs Get statements details by account id and statement Id.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: This field indicate the Access Token id
+          required: true
+        - name: accountId
+          in: path
+          type: string
+          description: This field indicate the account ID
+          required: true
+        - name: statementId
+          in: path
+          type: string
+          description: This field indicate the Statement ID
+          required: true
+    - name: fdx-v6-accounts-accountId-transactions
+      path: /fdx/v6/accounts/{accountId}/transactions
+      operations:
+      - name: gettransactions
+        method: GET
+        description: Mastercard Developer Hub for FDX APIs Get transaction details by account id.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: This field indicate the Access Token id
+          required: true
+        - name: accountId
+          in: path
+          type: string
+          description: This field indicate the account ID
+          required: true
+        - name: startTime
+          in: header
+          type: string
+          description: This field indicate the startTime transaction
+        - name: endTime
+          in: header
+          type: string
+          description: This field indicate the endTime of transaction
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fdx-resource-data-resource-apis-rest
+    port: 8080
+    description: REST adapter for Mastercard Developer Hub for FDX APIs Fdx Resource API — Data Resource APIs. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/fdx/v6/accounts
+      name: fdx-v6-accounts
+      description: REST surface for fdx-v6-accounts.
+      operations:
+      - method: GET
+        name: getaccountslist
+        description: Mastercard Developer Hub for FDX APIs Get all accounts of user.
+        call: fdx-resource-data-resource-apis.getaccountslist
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/fdx/v6/accounts/{accountid}
+      name: fdx-v6-accounts-accountid
+      description: REST surface for fdx-v6-accounts-accountId.
+      operations:
+      - method: GET
+        name: getaccountsdetails
+        description: Mastercard Developer Hub for FDX APIs Get account details by account id.
+        call: fdx-resource-data-resource-apis.getaccountsdetails
+        with:
+          Authorization: rest.Authorization
+          accountId: rest.accountId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/fdx/v6/accounts/{accountid}/contact
+      name: fdx-v6-accounts-accountid-contact
+      description: REST surface for fdx-v6-accounts-accountId-contact.
+      operations:
+      - method: GET
+        name: getcontactsdetails
+        description: Mastercard Developer Hub for FDX APIs Get contact details by account id.
+        call: fdx-resource-data-resource-apis.getcontactsdetails
+        with:
+          Authorization: rest.Authorization
+          accountId: rest.accountId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/fdx/v6/accounts/{accountid}/payment-networks
+      name: fdx-v6-accounts-accountid-payment-networks
+      description: REST surface for fdx-v6-accounts-accountId-payment-networks.
+      operations:
+      - method: GET
+        name: getpaymentnetworksdetails
+        description: Mastercard Developer Hub for FDX APIs Get payment networks details by account id.
+        call: fdx-resource-data-resource-apis.getpaymentnetworksdetails
+        with:
+          Authorization: rest.Authorization
+          accountId: rest.accountId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/fdx/v6/accounts/{accountid}/statements
+      name: fdx-v6-accounts-accountid-statements
+      description: REST surface for fdx-v6-accounts-accountId-statements.
+      operations:
+      - method: GET
+        name: getstatements
+        description: Mastercard Developer Hub for FDX APIs Get statements details by account id.
+        call: fdx-resource-data-resource-apis.getstatements
+        with:
+          Authorization: rest.Authorization
+          accountId: rest.accountId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/fdx/v6/accounts/{accountid}/statements/{statementid}
+      name: fdx-v6-accounts-accountid-statements-statementid
+      description: REST surface for fdx-v6-accounts-accountId-statements-statementId.
+      operations:
+      - method: GET
+        name: getstatementsbystatementid
+        description: Mastercard Developer Hub for FDX APIs Get statements details by account id and statement Id.
+        call: fdx-resource-data-resource-apis.getstatementsbystatementid
+        with:
+          Authorization: rest.Authorization
+          accountId: rest.accountId
+          statementId: rest.statementId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/fdx/v6/accounts/{accountid}/transactions
+      name: fdx-v6-accounts-accountid-transactions
+      description: REST surface for fdx-v6-accounts-accountId-transactions.
+      operations:
+      - method: GET
+        name: gettransactions
+        description: Mastercard Developer Hub for FDX APIs Get transaction details by account id.
+        call: fdx-resource-data-resource-apis.gettransactions
+        with:
+          Authorization: rest.Authorization
+          accountId: rest.accountId
+          startTime: rest.startTime
+          endTime: rest.endTime
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fdx-resource-data-resource-apis-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Mastercard Developer Hub for FDX APIs Fdx Resource API — Data Resource APIs. One tool per
+      consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: mastercard-developer-hub-fdx-apis
+      description: Mastercard Developer Hub for FDX APIs Get all accounts of user.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fdx-resource-data-resource-apis.getaccountslist
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mastercard-developer-hub-fdx-apis-2
+      description: Mastercard Developer Hub for FDX APIs Get account details by account id.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fdx-resource-data-resource-apis.getaccountsdetails
+      with:
+        Authorization: tools.Authorization
+        accountId: tools.accountId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mastercard-developer-hub-fdx-apis-3
+      description: Mastercard Developer Hub for FDX APIs Get contact details by account id.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fdx-resource-data-resource-apis.getcontactsdetails
+      with:
+        Authorization: tools.Authorization
+        accountId: tools.accountId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mastercard-developer-hub-fdx-apis-4
+      description: Mastercard Developer Hub for FDX APIs Get payment networks details by account id.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fdx-resource-data-resource-apis.getpaymentnetworksdetails
+      with:
+        Authorization: tools.Authorization
+        accountId: tools.accountId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mastercard-developer-hub-fdx-apis-5
+      description: Mastercard Developer Hub for FDX APIs Get statements details by account id.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fdx-resource-data-resource-apis.getstatements
+      with:
+        Authorization: tools.Authorization
+        accountId: tools.accountId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mastercard-developer-hub-fdx-apis-6
+      description: Mastercard Developer Hub for FDX APIs Get statements details by account id and statement Id.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fdx-resource-data-resource-apis.getstatementsbystatementid
+      with:
+        Authorization: tools.Authorization
+        accountId: tools.accountId
+        statementId: tools.statementId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mastercard-developer-hub-fdx-apis-7
+      description: Mastercard Developer Hub for FDX APIs Get transaction details by account id.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fdx-resource-data-resource-apis.gettransactions
+      with:
+        Authorization: tools.Authorization
+        accountId: tools.accountId
+        startTime: tools.startTime
+        endTime: tools.endTime
+      outputParameters:
+      - type: object
+        mapping: $.

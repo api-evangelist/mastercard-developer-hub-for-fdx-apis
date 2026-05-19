@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mastercard Developer Hub for FDX APIs FDX Authorization Server — Resource Token
+  description: 'Mastercard Developer Hub for FDX APIs FDX Authorization Server — Resource Token. 1 operations. Lead operation:
+    Mastercard Developer Hub for FDX APIs Get Token. Self-contained Naftiko capability covering one Mastercard Developer Hub
+    For Fdx Apis business surface.'
+  tags:
+  - Mastercard Developer Hub For Fdx Apis
+  - Resource Token
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY: MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fdx-authorization-resource-token
+    baseUri: http://localhost:8080
+    description: Mastercard Developer Hub for FDX APIs FDX Authorization Server — Resource Token business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: oauth2-token
+      path: /oauth2/token
+      operations:
+      - name: gettoken
+        method: POST
+        description: Mastercard Developer Hub for FDX APIs Get Token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: fdx-authorization-resource-token-rest
+    port: 8080
+    description: REST adapter for Mastercard Developer Hub for FDX APIs FDX Authorization Server — Resource Token. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/oauth2/token
+      name: oauth2-token
+      description: REST surface for oauth2-token.
+      operations:
+      - method: POST
+        name: gettoken
+        description: Mastercard Developer Hub for FDX APIs Get Token
+        call: fdx-authorization-resource-token.gettoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fdx-authorization-resource-token-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Mastercard Developer Hub for FDX APIs FDX Authorization Server — Resource Token. One tool
+      per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: mastercard-developer-hub-fdx-apis
+      description: Mastercard Developer Hub for FDX APIs Get Token
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: fdx-authorization-resource-token.gettoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

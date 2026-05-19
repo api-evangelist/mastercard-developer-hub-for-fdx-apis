@@ -1,0 +1,132 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mastercard Developer Hub for FDX APIs Fdx Resource API — Upload Data
+  description: 'Mastercard Developer Hub for FDX APIs Fdx Resource API — Upload Data. 2 operations. Lead operation: Mastercard
+    Developer Hub for FDX APIs add account for user Id. Self-contained Naftiko capability covering one Mastercard Developer
+    Hub For Fdx Apis business surface.'
+  tags:
+  - Mastercard Developer Hub For Fdx Apis
+  - Upload Data
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY: MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fdx-resource-upload-data
+    baseUri: http://localhost:9090
+    description: Mastercard Developer Hub for FDX APIs Fdx Resource API — Upload Data business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: upload-addAccount
+      path: /upload/addAccount
+      operations:
+      - name: addaccount
+        method: POST
+        description: Mastercard Developer Hub for FDX APIs add account for user Id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: upload-addTransactions
+      path: /upload/addTransactions
+      operations:
+      - name: addtransactions
+        method: POST
+        description: Mastercard Developer Hub for FDX APIs add transactions details for user Id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.MASTERCARD_DEVELOPER_HUB_FOR_FDX_APIS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fdx-resource-upload-data-rest
+    port: 8080
+    description: REST adapter for Mastercard Developer Hub for FDX APIs Fdx Resource API — Upload Data. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/upload/addaccount
+      name: upload-addaccount
+      description: REST surface for upload-addAccount.
+      operations:
+      - method: POST
+        name: addaccount
+        description: Mastercard Developer Hub for FDX APIs add account for user Id
+        call: fdx-resource-upload-data.addaccount
+        with:
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/upload/addtransactions
+      name: upload-addtransactions
+      description: REST surface for upload-addTransactions.
+      operations:
+      - method: POST
+        name: addtransactions
+        description: Mastercard Developer Hub for FDX APIs add transactions details for user Id
+        call: fdx-resource-upload-data.addtransactions
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fdx-resource-upload-data-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Mastercard Developer Hub for FDX APIs Fdx Resource API — Upload Data. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: mastercard-developer-hub-fdx-apis
+      description: Mastercard Developer Hub for FDX APIs add account for user Id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fdx-resource-upload-data.addaccount
+      with:
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mastercard-developer-hub-fdx-apis-2
+      description: Mastercard Developer Hub for FDX APIs add transactions details for user Id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fdx-resource-upload-data.addtransactions
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
