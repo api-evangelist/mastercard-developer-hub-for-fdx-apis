@@ -143,6 +143,8 @@ common:
   url: https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy.html
 - type: Regulations
   url: https://www.consumerfinance.gov/about-us/newsroom/cfpb-proposes-rule-to-jumpstart-competition-and-accelerate-shift-to-open-banking/
+- type: LLMsTxt
+  url: https://developer.mastercard.com/llms.txt
 maintainers:
 - FN: Kin Lane
   X-twitter: apievangelist
