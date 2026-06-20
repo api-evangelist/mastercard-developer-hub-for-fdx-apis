@@ -6,7 +6,7 @@ description: The Financial Data Exchange (FDX) is a nonprofit industry standards
   banking, gives consumers more control over who can access their financial data. The open banking industry is founded on
   the principles of interoperability, which are being advanced by forthcoming rulemaking from the The Consumer Financial Protection
   Bureau (CFPB).
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Banking
 - FDX
@@ -19,7 +19,7 @@ apis:
 - aid: mastercard-fdx:authorization-api
   name: Mastercard FDX Authorization API
   description: Dynamic Client Registration, Token, Introspection, Authorize API.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: http://example.com
   baseURL: http://api.example.com
   tags:
@@ -47,7 +47,7 @@ apis:
 - aid: mastercard-fdx:resource-api
   name: Mastercard FDX Resource API
   description: FDX Mock Resource Server API reference for developers.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: http://example.com
   baseURL: http://api.example.com
   tags:
