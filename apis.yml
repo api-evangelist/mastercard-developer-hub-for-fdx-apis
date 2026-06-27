@@ -34,15 +34,15 @@ apis:
     url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-authorization-resource-token.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-authorization-token-introspection.yaml
 - aid: mastercard-fdx:resource-api
   name: Mastercard FDX Resource API
@@ -62,15 +62,15 @@ apis:
     url: https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-resource-consent.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-resource-upload-data.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx-resource-user-apis.yaml
 common:
 - type: Portal
@@ -81,7 +81,7 @@ common:
   url: https://developer.mastercard.com/fdx-dev-hub/documentation/user-exp/
 - type: Implementation Checklist
   url: https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/
-- type: SignUp
+- type: Signup
   url: https://developer.mastercard.com/account/sign-up
 - type: Login
   url: https://developer.mastercard.com/account/log-in
@@ -133,7 +133,7 @@ common:
   url: https://developer.mastercard.com/fdx-dev-hub/documentation/support/#faq
 - type: Support
   url: https://developer.mastercard.com/support
-- type: Forum
+- type: Forums
   url: https://forum.developer.mastercard.com/s/
 - type: Blog
   url: https://developer.mastercard.com/blog
@@ -143,7 +143,7 @@ common:
   url: https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy.html
 - type: Regulations
   url: https://www.consumerfinance.gov/about-us/newsroom/cfpb-proposes-rule-to-jumpstart-competition-and-accelerate-shift-to-open-banking/
-- type: LLMsTxt
+- type: LlmsText
   url: https://developer.mastercard.com/llms.txt
 maintainers:
 - FN: Kin Lane
