@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/fdx-authorization-api-openapi.yaml, openapi/fdx-resource-api-openapi.yaml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/fdx-authorization-api-openapi.yaml
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Authorization Token to access Secured API!
+  sources:
+  - openapi/fdx-resource-api-openapi.yaml
