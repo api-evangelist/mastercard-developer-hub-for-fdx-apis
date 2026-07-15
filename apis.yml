@@ -73,6 +73,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/fdx-resource-user-apis.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/mastercard-developer-hub-for-fdx-apis-agentic-access.yml
 - type: DomainSecurity
   url: security/mastercard-developer-hub-for-fdx-apis-domain-security.yml
 - type: Authentication
