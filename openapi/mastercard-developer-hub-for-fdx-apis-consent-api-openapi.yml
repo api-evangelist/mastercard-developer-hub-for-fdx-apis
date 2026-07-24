@@ -1,0 +1,489 @@
+openapi: 3.0.3
+info:
+  title: Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Consent API
+  version: 1.0.0
+  description: Dynamic Client Registration, Token, Introspection, Authorize API
+  contact:
+    name: API Support
+    email: apisupport@mastercard.com
+    url: https://developer.mastercard.com/support
+servers:
+- url: http://localhost:8080
+  description: Localhost URL
+tags:
+- name: Consent
+  description: Return consent and save consent for user.
+paths:
+  /consent/{consentId}:
+    get:
+      tags:
+      - Consent
+      summary: Mastercard Developer Hub for FDX APIs Get Consent by consent Id
+      description: Return particular consent response by consent id.
+      operationId: getConsent
+      parameters:
+      - name: consentId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: b39bf7e9-92ae-4649-a1f0-87983285fe1
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountConsent'
+              example:
+                userId: fdxuser
+                allAccountIds:
+                - '10001'
+                - '20001'
+                - '3746272'
+                - '5326884'
+                accountIds:
+                - '10001'
+                consentShareDurationSeconds: 600
+                consentId: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+    put:
+      tags:
+      - Consent
+      summary: Mastercard Developer Hub for FDX APIs Update Consent by consent Id
+      description: Return updated consent response.
+      operationId: updateConsent
+      parameters:
+      - name: consentId
+        in: path
+        description: This field indicate the Consent ID
+        required: true
+        schema:
+          type: string
+        example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
+      - name: Authorization
+        in: header
+        description: Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountIds:
+                  description: This field indicate account Id which consent given by user
+                  type: array
+                  items:
+                    type: number
+                    example: 20001
+                  example:
+                  - 20001
+                consentShareDurationSeconds:
+                  description: This field indicate consent Expiry date
+                  type: number
+                  example: 600
+                userId:
+                  description: This field indicate user Id
+                  type: string
+                  example: fdxuser
+            examples:
+              Update Consent:
+                value:
+                  accountIds:
+                  - 20001
+                  consentShareDurationSeconds: 600
+                  userId: fdxuser
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountConsentResp'
+              example:
+                customerId: fdxuser
+                consentId: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
+                endDate: 1720607740194
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+  /consent:
+    post:
+      tags:
+      - Consent
+      summary: Mastercard Developer Hub for FDX APIs Register Consent
+      description: Save user consent into db
+      operationId: registerConsent
+      parameters:
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountIds:
+                  description: This field indicate account Id which consent given by user
+                  type: array
+                  items:
+                    type: number
+                    example: 1001
+                  example:
+                  - 10001
+                consentShareDurationSeconds:
+                  description: This field indicate consent Expiry date
+                  type: number
+                  example: 600
+                userId:
+                  description: This field indicate user Id
+                  type: string
+                  example: fdxuser
+            examples:
+              Register Consent:
+                value:
+                  accountIds:
+                  - 10001
+                  consentShareDurationSeconds: 600
+                  userId: fdxuser
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountConsentResp'
+              example:
+                customerId: fdxuser
+                consentId: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
+                endDate: 1720607740194
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+  /consent/accounts:
+    get:
+      tags:
+      - Consent
+      summary: Mastercard Developer Hub for FDX APIs Get Account by user Id
+      description: Return user account response.
+      operationId: getAccountsByUserId
+      parameters:
+      - name: userId
+        in: query
+        description: This field indicate the user id
+        required: true
+        schema:
+          type: string
+        example: UUID
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Accounts'
+                example:
+                - page:
+                    nextOffset: null
+                    total: 4
+                  links: null
+                  accounts:
+                  - accountCategory: DEPOSIT_ACCOUNT
+                    accountType: CHECKING
+                    nickname: My Checking Acc XXXX3223
+                    status: OPEN
+                    balanceAsOf: 1607321175649
+                    accountNumber: '7000003223'
+                    accountNumberDisplay: '3223'
+                    productName: Cash Management
+                    description: My Checking Acc XXXX3223
+                    currentBalance: 4984.46
+                    openingDayBalance: 500
+                    accountId: '10001'
+                  - accountCategory: LOAN_ACCOUNT
+                    accountType: LOAN
+                    nickname: My Mortgage Acc XXXX9979
+                    status: OPEN
+                    balanceAsOf: 1509887730751
+                    accountNumber: '34259979'
+                    accountNumberDisplay: XXXX9979
+                    productName: HOME LOAN
+                    description: My Mortgage Acc XXXX9979
+                    principalBalance: 133000.35
+                    accountId: '20001'
+                  - accountCategory: INVESTMENT_ACCOUNT
+                    accountType: BROKERAGE
+                    nickname: My Investment Acc XXXXX4403
+                    status: OPEN
+                    balanceAsOf: 1590969600000
+                    accountNumber: '4623054403'
+                    accountNumberDisplay: '...4403'
+                    productName: Invest Trade
+                    description: My Investment Acc XXXXX4403
+                    availableCashBalance: 381.31
+                    accountId: '3746272'
+                  - accountCategory: LOC_ACCOUNT
+                    accountType: HOMELINEOFCREDIT
+                    nickname: My Business Credit Card Acc XXXX6884
+                    status: OPEN
+                    balanceAsOf: 1559829311754
+                    accountNumber: 00008000461791
+                    accountNumberDisplay: '...6884'
+                    productName: Credit Card
+                    description: My Business Credit Card Acc XXXX68844
+                    currentBalance: 102911.98
+                    accountId: '5326884'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+components:
+  schemas:
+    Links:
+      type: object
+      properties:
+        next:
+          $ref: '#/components/schemas/Next'
+      description: This field indicate links object
+      example: links object
+    AccountConsent:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        error Message:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        userId:
+          type: string
+          description: This field indicate user Id
+          example: fdxuser
+        allAccountIds:
+          type: array
+          description: This field indicate all account Id
+          example: '[''10001'',''20001'',''3746272'',''5326884'']'
+          items:
+            type: string
+            description: This field indicate all account Id
+            example: '[''10001'',''20001'',''3746272'',''5326884'']'
+        accountIds:
+          type: array
+          description: This field indicate account Id which consent given by user
+          example: '[''10001'']'
+          items:
+            type: string
+            description: This field indicate account Id which consent given by user
+            example: '[''10001'']'
+        consentShareDurationSeconds:
+          type: integer
+          description: This field indicate consent Expiry date
+          format: int64
+          example: 600
+        consentId:
+          type: string
+          description: This field indicate consent Id
+          example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
+      description: This field indicate the Account Consent POJO
+    AccountListResponsePojo:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        accountCategory:
+          type: string
+          description: This field indicate account Category
+          example: DEPOSIT_ACCOUNT
+        accountType:
+          type: string
+          description: This field indicate type of account
+          example: CHECKING
+        nickname:
+          type: string
+          description: This field indicate nickname of customer
+          example: My Checking Acc XXXX3223
+        status:
+          type: string
+          description: This field indicate status of account
+          example: OPEN
+        balanceAsOf:
+          type: string
+          description: This field indicate balance date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountNumber:
+          type: string
+          description: This field indicate accountNumber
+          example: '7000003223'
+        accountNumberDisplay:
+          type: string
+          description: This field indicate last four digit of accountNumber
+          example: '3223'
+        productName:
+          type: string
+          description: This field indicate productName
+          example: Cash Management
+        description:
+          type: string
+          description: This field indicate description of account
+          example: My Checking Acc XXXX3223
+        accountOpenDate:
+          type: string
+          description: This field indicate account open date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountCloseDate:
+          type: string
+          description: This field indicate account close date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        currentBalance:
+          type: number
+          description: This field indicate current balance of account
+          format: double
+          example: 4984.46
+        openingDayBalance:
+          type: number
+          description: This field indicate opening day balance
+          format: double
+          example: 500
+        principalBalance:
+          type: number
+          description: This field indicate principal balance
+          format: double
+          example: 100
+        availableCashBalance:
+          type: number
+          description: This field indicate available cash balance
+          format: double
+          example: 100
+        accountId:
+          type: string
+          description: This field indicate institution account Id
+          example: '10001'
+      description: This field indicate list of accounts object
+      example: list of accounts object
+    Accounts:
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        accounts:
+          type: array
+          description: This field indicate list of accounts object
+          example: list of accounts object
+          items:
+            $ref: '#/components/schemas/AccountListResponsePojo'
+    Next:
+      type: object
+      properties:
+        href:
+          type: string
+          description: This field indicate href
+          example: href link
+    Page:
+      type: object
+      properties:
+        nextOffset:
+          type: string
+          description: This field indicate next offset
+          example: '10'
+        total:
+          type: integer
+          description: This field indicate total
+          format: int32
+          example: 50
+      description: This field indicate page object
+      example: page object
+    AccountConsentResp:
+      type: object
+      properties:
+        customerId:
+          type: string
+          description: This field indicate customer Id
+          example: '12345'
+        consentId:
+          type: string
+          description: This field indicate consent Id
+          example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
+        endDate:
+          type: string
+          description: 'This field indicate endDate '
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

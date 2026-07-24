@@ -1,0 +1,140 @@
+openapi: 3.0.3
+info:
+  title: Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Resource Token API
+  version: 1.0.0
+  description: Dynamic Client Registration, Token, Introspection, Authorize API
+  contact:
+    name: API Support
+    email: apisupport@mastercard.com
+    url: https://developer.mastercard.com/support
+servers:
+- url: http://localhost:8080
+  description: Localhost URL
+tags:
+- name: Resource Token
+  description: API to generate OAuth 2.0 token.
+paths:
+  /oauth2/token:
+    post:
+      tags:
+      - Resource Token
+      summary: Mastercard Developer Hub for FDX APIs Get Token
+      description: Get Token as per grant_type
+      operationId: getToken
+      requestBody:
+        $ref: '#/components/requestBodies/CreateTokenRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/CreateToken'
+      security:
+      - {}
+components:
+  schemas:
+    Token:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: The access token string as issued by the authorization server.
+          example: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6niRNe00ygCF_o0Ky6upoZWJ
+        scope:
+          type: string
+          description: The scopes contained in the access token.
+          example: client.read
+        token_type:
+          type: string
+          description: The type of token.
+          example: refresh_token
+        expires_in:
+          type: number
+          description: The expiration time of the access token in seconds.
+          example: 3600
+    scope:
+      type: string
+      description: String containing a space-separated list of scope values that the client can use when requesting access tokens.
+      example: client.create client.read fdx:transactions:read fdx:accountbasic:read openid fdx:customerpersonal:read fdx:accountdetailed:read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
+    grant_type:
+      type: string
+      example: refresh_token OR client_credentials OR authorization_code
+      description: The grant type(s) supported by the Authorisation Server.
+  requestBodies:
+    CreateTokenRequest:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              client_assertion:
+                type: string
+                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                description: The encoded assertion JWT.
+              client_assertion_type:
+                type: string
+                example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+                description: This MUST be set to urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+              client_id:
+                $ref: '#/components/schemas/client_id'
+              scope:
+                $ref: '#/components/schemas/scope'
+              grant_type:
+                $ref: '#/components/schemas/grant_type'
+              redirect_uri:
+                type: string
+                example: https://oauth.pstmn.io/v1/browser-callback
+                description: Callback location where the authorization code should be sent.
+              code:
+                type: string
+                example: LvK-fwhBtMxV0fZRDIVnoRZWLx5Ln5QqsON3U6qPCubky9iCLitSTfgNlGayxG7UY2QZyKxGsvO6rvlQnHR155f50Tp6RkWGBC3pBY97IF3_aEmLf3Tc2BdGaABvx1s0
+                description: Required only when exhanging code with access token
+              refresh_token:
+                type: string
+                example: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6CwtdpaniRNe00ygCF_o91WOW0Ky6upoZWJ
+                description: Required only when refreshing access token.
+          examples:
+            Get Client Registration Token:
+              value:
+                client_assertion: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+                client_id: dh-fdx-client-registrar-2
+                grant_type: client_credentials
+                scope: client.read
+            Get Access Token:
+              value:
+                client_assertion: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+                client_id: dh-fdx-client-registrar-2
+                code: LvK-fwhBtMxV0fZRDIVnoRZWLx5Ln5QqsON3U6qPCubky9iCLitSTfgNlGayxG7UY2QZyKxGsvO6rvlQnHR155f50Tp6RkWGBC3pBY97IF3_aEmLf3Tc2BdGaABvx1s0
+                code_verifier: fa5893f9c13a82375f4c4cbd982b1112b55242c40bab9
+                grant_type: authorization_code
+                redirect_uri: https://oauth.pstmn.io/v1/browser-callback
+            Get Refresh Token:
+              value:
+                client_assertion: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+                client_id: dh-fdx-client-registrar-2
+                grant_type: refresh_token
+                redirect_uri: https://oauth.pstmn.io/v1/browser-callback
+                refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+  responses:
+    CreateToken:
+      description: The access token was successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Token'
+          examples:
+            Successful Token Response:
+              value:
+                access_token: eyJraWQiOiI5OWJjMzNlZS1hMDRkODktOGFlMC01ZGViZDIxNDVhYWIiLCJ0eXAiOiJhdCtqd3QiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiZW50LXJlZ2lzdHJhci0yIiwiYXVkIjoiZGgtZmR4LWNsaWVudC1yZWdpc3RyYXItMiIc2NvcGUiOlsiY2xpZW50LnJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9mZHgtbW9jay1hdXRob3JpemF0aW9uLXNlcnZlci5kZXYuZmluaS5jaXR5IiwiZXhwIjoxNzIwNjExNjAyLCJpYXQiOjE3MjA2MTEzMDIsImp0aSI6ImQ2NzcxZjU1LTU2YzAtNDU0Yi04ZjY3LWZmODUzYjdkZTZiMCJ9.lyANAqFMYkcTOtv0G6v1y83LniEQPvZVrzr9d2DbPB3Uqk-0yB8CoM-Z8REOfL0dMVtxRLAyrUKLCNVXcMHljaliXoOfy6J3-VfJoLYZkV9IjL5uVhfkOITnfWYPf9wyFmnIBJEpY57qAsZhyLpe7x_uw9Jcjb9w2zV1qnyFEcn-VPHJb0Wg2FIC5bSB1RoptWRYt_X9Gaxm1bSBg5gSiJr2LKereB_P3pmvqrD3E5I-_GWt3Iw5q6vUqnu4P9EUT0Eri8Ez3Q3oJMn6xTiBd5DORe0w45zLdyqiIK4-qTiVAGGmPfb4fGZzU-Pa0abE2jVt03hITzwUtBvWgMi4Cw
+                scope: client.read
+                token_type: Bearer
+                expires_in: 299
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

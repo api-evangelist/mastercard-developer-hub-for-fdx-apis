@@ -1,0 +1,410 @@
+openapi: 3.0.3
+info:
+  title: Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Dynamic Client Registration API
+  version: 1.0.0
+  description: Dynamic Client Registration, Token, Introspection, Authorize API
+  contact:
+    name: API Support
+    email: apisupport@mastercard.com
+    url: https://developer.mastercard.com/support
+servers:
+- url: http://localhost:8080
+  description: Localhost URL
+tags:
+- name: Dynamic Client Registration
+  description: As per [RFC 7591 - OAuth 2.0 Dynamic Client Registration Protocol (ietf.org)](https://datatracker.ietf.org/doc/html/rfc7591)
+paths:
+  /fdx/v6/register:
+    post:
+      tags:
+      - Dynamic Client Registration
+      summary: Mastercard Developer Hub for FDX APIs Client Registration Request
+      description: Request to Register Client
+      operationId: registerClient
+      requestBody:
+        $ref: '#/components/requestBodies/RegisterClientRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/RegisterClient'
+      security:
+      - {}
+  /fdx/v6/register/{clientId}:
+    get:
+      tags:
+      - Dynamic Client Registration
+      summary: Mastercard Developer Hub for FDX APIs Get Client
+      description: Get a specific client data identified with clientId
+      operationId: getClient
+      parameters:
+      - $ref: '#/components/parameters/clientId'
+      responses:
+        '200':
+          $ref: '#/components/responses/GetClient'
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Dynamic Client Registration
+      summary: Mastercard Developer Hub for FDX APIs Update Client
+      description: Update data for a specific client identified with clientId
+      operationId: modifyClient
+      parameters:
+      - $ref: '#/components/parameters/clientId'
+      requestBody:
+        $ref: '#/components/requestBodies/ModifyClientRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ModifyClient'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Dynamic Client Registration
+      summary: Mastercard Developer Hub for FDX APIs Delete Client
+      description: Delete data for a specific client identified with clientId
+      operationId: deleteClient
+      parameters:
+      - $ref: '#/components/parameters/clientId'
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              examples:
+                Delete successful:
+                  value: {}
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    Client:
+      type: object
+      properties:
+        client_id:
+          $ref: '#/components/schemas/client_id'
+        client_id_issued_at:
+          $ref: '#/components/schemas/client_id_issued_at'
+        client_name:
+          $ref: '#/components/schemas/client_name'
+        redirect_uris:
+          $ref: '#/components/schemas/redirect_uris'
+        grant_types:
+          $ref: '#/components/schemas/grant_types'
+        response_types:
+          $ref: '#/components/schemas/response_types'
+        scope:
+          $ref: '#/components/schemas/scope'
+        token_endpoint_auth_method:
+          $ref: '#/components/schemas/token_endpoint_auth_method'
+        id_token_signed_response_alg:
+          $ref: '#/components/schemas/id_token_signed_response_alg'
+        registration_client_uri:
+          $ref: '#/components/schemas/registration_client_uri'
+        jwks_uri:
+          $ref: '#/components/schemas/jwks_uri'
+        token_endpoint_auth_signing_alg:
+          $ref: '#/components/schemas/token_endpoint_auth_signing_alg'
+    jwks_uri:
+      type: string
+      example: https://www.jsonkeeper.com/b/3FJT
+      description: URL string referencing the client's JSON Web Key (JWK) Set [RFC7517] document, which contains the client's public keys
+    id_token_signed_response_alg:
+      type: string
+      example: PS256
+      description: Algorithm with which an id_token is to be signed
+    grant_types:
+      type: array
+      items:
+        type: string
+        example: client_credentials
+      example:
+      - client_credentials
+      - authorization_code
+      - refresh_token
+      description: Array of OAuth 2.0 grants made available to the Data Recipient
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
+    id_token_encrypted_response_enc:
+      type: string
+      example: A256GCM
+      description: JWE enc algorithm with which an id_token is to be encrypted.
+    client_id_issued_at:
+      type: number
+      description: Time at which the client_id was issued (measured in unix seconds)
+    redirect_uris:
+      type: array
+      description: Array of redirection URI strings for use in redirect-based flows
+      items:
+        type: string
+        example: https://oauth.pstmn.io/v1/browser-callback
+      example:
+      - https://oauth.pstmn.io/v1/browser-callback
+    token_endpoint_auth_method:
+      type: string
+      description: Requested authentication method for the token endpoint.
+      example: private_key_jwt
+    client_name:
+      type: string
+      description: Human-readable string name of the client application
+      example: 11TestName1221
+    CreateClient:
+      type: object
+      properties:
+        client_id:
+          $ref: '#/components/schemas/client_id'
+        client_id_issued_at:
+          $ref: '#/components/schemas/client_id_issued_at'
+        client_name:
+          $ref: '#/components/schemas/client_name'
+        redirect_uris:
+          $ref: '#/components/schemas/redirect_uris'
+        grant_types:
+          $ref: '#/components/schemas/grant_types'
+        response_types:
+          $ref: '#/components/schemas/response_types'
+        scope:
+          $ref: '#/components/schemas/scope'
+        token_endpoint_auth_method:
+          $ref: '#/components/schemas/token_endpoint_auth_method'
+        id_token_signed_response_alg:
+          $ref: '#/components/schemas/id_token_signed_response_alg'
+        registration_client_uri:
+          $ref: '#/components/schemas/registration_client_uri'
+        jwks_uri:
+          $ref: '#/components/schemas/jwks_uri'
+        token_endpoint_auth_signing_alg:
+          $ref: '#/components/schemas/token_endpoint_auth_signing_alg'
+        registration_access_token:
+          $ref: '#/components/schemas/registration_access_token'
+    response_types:
+      type: array
+      items:
+        type: string
+        example: code
+      example:
+      - code
+      description: Array of OAuth 2.0 response type strings. Default value is code
+    registration_access_token:
+      type: string
+      description: String containing a unique DCR access token to be used in subsequent operations to manage the Data Recipient
+    request_object_signing_alg:
+      type: string
+      example: PS256
+      description: Algorithm which the client expects to sign the request object if a request object will be part of the authorization request sent to the Data Holder
+    id_token_encrypted_response_alg:
+      type: string
+      example: RSA-OAEP
+      description: JWE alg algorithm with which an id_token is to be encrypted.
+    scope:
+      type: string
+      description: String containing a space-separated list of scope values that the client can use when requesting access tokens.
+      example: client.create client.read fdx:transactions:read fdx:accountbasic:read openid fdx:customerpersonal:read fdx:accountdetailed:read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
+    token_endpoint_auth_signing_alg:
+      type: string
+      example: PS256
+      description: The algorithm used for signing the JWT
+    registration_client_uri:
+      type: string
+      description: Fully qualified URI for subsequent DCR calls (GET, PUT, DELETE) for managing the Data Recipient registration
+  parameters:
+    clientId:
+      name: clientId
+      example: dh-fdx-client-registrar-2
+      description: Client Identifier. Uniquely identifies a Client
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBodies:
+    ModifyClientRequest:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              client_name:
+                $ref: '#/components/schemas/client_name'
+              grant_types:
+                $ref: '#/components/schemas/grant_types'
+              id_token_encrypted_response_alg:
+                $ref: '#/components/schemas/id_token_encrypted_response_alg'
+              id_token_encrypted_response_enc:
+                $ref: '#/components/schemas/id_token_encrypted_response_enc'
+              id_token_signed_response_alg:
+                $ref: '#/components/schemas/id_token_signed_response_alg'
+              jwks_uri:
+                $ref: '#/components/schemas/jwks_uri'
+              redirect_uris:
+                $ref: '#/components/schemas/redirect_uris'
+              request_object_signing_alg:
+                $ref: '#/components/schemas/request_object_signing_alg'
+              response_types:
+                $ref: '#/components/schemas/response_types'
+              scope:
+                $ref: '#/components/schemas/scope'
+              token_endpoint_auth_method:
+                $ref: '#/components/schemas/token_endpoint_auth_method'
+              token_endpoint_auth_signing_alg:
+                $ref: '#/components/schemas/token_endpoint_auth_signing_alg'
+          examples:
+            Modify Client:
+              value:
+                client_name: 11TestName12211112
+                grant_types:
+                - client_credentials
+                - authorization_code
+                - refresh_token
+                id_token_encrypted_response_alg: RSA-OAEP
+                id_token_encrypted_response_enc: A256GCM
+                id_token_signed_response_alg: PS256
+                jwks_uri: https://www.jsonkeeper.com/b/3FJT
+                redirect_uris:
+                - https://oauth.pstmn.io/v1/browser-callback
+                request_object_signing_alg: PS256
+                response_types:
+                - code
+                scope: client.create client.read
+                token_endpoint_auth_method: private_key_jwt
+                token_endpoint_auth_signing_alg: PS256
+    RegisterClientRequest:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              client_name:
+                $ref: '#/components/schemas/client_name'
+              grant_types:
+                $ref: '#/components/schemas/grant_types'
+              id_token_encrypted_response_alg:
+                $ref: '#/components/schemas/id_token_encrypted_response_alg'
+              id_token_encrypted_response_enc:
+                $ref: '#/components/schemas/id_token_encrypted_response_enc'
+              id_token_signed_response_alg:
+                $ref: '#/components/schemas/id_token_signed_response_alg'
+              jwks_uri:
+                $ref: '#/components/schemas/jwks_uri'
+              redirect_uris:
+                $ref: '#/components/schemas/redirect_uris'
+              request_object_signing_alg:
+                $ref: '#/components/schemas/request_object_signing_alg'
+              response_types:
+                $ref: '#/components/schemas/response_types'
+              scope:
+                $ref: '#/components/schemas/scope'
+              token_endpoint_auth_method:
+                $ref: '#/components/schemas/token_endpoint_auth_method'
+              token_endpoint_auth_signing_alg:
+                $ref: '#/components/schemas/token_endpoint_auth_signing_alg'
+          examples:
+            Register Client:
+              value:
+                client_name: 11TestName1221
+                grant_types:
+                - client_credentials
+                - authorization_code
+                - refresh_token
+                id_token_encrypted_response_alg: RSA-OAEP
+                id_token_encrypted_response_enc: A256GCM
+                id_token_signed_response_alg: PS256
+                jwks_uri: https://www.jsonkeeper.com/b/3FJT
+                redirect_uris:
+                - https://oauth.pstmn.io/v1/browser-callback
+                request_object_signing_alg: PS256
+                response_types:
+                - code
+                scope: client.create client.read fdx:transactions:read fdx:accountbasic:read openid fdx:customerpersonal:read fdx:accountdetailed:read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
+                token_endpoint_auth_method: private_key_jwt
+                token_endpoint_auth_signing_alg: PS256
+  responses:
+    GetClient:
+      description: Successful get client response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Client'
+          examples:
+            App created Successfully:
+              value:
+                client_id: 1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
+                client_id_issued_at: 1719555632
+                client_name: 11TestName1221
+                redirect_uris:
+                - https://oauth.pstmn.io/v1/browser-callback
+                grant_types:
+                - refresh_token
+                - client_credentials
+                - authorization_code
+                response_types:
+                - code
+                scope: fdx:transactions:read fdx:accountbasic:read openid client.create fdx:customerpersonal:read fdx:accountdetailed:read client.read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
+                token_endpoint_auth_method: private_key_jwt
+                id_token_signed_response_alg: RS256
+                registration_client_uri: http://localhost:8080/connect/register?client_id=1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
+                jwks_uri: https://www.jsonkeeper.com/b/3FJT
+                token_endpoint_auth_signing_alg: PS256
+    ModifyClient:
+      description: Successful response after modification
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Client'
+          examples:
+            Successful Modification:
+              value:
+                client_id: 1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
+                client_id_issued_at: 1719555632
+                client_name: 11TestName12211112
+                redirect_uris:
+                - https://oauth.pstmn.io/v1/browser-callback1
+                grant_types:
+                - refresh_token
+                - client_credentials
+                - authorization_code
+                response_types:
+                - code
+                scope: client.create client.read
+                token_endpoint_auth_method: private_key_jwt
+                id_token_signed_response_alg: RS256
+                registration_client_uri: http://localhost:8080/connect/register?client_id=1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
+                jwks_uri: https://www.jsonkeeper.com/b/3FJT
+                token_endpoint_auth_signing_alg: PS256
+    RegisterClient:
+      description: Successful register response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateClient'
+          examples:
+            Successful Registration:
+              value:
+                client_id: CHzOG1x6_fKjBHhh9eegZ45BQorbqtIe9eWJEhLsrig
+                client_id_issued_at: 1719554524
+                client_name: 11TestName1221
+                redirect_uris:
+                - https://oauth.pstmn.io/v1/browser-callback
+                grant_types:
+                - refresh_token
+                - client_credentials
+                - authorization_code
+                response_types:
+                - code
+                scope: fdx:transactions:read fdx:accountbasic:read openid client.create fdx:customerpersonal:read fdx:accountdetailed:read client.read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
+                token_endpoint_auth_method: private_key_jwt
+                id_token_signed_response_alg: RS256
+                registration_client_uri: http://localhost:8080/client/register?client_id=CHzOG1x6_fKjBHhh9eegZ45BQorbqtIe9eWJEhLsrig
+                jwks_uri: https://www.jsonkeeper.com/b/3FJT
+                registration_access_token: eyJraWQiOiI5OWJjMzNlZS1hMDRkLTRhODktOGFlMC01ZGViZDIxNDVhYWIiLCJ0eXAiOiJhdCtqd3QiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJDSHpPRzF4Nl9mS2pCSGhoOWVlZ1o0NUJRb3JicXRJZTllV0pFaExzcmlnIiwiYXVkIjoiQ0h6T0cxeDZfZktqQkhaDllZWdaNDVCW9yYnF0SWU5ZVdKRWhMc3JpZyIsIm5iZiI6MTcxOTU1NDUyNCwic2NvcGUiOlsiY2xpZW50LnJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9mZHgtbW9jay1hdXRob3JpemF0aW9uLXNlcnZlci5kZXYuZmluaS5jaXR5IiwiZXhwIjoxNzE5NTU0ODI0LCJpYXQiOjE3MTk1NTQ1MjQsImp0aSI6ImJiNGMwZDFjLWIxNzctNDlmYi05YWE5LWRkZWVhNTA0ZDk2MCJ9.UwOHic9Qh3FJ1yBRdM5VNGPPNvzYATNZFHggpRUKb-6jKZ5Li6QXypIpqnpGsPfUcOH8bnuewmF4rXmzHiFAL_xARarNleiuXPoVajvp9NLGjieUQn57ohb2B7SojQB_acVpzYuNoWbLk8A8URokXxtdmpdIqwYr9ViktxAvzZdBGbtWZnZ-Td7idlRa3nTARz1rvzZwjHhf3O6-S6kDpFhB91BZ1231ZbnucvyWnEmAf5HCcwq7N3eE1O6fxVEe7hYWOuBdaBv_tUGGAm4HGovDR05RzrRQqfmu5FRtzk5B0EfeUlhS_PknVYeoMh6TLtWX1zFWO4Gj5DSDezK5Nw
+                token_endpoint_auth_signing_alg: PS256
+            Missing Parameter Redirecturi:
+              value:
+                error: We have encountered some internal error in processing your request.
+                errorDescription: '400 : "{"error_description":"OpenID Client Registration Error: An error occurred reading the OpenID Client Registration: redirect_uris cannot be null","error":"invalid_request","error_uri":"https://openid.net/specs/openid-connect-registration-1_0.html#RegistrationError"}"'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

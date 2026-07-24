@@ -1,0 +1,1213 @@
+openapi: 3.0.3
+info:
+  title: Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Data Resource APIs API
+  version: 1.0.0
+  description: Dynamic Client Registration, Token, Introspection, Authorize API
+  contact:
+    name: API Support
+    email: apisupport@mastercard.com
+    url: https://developer.mastercard.com/support
+servers:
+- url: http://localhost:8080
+  description: Localhost URL
+tags:
+- name: Data Resource APIs
+  description: Return list of account, account details,transactions,contact details, payments info and statements details of user.
+paths:
+  /fdx/v6/accounts:
+    get:
+      tags:
+      - Data Resource APIs
+      summary: Mastercard Developer Hub for FDX APIs Get all accounts of user.
+      description: Return list of user accounts.
+      operationId: getAccountsList
+      parameters:
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accounts'
+              example:
+                page:
+                  nextOffset: '2'
+                  total: 3
+                links:
+                  next:
+                    href: /accounts?offSet=2&limit=10
+                accounts:
+                - accountCategory: DEPOSIT_ACCOUNT
+                  accountId: '10001'
+                  nickname: My Checking Acc XXXX3223
+                  status: OPEN
+                  balanceAsOf: '2017-11-05T13:15:30.751Z'
+                  currentBalance: 13300.35
+                  openingDayBalance: 500
+                - accountCategory: DEPOSIT_ACCOUNT
+                  accountId: '10002'
+                  nickname: My Checking Acc XXXX4443
+                  status: OPEN
+                  balanceAsOf: '2017-11-05T13:15:30.751Z'
+                  currentBalance: 332.22
+                  openingDayBalance: 100
+                - accountCategory: LOAN_ACCOUNT
+                  accountId: '20001'
+                  nickname: My Mortgage Acc XXXX9979
+                  description: My Mortgage Acc XXXX9979
+                  status: OPEN
+                  balanceAsOf: '2017-11-05T13:15:30.751Z'
+                  principalBalance: 133000.35
+                  loanTerm: 30
+                  nextPaymentDate: '2017-12-01'
+                  nextPaymentAmount: 2333.32
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+  /fdx/v6/accounts/{accountId}:
+    get:
+      tags:
+      - Data Resource APIs
+      summary: Mastercard Developer Hub for FDX APIs Get account details by account id.
+      description: Return in-depth account details for particular account.
+      operationId: getAccountsDetails
+      parameters:
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      - name: accountId
+        in: path
+        description: This field indicate the account ID
+        required: true
+        schema:
+          type: string
+        example: '10001'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDescriptor'
+              example:
+                accountId: '10001'
+                accountCategory: DEPOSIT_ACCOUNT
+                accountType: CHECKING
+                displayName: '******3223'
+                status: OPEN
+                productName: Cash Management
+                currency:
+                  currencyRate: null
+                  currencyCode: USD
+                  originalCurrencyCode: USD
+                interestYtd: 14.15
+                maturityDate: 2020-11-09T00:00:00.000-0500
+                annualPercentageYield: 0.45
+                description: My Checking Acc XXXX3223
+                nickname: My Checking Acc XXXX3223
+                lineOfBusiness: RETAIL
+                accountNumber: '7000003223'
+                accountNumberDisplay: '3223'
+                routingTransitNumber: '256074974'
+                balanceType: ASSET
+                lastActivityDate: 2020-11-09T00:00:00.000-0500
+                transactionsIncluded: false
+                balanceAsOf: 2020-12-07T01:06:15.649-0500
+                currentBalance: 4984.46
+                availableBalance: 4984.46
+                openingDayBalance: 500
+                fiAttributes:
+                - name: interestPaidLastYear
+                  value: '14.08'
+                - name: interestPayoutFrequency
+                  value: Annually (And At Maturity)
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+  /fdx/v6/accounts/{accountId}/transactions:
+    get:
+      tags:
+      - Data Resource APIs
+      summary: Mastercard Developer Hub for FDX APIs Get transaction details by account id.
+      description: Return list of transaction details for particular account.
+      operationId: getTransactions
+      parameters:
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      - name: accountId
+        in: path
+        description: This field indicate the account ID
+        required: true
+        schema:
+          type: string
+        example: '10001'
+      - name: startTime
+        in: header
+        description: This field indicate the startTime transaction
+        required: false
+        schema:
+          type: string
+        example: 18-04-2024
+      - name: endTime
+        in: header
+        description: This field indicate the endTime of transaction
+        required: false
+        schema:
+          type: string
+        example: 30-07-2024
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transactions'
+              example:
+                page:
+                  total: 4
+                transactions:
+                - accountId: '10001'
+                  accountCategory: DEPOSIT_ACCOUNT
+                  transactionId: '12455'
+                  postedTimestamp: '2019-07-31T12:00:00.000Z'
+                  transactionTimestamp: '2019-07-31T12:00:00.000Z'
+                  description: INTEREST PAYMENT
+                  status: POSTED
+                  amount: 0.01
+                  transactionType: POSCREDIT
+                - accountId: '10001'
+                  accountCategory: DEPOSIT_ACCOUNT
+                  transactionId: '45322'
+                  postedTimestamp: '2019-02-28T12:00:00.000Z'
+                  transactionTimestamp: '2019-02-28T12:00:00.000Z'
+                  description: INTEREST PAYMENT
+                  status: POSTED
+                  amount: 0.03
+                  transactionType: POSCREDIT
+                - accountId: '10001'
+                  accountCategory: DEPOSIT_ACCOUNT
+                  transactionId: '4322777'
+                  postedTimestamp: '2019-02-26T12:00:00.000Z'
+                  transactionTimestamp: '2019-02-26T12:00:00.000Z'
+                  description: 'ALLY BANK TRANSFER WEB ID: 3770527921'
+                  status: POSTED
+                  amount: -300
+                  transactionType: POSDEBIT
+                - accountId: '10001'
+                  accountCategory: DEPOSIT_ACCOUNT
+                  transactionId: '5705141948'
+                  postedTimestamp: '2019-02-26T12:00:00.000Z'
+                  transactionTimestamp: '2019-02-26T12:00:00.000Z'
+                  description: VENMO CASHOUT
+                  debitCreditMemo: CREDIT
+                  status: POSTED
+                  amount: 101.72
+                  transactionType: POSCREDIT
+                  checkNumber: 45400222
+                  payee: Test User
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+  /fdx/v6/accounts/{accountId}/statements:
+    get:
+      tags:
+      - Data Resource APIs
+      summary: Mastercard Developer Hub for FDX APIs Get statements details by account id.
+      description: Return list of statements details for particular account.
+      operationId: getStatements
+      parameters:
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      - name: accountId
+        in: path
+        description: This field indicate the account ID
+        required: true
+        schema:
+          type: string
+        example: '10001'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Statements'
+  /fdx/v6/accounts/{accountId}/statements/{statementId}:
+    get:
+      tags:
+      - Data Resource APIs
+      summary: Mastercard Developer Hub for FDX APIs Get statements details by account id and statement Id.
+      description: Return statements response for particular account in pdf format.
+      operationId: getStatementsByStatementId
+      parameters:
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      - name: accountId
+        in: path
+        description: This field indicate the account ID
+        required: true
+        schema:
+          type: string
+        example: '10001'
+      - name: statementId
+        in: path
+        description: This field indicate the Statement ID
+        required: true
+        schema:
+          type: string
+        example: '30001'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /fdx/v6/accounts/{accountId}/payment-networks:
+    get:
+      tags:
+      - Data Resource APIs
+      summary: Mastercard Developer Hub for FDX APIs Get payment networks details by account id.
+      description: Return payment networks details for particular account.
+      operationId: getPaymentNetworksDetails
+      parameters:
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      - name: accountId
+        in: path
+        description: This field indicate the account ID
+        required: true
+        schema:
+          type: string
+        example: '10001'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountPaymentNetworkList'
+              example:
+              - bankId: '121000358'
+                identifier: '7000003223'
+                accountId: '10001'
+                identifierType: ACCOUNT_NUMBER
+                type: US_ACH
+                transferIn: true
+                transferOut: true
+                transferLimits:
+                  out:
+                    day:
+                      resetsOn: '2023-08-09T00:00:00.000Z'
+                      transferMaxAmount: 10000
+                      transferRemainingAmount: 8356
+                      maxOccurrence: 6
+                      remainingOccurrence: 5
+                    month:
+                      resetsOn: '2023-09-01T00:00:00.000Z'
+                      transferMaxAmount: 50000
+                      transferRemainingAmount: 35200
+                    transaction:
+                      transferMaxAmount: 5000
+                      transferRemainingAmount: 4990
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+  /fdx/v6/accounts/{accountId}/contact:
+    get:
+      tags:
+      - Data Resource APIs
+      summary: Mastercard Developer Hub for FDX APIs Get contact details by account id.
+      description: Return in-depth contact details for particular account.
+      operationId: getContactsDetails
+      parameters:
+      - name: Authorization
+        in: header
+        description: This field indicate the Access Token id
+        required: true
+        schema:
+          type: string
+        example: Token Id
+      - name: accountId
+        in: path
+        description: This field indicate the account ID
+        required: true
+        schema:
+          type: string
+        example: '10001'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountContact'
+              example:
+                accountId: '10001'
+                holders:
+                - customerId: customer0000001
+                  relationship: SECONDARY
+                  name:
+                    first: Ernest
+                    middle: Miller
+                    last: Hemingway
+                    suffix: IV
+                - customerId: customer0000002
+                  relationship: PRIMARY_JOINT
+                  name:
+                    first: Maya
+                    last: Angel
+                    middle: Annie
+                emails:
+                - ernest.m.hemingway@domain.com
+                - m.angelou@domain.tld
+                addresses:
+                - type: HOME
+                  line1: 1850 N Clark St
+                  line2: no. 103
+                  city: Chicago
+                  region: IL
+                  postalCode: '60614'
+                  country: US
+                - type: HOME
+                  line1: 2014 N Main St
+                  city: San Francisco
+                  region: CA
+                  postalCode: '94105'
+                  country: US
+                telephones:
+                - type: HOME
+                  country: '1'
+                  number: '3127771926'
+                - type: CELL
+                  country: '53'
+                  number: '45915607'
+                - type: HOME
+                  country: '1'
+                  number: '4157771926'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              example:
+                code: '401'
+                error: We have encountered some internal error in processing your request.
+                errorDescription: Request validation failed. Either authorization code is blank or invalid.
+components:
+  schemas:
+    AccountDescriptor:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        accountCategory:
+          type: string
+          description: This field indicate account Category
+          example: DEPOSIT_ACCOUNT
+        accountType:
+          type: string
+          description: This field indicate type of account
+          example: CHECKING
+        nickname:
+          type: string
+          description: This field indicate nickname of customer
+          example: My Checking Acc XXXX3223
+        status:
+          type: string
+          description: This field indicate status of account
+          example: OPEN
+        balanceAsOf:
+          type: string
+          description: This field indicate balance date
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
+        accountNumber:
+          type: string
+          description: This field indicate accountNumber
+          example: '7000003223'
+        accountNumberDisplay:
+          type: string
+          description: This field indicate last four digit of accountNumber
+          example: '3223'
+        productName:
+          type: string
+          description: This field indicate productName
+          example: Cash Management
+        description:
+          type: string
+          description: This field indicate description of account
+          example: My Checking Acc XXXX3223
+        accountOpenDate:
+          type: string
+          description: This field indicate account open date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountCloseDate:
+          type: string
+          description: This field indicate account close date
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
+        parentAccountId:
+          type: string
+          description: This field indicate parent account id
+          example: '465723578'
+        lineOfBusiness:
+          type: string
+          description: This field indicate lineOfBusiness
+          example: lineOfBusiness
+        routingTransitNumber:
+          type: string
+          description: This field indicate routing Transit Number
+          example: '234677'
+        balanceType:
+          type: string
+          description: This field indicate type of balance. Possible values are ASSET,LIABILITY,PERCENTAGE,AMOUNT
+          example: ASSET
+        interestRate:
+          type: number
+          description: This field indicate interest rate
+          format: double
+          example: 8.0
+        interestRateType:
+          type: string
+          description: This field indicate type of interest rate
+          example: HOME_LOAN
+        interestRateAsOf:
+          type: string
+          description: This field indicate current interest rate
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
+        transferIn:
+          type: boolean
+          description: This field indicate transfer in
+          example: false
+        transferOut:
+          type: boolean
+          description: This field indicate transfer out
+          example: false
+        billPayStatus:
+          type: string
+          description: This field indicate status of bill
+          example: PAID
+        micrNumber:
+          type: string
+          description: This field indicate account number
+          example: '46773234677'
+        lastActivityDate:
+          type: string
+          description: This field indicate last activity
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
+        rewardProgramId:
+          type: string
+          description: This field indicate reward program Id
+          example: '333'
+        transactionsIncluded:
+          type: boolean
+          description: This field indicate transaction included
+          example: true
+        currentBalance:
+          type: number
+          description: This field indicate current balance of account
+          format: double
+          example: 4984.46
+        openingDayBalance:
+          type: number
+          description: This field indicate opening day balance
+          format: double
+          example: 500.0
+        principalBalance:
+          type: number
+          description: This field indicate principal balance
+          format: double
+          example: 100.0
+        availableCashBalance:
+          type: number
+          description: This field indicate available cash balance
+          format: double
+          example: 100.0
+        accountId:
+          type: string
+          description: This field indicate institution account Id
+          example: '10001'
+    AccountPaymentNetwork:
+      type: object
+      properties:
+        accountId:
+          type: string
+          description: This field indicate account Id
+          example: '10001'
+        bankId:
+          type: string
+          description: This field indicate bank Id
+          example: '34567'
+        identifier:
+          type: string
+          description: This field indicate identifier Id
+          example: '56660'
+        identifierType:
+          type: string
+          description: This field indicate identifierType
+          example: TEST
+        type:
+          type: string
+          description: This field indicate type
+          example: Payment
+        transferIn:
+          type: boolean
+          description: 'This field indicate transferIn '
+          example: false
+        transferOut:
+          type: boolean
+          description: 'This field indicate transferOut '
+          example: false
+        supportsRequestForPayment:
+          type: boolean
+          description: This field indicate supportsRequestForPayment Id
+          example: false
+        transferLimits:
+          $ref: '#/components/schemas/TransferLimits'
+      description: This field indicate list of paymentNetworks object
+      example: list of paymentNetworks object
+    TransferDataOut:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/TransferDetails'
+        week:
+          $ref: '#/components/schemas/TransferDetails'
+        month:
+          $ref: '#/components/schemas/TransferDetails'
+        year:
+          $ref: '#/components/schemas/TransferDetails'
+        transaction:
+          $ref: '#/components/schemas/TransferDetails'
+    Page:
+      type: object
+      properties:
+        nextOffset:
+          type: string
+          description: This field indicate next offset
+          example: '10'
+        total:
+          type: integer
+          description: This field indicate total
+          format: int32
+          example: 50
+      description: This field indicate page object
+      example: page object
+    TransferDetails:
+      type: object
+      properties:
+        resetsOn:
+          type: string
+          description: This field indicate resetsOn
+          example: 'TRUE'
+        transferMaxAmount:
+          type: number
+          description: This field indicate transfer max amount
+          format: double
+          example: 20000
+        transferRemainingAmount:
+          type: number
+          description: This field indicate transfer remaining amount
+          format: double
+          example: 4000
+        maxOccurrence:
+          type: integer
+          description: This field indicate maxOccurrence
+          format: int32
+          example: 1
+        remainingOccurrence:
+          type: integer
+          description: This field indicate remainingOccurrence
+          format: int32
+          example: 0
+    AccountHolderName:
+      type: object
+      properties:
+        first:
+          type: string
+          description: 'This field indicate first name of holder '
+          example: Ernest
+        middle:
+          type: string
+          description: 'This field indicate middle name of holder '
+          example: Miller
+        last:
+          type: string
+          description: This field indicate last name holder
+          example: Hemingway
+        company:
+          type: string
+          description: 'This field indicate company name '
+          example: ABC
+        prefix:
+          type: string
+          description: 'This field indicate prefix '
+          example: MR
+        suffix:
+          type: string
+          description: 'This field indicate suffix '
+          example: IV
+      description: This field indicate name pojo
+      example: name pojo
+    AccountHolders:
+      type: object
+      properties:
+        relationship:
+          type: string
+          description: This field indicate relationship
+          example: PRIMARY
+        customerId:
+          type: string
+          description: This field indicate customer Id
+          example: customer0000001
+        type:
+          type: string
+          description: This field indicate type
+          example: type
+        name:
+          $ref: '#/components/schemas/AccountHolderName'
+        dateOfBirth:
+          type: string
+          description: 'This field indicate dateOfBirth '
+          example: 09/03/1991
+        taxId:
+          type: string
+          description: 'This field indicate taxId '
+          example: '3456'
+        taxIdCountry:
+          type: string
+          description: This field indicate taxIdCountry
+          example: IND
+        governmentId:
+          type: string
+          description: This field indicate governmentId
+          example: '91'
+        customerStartDate:
+          type: string
+          description: This field indicate customerStartDate
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        lastActivityDate:
+          type: string
+          description: This field indicate lastActivityDate
+          example: 2019-07-31 12:00:00+00:00
+      description: This field indicate list of holders
+      example: list of holders
+    TransferLimits:
+      type: object
+      properties:
+        out:
+          $ref: '#/components/schemas/TransferDataOut'
+    TransactionsDetails:
+      type: object
+      properties:
+        accountCategory:
+          type: string
+          description: This field indicate timestamp of transaction
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountId:
+          type: string
+          description: This field indicate account Id
+          example: '10001'
+        transactionId:
+          type: string
+          description: This field indicate transaction Id
+          example: '12455'
+        transactionType:
+          type: string
+          description: This field indicate transaction type
+          example: POSCREDIT
+        referenceTransactionId:
+          type: string
+          description: This field indicate reference transaction id
+          example: '34555'
+        postedTimestamp:
+          type: string
+          description: This field indicate posted timestamp
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        transactionTimestamp:
+          type: string
+          format: date-time
+          description: This field indicate transaction timestamp
+          example: 2019-07-31 12:00:00+00:00
+        description:
+          type: string
+          description: This field indicate description
+          example: INTEREST PAYMENT
+        memo:
+          type: string
+          description: This field indicate memo
+          example: DEBIT
+        debitCreditMemo:
+          type: string
+          description: This field indicate debit credit memo
+          example: DEBIT
+        category:
+          type: string
+          description: This field indicate account Category
+          example: DEPOSIT_ACCOUNT
+        subCategory:
+          type: string
+          description: This field indicate Category
+          example: CHECKING
+        reference:
+          type: string
+          description: This field indicate account sub Category
+          example: DEPOSIT_ACCOUNT
+        status:
+          type: string
+          description: This field indicate transaction status
+          example: POSTED
+        amount:
+          type: number
+          description: This field indicate transaction amount
+          format: double
+          example: 4000
+        foreignAmount:
+          type: number
+          description: This field indicate foreign amount
+          format: double
+          example: 2000
+        foreignCurrency:
+          type: string
+          description: This field indicate foreign currency
+          example: USD
+        imageIds:
+          type: array
+          description: This field indicate imageId
+          example: DEPOSIT_ACCOUNT
+          items:
+            type: string
+            description: This field indicate imageId
+            example: DEPOSIT_ACCOUNT
+        payee:
+          type: string
+          description: This field indicate payee name
+          example: Test User
+        checkNumber:
+          type: integer
+          description: This field indicate checknumber
+          format: int32
+          example: 45400222
+        paymentDetails:
+          $ref: '#/components/schemas/PaymentDetails'
+    TelephoneNumber:
+      type: object
+      properties:
+        type:
+          type: string
+          description: This field indicate country of telephone number
+          example: US
+        number:
+          type: string
+          description: This field indicate telephone number
+          example: +1-34567-2456
+      description: This field indicate list of telephones
+      example: '[''list of telephones'']'
+    Statements:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        statements:
+          type: array
+          description: This field indicate list of statements object
+          example: list of statements object
+          items:
+            $ref: '#/components/schemas/Statement'
+    Statement:
+      type: object
+      properties:
+        accountId:
+          type: string
+          description: This field indicate account Id
+          example: '10001'
+        statementId:
+          type: string
+          description: This field indicate statement Id
+          example: '30001'
+        statementDate:
+          type: string
+          description: This field indicate statementDate
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
+        description:
+          type: string
+          description: This field indicate description
+          example: MONTHLY_STATMENT
+        status:
+          type: string
+          description: This field indicate status
+          example: AVAILABLE
+      description: This field indicate list of statements object
+      example: list of statements object
+    AccountPaymentNetworkList:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        page:
+          $ref: '#/components/schemas/Page'
+        paymentNetworks:
+          type: array
+          description: This field indicate list of paymentNetworks object
+          example: list of paymentNetworks object
+          items:
+            $ref: '#/components/schemas/AccountPaymentNetwork'
+    DeliveryAddress:
+      type: object
+      properties:
+        line1:
+          type: string
+          description: This field indicate line1 of delivery address
+          example: 1850 N Clark St
+        line2:
+          type: string
+          description: This field indicate line2 of delivery address
+          example: no. 103
+        line3:
+          type: string
+          description: This field indicate line3 of delivery address
+          example: st.134
+        city:
+          type: string
+          description: This field indicate city of delivery address
+          example: Chicago
+        state:
+          type: string
+          description: This field indicate state of delivery address
+          example: IL
+        zip:
+          type: string
+          description: This field indicate zip of delivery address
+          example: '60614'
+        country:
+          type: string
+          description: This field indicate country of delivery address
+          example: US
+        postalCode:
+          type: string
+          description: This field indicate postalCode of delivery address
+          example: '60614'
+        type:
+          type: string
+          description: This field indicate type of delivery address. Possible values are MAILING,MAIN,STATEMENT,PREVIOUS,BUSINESS,HOME
+          example: HOME
+      description: This field indicate list of addresses
+      example: '[''list of address'']'
+    AccountContact:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        accountId:
+          type: string
+          description: This field indicate account Id
+          example: '10001'
+        holders:
+          type: array
+          description: This field indicate list of holders
+          example: list of holders
+          items:
+            $ref: '#/components/schemas/AccountHolders'
+        emails:
+          type: array
+          description: This field indicate list of emails id
+          example: '[''ernest.m.hemingway@domain.tld'']'
+          items:
+            type: string
+            description: This field indicate list of emails id
+            example: '[''ernest.m.hemingway@domain.tld'']'
+        addresses:
+          type: array
+          description: This field indicate list of addresses
+          example: '[''list of address'']'
+          items:
+            $ref: '#/components/schemas/DeliveryAddress'
+        telephones:
+          type: array
+          description: This field indicate list of telephones
+          example: '[''list of telephones'']'
+          items:
+            $ref: '#/components/schemas/TelephoneNumber'
+    Next:
+      type: object
+      properties:
+        href:
+          type: string
+          description: This field indicate href
+          example: href link
+    Transactions:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        transactions:
+          type: array
+          description: This field indicate list of transactions object
+          example: list of transactions object
+          items:
+            $ref: '#/components/schemas/TransactionsDetails'
+    Links:
+      type: object
+      properties:
+        next:
+          $ref: '#/components/schemas/Next'
+      description: This field indicate links object
+      example: links object
+    PaymentDetails:
+      type: object
+      properties:
+        principalAmount:
+          type: number
+          description: This field indicate principalAmount
+          format: double
+          example: 4000.0
+        interestAmount:
+          type: number
+          description: This field indicate interestAmount
+          format: double
+          example: 200.0
+        insuranceAmount:
+          type: number
+          description: This field indicate insuranceAmount
+          format: double
+          example: 3000000
+        escrowAmount:
+          type: number
+          description: This field indicate escrowAmount
+          format: double
+          example: 10003
+        pmiAmount:
+          type: number
+          description: This field indicate pmiAmount
+          format: double
+          example: 2000
+        feesAmount:
+          type: number
+          description: This field indicate feesAmount
+          format: double
+          example: 200.0
+    AccountListResponsePojo:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        accountCategory:
+          type: string
+          description: This field indicate account Category
+          example: DEPOSIT_ACCOUNT
+        accountType:
+          type: string
+          description: This field indicate type of account
+          example: CHECKING
+        nickname:
+          type: string
+          description: This field indicate nickname of customer
+          example: My Checking Acc XXXX3223
+        status:
+          type: string
+          description: This field indicate status of account
+          example: OPEN
+        balanceAsOf:
+          type: string
+          description: This field indicate balance date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountNumber:
+          type: string
+          description: This field indicate accountNumber
+          example: '7000003223'
+        accountNumberDisplay:
+          type: string
+          description: This field indicate last four digit of accountNumber
+          example: '3223'
+        productName:
+          type: string
+          description: This field indicate productName
+          example: Cash Management
+        description:
+          type: string
+          description: This field indicate description of account
+          example: My Checking Acc XXXX3223
+        accountOpenDate:
+          type: string
+          description: This field indicate account open date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountCloseDate:
+          type: string
+          description: This field indicate account close date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        currentBalance:
+          type: number
+          description: This field indicate current balance of account
+          format: double
+          example: 4984.46
+        openingDayBalance:
+          type: number
+          description: This field indicate opening day balance
+          format: double
+          example: 500
+        principalBalance:
+          type: number
+          description: This field indicate principal balance
+          format: double
+          example: 100
+        availableCashBalance:
+          type: number
+          description: This field indicate available cash balance
+          format: double
+          example: 100
+        accountId:
+          type: string
+          description: This field indicate institution account Id
+          example: '10001'
+      description: This field indicate list of accounts object
+      example: list of accounts object
+    Accounts:
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        accounts:
+          type: array
+          description: This field indicate list of accounts object
+          example: list of accounts object
+          items:
+            $ref: '#/components/schemas/AccountListResponsePojo'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
