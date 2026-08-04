@@ -1,0 +1,32 @@
+{
+  "provider": "mastercard-developer-hub-for-fdx-apis",
+  "sources": [
+    "mastercard-developer-hub-for-fdx-apis-application-check-controller-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-consent-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-data-resource-apis-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-dynamic-client-registration-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-non-par-authorize-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-par-rar-authorize-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-resource-token-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-token-introspection-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-upload-data-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-user-apis-api-openapi.yml"
+  ],
+  "outputs": [
+    "mastercard-developer-hub-for-fdx-apis-application-check-controller-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-consent-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-data-resource-apis-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-dynamic-client-registration-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-non-par-authorize-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-par-rar-authorize-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-resource-token-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-token-introspection-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-upload-data-api-openapi.yml",
+    "mastercard-developer-hub-for-fdx-apis-user-apis-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
