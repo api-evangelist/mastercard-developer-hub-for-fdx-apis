@@ -49,16 +49,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -67,16 +57,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-consent-api
   name: Mastercard Developer Hub for FDX APIs Consent API
   description: Return consent and save consent for user.
@@ -95,16 +75,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -113,16 +83,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-data-resource-apis-api
   name: Mastercard Developer Hub for FDX APIs Data Resource APIs API
@@ -144,16 +104,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -162,16 +112,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-dynamic-client-registration-api
   name: Mastercard Developer Hub for FDX APIs Dynamic Client Registration API
@@ -193,16 +133,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -211,16 +141,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-non-par-authorize-api
   name: Mastercard Developer Hub for FDX APIs Non PAR Authorize API
@@ -241,16 +161,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -259,16 +169,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-par-rar-authorize-api
   name: Mastercard Developer Hub for FDX APIs PAR+RAR Authorize API
@@ -291,16 +191,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -309,16 +199,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-resource-token-api
   name: Mastercard Developer Hub for FDX APIs Resource Token API
@@ -338,16 +218,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -356,16 +226,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-token-introspection-api
   name: Mastercard Developer Hub for FDX APIs Token Introspection API
@@ -385,16 +245,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -403,16 +253,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-upload-data-api
   name: Mastercard Developer Hub for FDX APIs Upload Data API
@@ -432,16 +272,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -450,16 +280,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-user-apis-api
   name: Mastercard Developer Hub for FDX APIs User APIs API
@@ -479,16 +299,6 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Auth-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-dynamic-client-registration.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-non-par-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-par-rar-authorize.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-resource-token.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-authorization-token-introspection.yaml
   - type: Documentation
     url: >-
       https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server
@@ -497,17 +307,12 @@ apis:
       https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-application-check-controller.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-consent.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-data-resource-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-upload-data.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/fdx-resource-user-apis.yaml
 common:
+- type: IssueTracker
+  url: https://github.com/Mastercard/Fdx-Mock-Auth-Server/issues
+- type: License
+  name: Apache-2.0
+  url: https://github.com/Mastercard/Fdx-Mock-Auth-Server/blob/main/LICENSE
 - type: AgenticAccess
   url: agentic-access/mastercard-developer-hub-for-fdx-apis-agentic-access.yml
 - type: DomainSecurity
