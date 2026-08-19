@@ -27,7 +27,7 @@ tags:
 created: 2024-10-25 00:00:00+00:00
 modified: '2026-05-19'
 url: https://github.com/api-search/mastercard-developer-hub-for-fdx-apis/apis.yml
-specificationVersion: '0.18'
+specificationVersion: '0.23'
 apis:
 - aid: >-
     mastercard-developer-hub-for-fdx-apis:mastercard-developer-hub-for-fdx-apis-application-check-controller-api
