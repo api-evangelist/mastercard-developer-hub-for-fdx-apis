@@ -1,0 +1,458 @@
+{
+  "item": [
+    {
+      "id": "911d4c16-f8ef-4f23-8b77-fbc80563a65b",
+      "name": "Dynamic Client Registration",
+      "description": {
+        "content": "As per [RFC 7591 - OAuth 2.0 Dynamic Client Registration Protocol (ietf.org)](https://datatracker.ietf.org/doc/html/rfc7591)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ca0059e-434a-4df1-93e9-f204a2685b9a",
+          "name": "Mastercard Developer Hub for FDX APIs Client Registration Request",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Client Registration Request",
+            "description": {
+              "content": "Request to Register Client",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_name\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id_token_encrypted_response_alg\": \"<string>\",\n  \"id_token_encrypted_response_enc\": \"<string>\",\n  \"id_token_signed_response_alg\": \"<string>\",\n  \"jwks_uri\": \"<string>\",\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"request_object_signing_alg\": \"<string>\",\n  \"response_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scope\": \"<string>\",\n  \"token_endpoint_auth_method\": \"<string>\",\n  \"token_endpoint_auth_signing_alg\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0443047f-48c8-4ba5-aba5-1f958e65eee4",
+              "name": "Successful register response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client_id\": \"CHzOG1x6_fKjBHhh9eegZ45BQorbqtIe9eWJEhLsrig\",\n  \"client_id_issued_at\": 1719554524,\n  \"client_name\": \"11TestName1221\",\n  \"redirect_uris\": [\n    \"https://oauth.pstmn.io/v1/browser-callback\"\n  ],\n  \"grant_types\": [\n    \"refresh_token\",\n    \"client_credentials\",\n    \"authorization_code\"\n  ],\n  \"response_types\": [\n    \"code\"\n  ],\n  \"scope\": \"fdx:transactions:read fdx:accountbasic:read openid client.create fdx:customerpersonal:read fdx:accountdetailed:read client.read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read\",\n  \"token_endpoint_auth_method\": \"private_key_jwt\",\n  \"id_token_signed_response_alg\": \"RS256\",\n  \"registration_client_uri\": \"http://localhost:8080/client/register?client_id=CHzOG1x6_fKjBHhh9eegZ45BQorbqtIe9eWJEhLsrig\",\n  \"jwks_uri\": \"https://www.jsonkeeper.com/b/3FJT\",\n  \"registration_access_token\": \"eyJraWQiOiI5OWJjMzNlZS1hMDRkLTRhODktOGFlMC01ZGViZDIxNDVhYWIiLCJ0eXAiOiJhdCtqd3QiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJDSHpPRzF4Nl9mS2pCSGhoOWVlZ1o0NUJRb3JicXRJZTllV0pFaExzcmlnIiwiYXVkIjoiQ0h6T0cxeDZfZktqQkhaDllZWdaNDVCW9yYnF0SWU5ZVdKRWhMc3JpZyIsIm5iZiI6MTcxOTU1NDUyNCwic2NvcGUiOlsiY2xpZW50LnJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9mZHgtbW9jay1hdXRob3JpemF0aW9uLXNlcnZlci5kZXYuZmluaS5jaXR5IiwiZXhwIjoxNzE5NTU0ODI0LCJpYXQiOjE3MTk1NTQ1MjQsImp0aSI6ImJiNGMwZDFjLWIxNzctNDlmYi05YWE5LWRkZWVhNTA0ZDk2MCJ9.UwOHic9Qh3FJ1yBRdM5VNGPPNvzYATNZFHggpRUKb-6jKZ5Li6QXypIpqnpGsPfUcOH8bnuewmF4rXmzHiFAL_xARarNleiuXPoVajvp9NLGjieUQn57ohb2B7SojQB_acVpzYuNoWbLk8A8URokXxtdmpdIqwYr9ViktxAvzZdBGbtWZnZ-Td7idlRa3nTARz1rvzZwjHhf3O6-S6kDpFhB91BZ1231ZbnucvyWnEmAf5HCcwq7N3eE1O6fxVEe7hYWOuBdaBv_tUGGAm4HGovDR05RzrRQqfmu5FRtzk5B0EfeUlhS_PknVYeoMh6TLtWX1zFWO4Gj5DSDezK5Nw\",\n  \"token_endpoint_auth_signing_alg\": \"PS256\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a02683f1-6d81-4026-aed9-82d7a20ee9c9",
+          "name": "Mastercard Developer Hub for FDX APIs Get Client",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get Client",
+            "description": {
+              "content": "Get a specific client data identified with clientId",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "register",
+                ":clientId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clientId",
+                  "description": "(Required) Client Identifier. Uniquely identifies a Client"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "849baa37-79d3-4a5d-b2c1-21f329d5f5e9",
+              "name": "Successful get client response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "register",
+                    ":clientId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clientId",
+                      "description": "(Required) Client Identifier. Uniquely identifies a Client"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client_id\": \"1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck\",\n  \"client_id_issued_at\": 1719555632,\n  \"client_name\": \"11TestName1221\",\n  \"redirect_uris\": [\n    \"https://oauth.pstmn.io/v1/browser-callback\"\n  ],\n  \"grant_types\": [\n    \"refresh_token\",\n    \"client_credentials\",\n    \"authorization_code\"\n  ],\n  \"response_types\": [\n    \"code\"\n  ],\n  \"scope\": \"fdx:transactions:read fdx:accountbasic:read openid client.create fdx:customerpersonal:read fdx:accountdetailed:read client.read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read\",\n  \"token_endpoint_auth_method\": \"private_key_jwt\",\n  \"id_token_signed_response_alg\": \"RS256\",\n  \"registration_client_uri\": \"http://localhost:8080/connect/register?client_id=1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck\",\n  \"jwks_uri\": \"https://www.jsonkeeper.com/b/3FJT\",\n  \"token_endpoint_auth_signing_alg\": \"PS256\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c47be6e-367e-433d-be06-b67ce433a3ad",
+          "name": "Mastercard Developer Hub for FDX APIs Update Client",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Update Client",
+            "description": {
+              "content": "Update data for a specific client identified with clientId",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "register",
+                ":clientId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clientId",
+                  "description": "(Required) Client Identifier. Uniquely identifies a Client"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_name\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id_token_encrypted_response_alg\": \"<string>\",\n  \"id_token_encrypted_response_enc\": \"<string>\",\n  \"id_token_signed_response_alg\": \"<string>\",\n  \"jwks_uri\": \"<string>\",\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"request_object_signing_alg\": \"<string>\",\n  \"response_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scope\": \"<string>\",\n  \"token_endpoint_auth_method\": \"<string>\",\n  \"token_endpoint_auth_signing_alg\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40fbfb6a-7c90-4639-a014-af7d6d5803e1",
+              "name": "Successful response after modification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "register",
+                    ":clientId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clientId",
+                      "description": "(Required) Client Identifier. Uniquely identifies a Client"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client_id\": \"1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck\",\n  \"client_id_issued_at\": 1719555632,\n  \"client_name\": \"11TestName12211112\",\n  \"redirect_uris\": [\n    \"https://oauth.pstmn.io/v1/browser-callback1\"\n  ],\n  \"grant_types\": [\n    \"refresh_token\",\n    \"client_credentials\",\n    \"authorization_code\"\n  ],\n  \"response_types\": [\n    \"code\"\n  ],\n  \"scope\": \"client.create client.read\",\n  \"token_endpoint_auth_method\": \"private_key_jwt\",\n  \"id_token_signed_response_alg\": \"RS256\",\n  \"registration_client_uri\": \"http://localhost:8080/connect/register?client_id=1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck\",\n  \"jwks_uri\": \"https://www.jsonkeeper.com/b/3FJT\",\n  \"token_endpoint_auth_signing_alg\": \"PS256\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "645ba763-2b80-4d9f-9a8b-5429bce98e76",
+          "name": "Mastercard Developer Hub for FDX APIs Delete Client",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Delete Client",
+            "description": {
+              "content": "Delete data for a specific client identified with clientId",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "register",
+                ":clientId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clientId",
+                  "description": "(Required) Client Identifier. Uniquely identifies a Client"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e66f2d23-28d6-40a7-bb78-f130f6658aa4",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "register",
+                    ":clientId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clientId",
+                      "description": "(Required) Client Identifier. Uniquely identifies a Client"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1565baa1-d8c0-49cd-a82f-c3e006586bf9",
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Dynamic Client Registration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic Client Registration, Token, Introspection, Authorize API\n\nContact Support:\n Name: API Support\n Email: apisupport@mastercard.com",
+      "type": "text/plain"
+    }
+  }
+}

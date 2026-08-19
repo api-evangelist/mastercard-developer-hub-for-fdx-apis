@@ -1,0 +1,223 @@
+{
+  "item": [
+    {
+      "id": "6e3eb067-752f-4a9a-b428-14614cb01c9c",
+      "name": "User APIs",
+      "description": {
+        "content": "Return user response.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e50573c2-2fe4-4682-8627-00839ef12529",
+          "name": "Mastercard Developer Hub for FDX APIs Save user",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Save user",
+            "description": {
+              "content": "Return saved user response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0458a2b9-fcfb-4d3d-8548-82ab07c9dccb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"password\",\n  \"userId\": \"fdxuser1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"errorCode\": 401,\n  \"errorMessage\": \"UNAUTHORIZED\",\n  \"userId\": \"fdxuser\",\n  \"passwordHash\": \"243tfsdgdfg2253443\",\n  \"password\": \"test\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a33b05cc-395e-46bc-ad54-b9fb581e4b0e",
+          "name": "Mastercard Developer Hub for FDX APIs Get user by user Id",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get user by user Id",
+            "description": {
+              "content": "Return user response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) This field indicate the user ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44e1bc4f-5c72-402c-b6ac-bf9696faecd3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) This field indicate the user ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"errorCode\": 401,\n  \"errorMessage\": \"UNAUTHORIZED\",\n  \"userId\": \"fdxuser\",\n  \"passwordHash\": \"243tfsdgdfg2253443\",\n  \"password\": \"test\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "18d3d044-da04-4095-9a08-9d905e2d8b93",
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller User APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic Client Registration, Token, Introspection, Authorize API\n\nContact Support:\n Name: API Support\n Email: apisupport@mastercard.com",
+      "type": "text/plain"
+    }
+  }
+}

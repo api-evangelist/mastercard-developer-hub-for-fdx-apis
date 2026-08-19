@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Resource Token API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resource Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/oauth2/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get Token as per grant_type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

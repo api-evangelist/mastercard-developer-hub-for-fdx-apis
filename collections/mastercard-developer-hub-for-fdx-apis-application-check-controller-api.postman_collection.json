@@ -1,0 +1,312 @@
+{
+  "item": [
+    {
+      "id": "20b5d16d-cb96-45c7-a6c3-a679638ca07f",
+      "name": "Application Check Controller",
+      "description": {
+        "content": "health check and check the status application",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3d3477e9-52a2-4af0-adba-f7789bcf614a",
+          "name": "Mastercard Developer Hub for FDX APIs Status check",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Status check",
+            "description": {
+              "content": "status check for application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "startupStatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00536c10-713f-4c6f-bd48-76b57497d474",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "startupStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5538a74e-fdb5-4a13-b47e-8143bb338d83",
+          "name": "Mastercard Developer Hub for FDX APIs shutdown application",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs shutdown application",
+            "description": {
+              "content": "Return the status of shutdown.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shutdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fedb67d6-fed6-4fd6-9c73-acadeda2ffeb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shutdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f675ca8-931b-4e44-af21-73188af2d038",
+          "name": "Mastercard Developer Hub for FDX APIs liveness check",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs liveness check",
+            "description": {
+              "content": "liveness check for application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "livenessProbe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78ca2bdb-0009-466f-aa59-cf4976473570",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "livenessProbe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "592d975a-5fc4-467c-8548-3feacba5156e",
+          "name": "Mastercard Developer Hub for FDX APIs health check",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs health check",
+            "description": {
+              "content": "health check for application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fbc71aa-7116-428a-a712-0e836aa7c446",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8c0528fc-c674-44ce-b456-579d5e1075f7",
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic Client Registration, Token, Introspection, Authorize API\n\nContact Support:\n Name: API Support\n Email: apisupport@mastercard.com",
+      "type": "text/plain"
+    }
+  }
+}

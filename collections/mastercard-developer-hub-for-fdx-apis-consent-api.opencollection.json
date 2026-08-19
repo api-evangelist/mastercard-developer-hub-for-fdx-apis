@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Consent API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Consent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get Consent by consent Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/consent/:consentId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "consentId",
+                "value": "b39bf7e9-92ae-4649-a1f0-87983285fe1",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return particular consent response by consent id."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Update Consent by consent Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/consent/:consentId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "consentId",
+                "value": "eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7",
+                "type": "path",
+                "description": "This field indicate the Consent ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return updated consent response."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Register Consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/consent",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save user consent into db"
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get Account by user Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/consent/accounts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "UUID",
+                "type": "query",
+                "description": "This field indicate the user id"
+              }
+            ]
+          },
+          "docs": "Return user account response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

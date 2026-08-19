@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "06e3b022-cdce-4df1-a828-dfef1f03654f",
+      "name": "PAR+RAR Authorize",
+      "description": {
+        "content": "Please refer RFC - [RFC 9126 - OAuth 2.0 Pushed Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9126) and [RFC 9396 - OAuth 2.0 Rich Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9396) for implementation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0abbf26c-2bad-4b74-8459-72f14d00b2e1",
+          "name": "Mastercard Developer Hub for FDX APIs Submit an Authorization Request",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Submit an Authorization Request",
+            "description": {
+              "content": "Clients can submit their authorization requests to this endpoint to receive a request URI for user redirection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "par"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "authorization_details",
+                  "value": "<string>",
+                  "description": "JSON-formatted object with two members in compliance with the RAR format specified by RAR memo, refer FDX spec"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_assertion",
+                  "value": "<string>",
+                  "description": "The encoded assertion JWT."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_assertion_type",
+                  "value": "<string>",
+                  "description": "This MUST be set to urn:ietf:params:oauth:client-assertion-type:jwt-bearer"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "request",
+                  "value": "<string>",
+                  "description": "The encoded assertion JWT."
+                },
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "Supported response type"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cbc5822d-a87f-4d73-b2f5-70a8e000e1fd",
+              "name": "Successful response containing request_uri",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "par"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expires_in\": 90,\n  \"request_uri\": \"urn:ietf:params:oauth2:8df8d6a2-72c4-49e6-8f12-e846bb01a6c2\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c175df1e-bdbd-44ed-8251-63cf65112b86",
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller PAR+RAR Authorize API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic Client Registration, Token, Introspection, Authorize API\n\nContact Support:\n Name: API Support\n Email: apisupport@mastercard.com",
+      "type": "text/plain"
+    }
+  }
+}

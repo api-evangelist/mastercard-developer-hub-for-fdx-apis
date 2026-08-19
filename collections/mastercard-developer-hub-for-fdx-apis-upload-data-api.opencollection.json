@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Upload Data API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Upload Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs add transactions details for user Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/upload/addTransactions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return transactions response."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs add account for user Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/upload/addAccount",
+            "params": [
+              {
+                "name": "userId",
+                "value": "fdxUser",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return accounts response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

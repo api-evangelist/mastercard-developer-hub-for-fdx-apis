@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller User APIs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Save user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/user",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return saved user response."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get user by user Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/user/:userId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "2456777",
+                "type": "path",
+                "description": "This field indicate the user ID"
+              }
+            ]
+          },
+          "docs": "Return user response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

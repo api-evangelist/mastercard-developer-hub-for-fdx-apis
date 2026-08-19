@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller PAR+RAR Authorize API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PAR+RAR Authorize",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Submit an Authorization Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/oauth2/par",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "authorization_details",
+                  "value": ""
+                },
+                {
+                  "name": "client_assertion",
+                  "value": ""
+                },
+                {
+                  "name": "client_assertion_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "request",
+                  "value": ""
+                },
+                {
+                  "name": "response_type",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Clients can submit their authorization requests to this endpoint to receive a request URI for user redirection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

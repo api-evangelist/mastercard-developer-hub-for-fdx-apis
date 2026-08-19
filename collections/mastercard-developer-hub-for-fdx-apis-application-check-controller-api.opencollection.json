@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Application Check Controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Status check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/startupStatus"
+          },
+          "docs": "status check for application"
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs shutdown application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/shutdown"
+          },
+          "docs": "Return the status of shutdown."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs liveness check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/livenessProbe"
+          },
+          "docs": "liveness check for application"
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/health"
+          },
+          "docs": "health check for application"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

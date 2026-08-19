@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Token Introspection API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Token Introspection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Token Introspection Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/oauth2/introspect",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "client_assertion",
+                  "value": ""
+                },
+                {
+                  "name": "client_assertion_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "token",
+                  "value": ""
+                },
+                {
+                  "name": "token_type_hint",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows clients to validate an access token and retrieve its metadata, such as its validity, scopes, and associated user details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

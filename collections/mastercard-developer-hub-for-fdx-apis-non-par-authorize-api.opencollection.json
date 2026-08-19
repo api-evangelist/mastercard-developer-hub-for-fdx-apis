@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Non PAR Authorize API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Non PAR Authorize",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs User Authorization Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/oauth2/authorize",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "The client identifier issued to the client during the registration process."
+              },
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query",
+                "description": "The type of response requested. `code` for an authorization code or `token` for an implicit token."
+              },
+              {
+                "name": "code_challenge",
+                "value": "",
+                "type": "query",
+                "description": "A code challenge used in the PKCE (Proof Key for Code Exchange) flow, if applicable."
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "",
+                "type": "query",
+                "description": "The method used to generate the code challenge (e.g., `plain` or `S256`)."
+              },
+              {
+                "name": "request_uri",
+                "value": "",
+                "type": "query",
+                "description": "The URI generated from PAR endpoint."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "The scope of access requested by the client. For example, `read` or `write`."
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query",
+                "description": "The URI to which the authorization server will redirect the user after granting or denying access."
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query",
+                "description": "JWT request object for non par flow"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "A client generated value used to maintain state between the request and callback to prevent CSRF attacks."
+              }
+            ]
+          },
+          "docs": "This endpoint allows users to authorize a client application to access their resources. It returns an authorization code or token based on the grant type and flow. (Don't hit copy the url from curl)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

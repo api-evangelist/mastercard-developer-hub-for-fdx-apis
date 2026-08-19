@@ -1,0 +1,199 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Data Resource APIs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Resource APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get all accounts of user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/fdx/v6/accounts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ]
+          },
+          "docs": "Return list of user accounts."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get account details by account id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/fdx/v6/accounts/:accountId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "accountId",
+                "value": "10001",
+                "type": "path",
+                "description": "This field indicate the account ID"
+              }
+            ]
+          },
+          "docs": "Return in-depth account details for particular account."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get transaction details by account id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/fdx/v6/accounts/:accountId/transactions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              },
+              {
+                "name": "startTime",
+                "value": "18-04-2024"
+              },
+              {
+                "name": "endTime",
+                "value": "30-07-2024"
+              }
+            ],
+            "params": [
+              {
+                "name": "accountId",
+                "value": "10001",
+                "type": "path",
+                "description": "This field indicate the account ID"
+              }
+            ]
+          },
+          "docs": "Return list of transaction details for particular account."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get statements details by account id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/fdx/v6/accounts/:accountId/statements",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "accountId",
+                "value": "10001",
+                "type": "path",
+                "description": "This field indicate the account ID"
+              }
+            ]
+          },
+          "docs": "Return list of statements details for particular account."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get statements details by account id and statement Id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/fdx/v6/accounts/:accountId/statements/:statementId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "accountId",
+                "value": "10001",
+                "type": "path",
+                "description": "This field indicate the account ID"
+              },
+              {
+                "name": "statementId",
+                "value": "30001",
+                "type": "path",
+                "description": "This field indicate the Statement ID"
+              }
+            ]
+          },
+          "docs": "Return statements response for particular account in pdf format."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get payment networks details by account id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/fdx/v6/accounts/:accountId/payment-networks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "accountId",
+                "value": "10001",
+                "type": "path",
+                "description": "This field indicate the account ID"
+              }
+            ]
+          },
+          "docs": "Return payment networks details for particular account."
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get contact details by account id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/fdx/v6/accounts/:accountId/contact",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Token Id"
+              }
+            ],
+            "params": [
+              {
+                "name": "accountId",
+                "value": "10001",
+                "type": "path",
+                "description": "This field indicate the account ID"
+              }
+            ]
+          },
+          "docs": "Return in-depth contact details for particular account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

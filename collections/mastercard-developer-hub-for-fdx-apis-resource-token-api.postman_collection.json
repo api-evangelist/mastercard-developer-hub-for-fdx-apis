@@ -1,0 +1,119 @@
+{
+  "item": [
+    {
+      "id": "c2b92cf3-05e8-46ad-b3b7-1e83bec9a915",
+      "name": "Resource Token",
+      "description": {
+        "content": "API to generate OAuth 2.0 token.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "447f6e42-6b28-4c82-97ce-76185706feb9",
+          "name": "Mastercard Developer Hub for FDX APIs Get Token",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get Token",
+            "description": {
+              "content": "Get Token as per grant_type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"grant_type\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code\": \"<string>\",\n  \"refresh_token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "476bfd73-0e45-4d82-81c3-8d07da12086c",
+              "name": "The access token was successfully created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"eyJraWQiOiI5OWJjMzNlZS1hMDRkODktOGFlMC01ZGViZDIxNDVhYWIiLCJ0eXAiOiJhdCtqd3QiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiZW50LXJlZ2lzdHJhci0yIiwiYXVkIjoiZGgtZmR4LWNsaWVudC1yZWdpc3RyYXItMiIc2NvcGUiOlsiY2xpZW50LnJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9mZHgtbW9jay1hdXRob3JpemF0aW9uLXNlcnZlci5kZXYuZmluaS5jaXR5IiwiZXhwIjoxNzIwNjExNjAyLCJpYXQiOjE3MjA2MTEzMDIsImp0aSI6ImQ2NzcxZjU1LTU2YzAtNDU0Yi04ZjY3LWZmODUzYjdkZTZiMCJ9.lyANAqFMYkcTOtv0G6v1y83LniEQPvZVrzr9d2DbPB3Uqk-0yB8CoM-Z8REOfL0dMVtxRLAyrUKLCNVXcMHljaliXoOfy6J3-VfJoLYZkV9IjL5uVhfkOITnfWYPf9wyFmnIBJEpY57qAsZhyLpe7x_uw9Jcjb9w2zV1qnyFEcn-VPHJb0Wg2FIC5bSB1RoptWRYt_X9Gaxm1bSBg5gSiJr2LKereB_P3pmvqrD3E5I-_GWt3Iw5q6vUqnu4P9EUT0Eri8Ez3Q3oJMn6xTiBd5DORe0w45zLdyqiIK4-qTiVAGGmPfb4fGZzU-Pa0abE2jVt03hITzwUtBvWgMi4Cw\",\n  \"scope\": \"client.read\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 299\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bf0998c3-336a-491d-8743-b7a88c20aeae",
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Resource Token API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic Client Registration, Token, Introspection, Authorize API\n\nContact Support:\n Name: API Support\n Email: apisupport@mastercard.com",
+      "type": "text/plain"
+    }
+  }
+}

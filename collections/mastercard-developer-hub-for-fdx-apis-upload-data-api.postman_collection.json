@@ -1,0 +1,230 @@
+{
+  "item": [
+    {
+      "id": "4753dd08-13b8-4e0c-a880-07a96fa86c4c",
+      "name": "Upload Data",
+      "description": {
+        "content": "Upload accounts and transaction for user.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe93efed-bf67-4829-a382-956455ca918e",
+          "name": "Mastercard Developer Hub for FDX APIs add transactions details for user Id",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs add transactions details for user Id",
+            "description": {
+              "content": "Return transactions response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "upload",
+                "addTransactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"accountCategory\": \"<string>\",\n    \"accountId\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"checkNumber\": \"<number>\",\n    \"debitCreditMemo\": \"<string>\",\n    \"description\": \"<string>\",\n    \"payee\": \"<string>\",\n    \"postedTimestamp\": \"<string>\",\n    \"status\": \"<string>\",\n    \"transactionId\": \"<string>\",\n    \"transactionTimestamp\": \"<string>\",\n    \"transactionType\": \"<string>\"\n  },\n  {\n    \"accountCategory\": \"<string>\",\n    \"accountId\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"checkNumber\": \"<number>\",\n    \"debitCreditMemo\": \"<string>\",\n    \"description\": \"<string>\",\n    \"payee\": \"<string>\",\n    \"postedTimestamp\": \"<string>\",\n    \"status\": \"<string>\",\n    \"transactionId\": \"<string>\",\n    \"transactionTimestamp\": \"<string>\",\n    \"transactionType\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "11e985e4-3bb7-4d17-9484-91b739339fa1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upload",
+                    "addTransactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"10002\",\n    \"amount\": 0.01,\n    \"description\": \"INTEREST PAYMENT\",\n    \"postedTimestamp\": \"2019-07-31T12:00:00.000Z\",\n    \"status\": \"POSTED\",\n    \"transactionId\": \"12455\",\n    \"transactionTimestamp\": \"2019-07-31T12:00:00.000Z\",\n    \"transactionType\": \"POSCREDIT\"\n  },\n  {\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"10002\",\n    \"amount\": 0.03,\n    \"description\": \"INTEREST PAYMENT\",\n    \"postedTimestamp\": \"2019-02-28T12:00:00.000Z\",\n    \"status\": \"POSTED\",\n    \"transactionId\": \"45322\",\n    \"transactionTimestamp\": \"2019-02-28T12:00:00.000Z\",\n    \"transactionType\": \"POSCREDIT\"\n  },\n  {\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"10002\",\n    \"amount\": -300,\n    \"description\": \"ALLY BANK TRANSFER WEB ID: 3770527921\",\n    \"postedTimestamp\": \"2019-02-26T12:00:00.000Z\",\n    \"status\": \"POSTED\",\n    \"transactionId\": \"4322777\",\n    \"transactionTimestamp\": \"2019-02-26T12:00:00.000Z\",\n    \"transactionType\": \"POSDEBIT\"\n  },\n  {\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"10002\",\n    \"amount\": 101.72,\n    \"checkNumber\": 45400222,\n    \"debitCreditMemo\": \"CREDIT\",\n    \"description\": \"VENMO CASHOUT\",\n    \"payee\": \"Test User\",\n    \"postedTimestamp\": \"2019-02-26T12:00:00.000Z\",\n    \"status\": \"POSTED\",\n    \"transactionId\": \"5705141948\",\n    \"transactionTimestamp\": \"2019-02-26T12:00:00.000Z\",\n    \"transactionType\": \"POSCREDIT\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"errorCode\": 401,\n  \"error Message\": \"UNAUTHORIZED\",\n  \"code\": \"200\",\n  \"message\": \"SUCCESS\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cb99ff4-5080-4b73-8de4-876d1940f6be",
+          "name": "Mastercard Developer Hub for FDX APIs add account for user Id",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs add account for user Id",
+            "description": {
+              "content": "Return accounts response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "upload",
+                "addAccount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"accountCategory\": \"<string>\",\n    \"accountId\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"accountNumberDisplay\": \"<string>\",\n    \"accountType\": \"<string>\",\n    \"annualPercentageYield\": \"<number>\",\n    \"availableBalance\": \"<number>\",\n    \"balanceAsOf\": \"<string>\",\n    \"balanceType\": \"<string>\",\n    \"currency\": {\n      \"currencyCode\": \"<string>\",\n      \"currencyRate\": {},\n      \"originalCurrencyCode\": \"<string>\"\n    },\n    \"currentBalance\": \"<number>\",\n    \"description\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"fiAttributes\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"interestYtd\": \"<number>\",\n    \"lastActivityDate\": \"<string>\",\n    \"lineOfBusiness\": \"<string>\",\n    \"maturityDate\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"openingDayBalance\": \"<number>\",\n    \"productName\": \"<string>\",\n    \"routingTransitNumber\": \"<string>\",\n    \"status\": \"<string>\",\n    \"transactionsIncluded\": \"<boolean>\"\n  },\n  {\n    \"accountCategory\": \"<string>\",\n    \"accountId\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"accountNumberDisplay\": \"<string>\",\n    \"accountType\": \"<string>\",\n    \"annualPercentageYield\": \"<number>\",\n    \"availableBalance\": \"<number>\",\n    \"balanceAsOf\": \"<string>\",\n    \"balanceType\": \"<string>\",\n    \"currency\": {\n      \"currencyCode\": \"<string>\",\n      \"currencyRate\": {},\n      \"originalCurrencyCode\": \"<string>\"\n    },\n    \"currentBalance\": \"<number>\",\n    \"description\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"fiAttributes\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"interestYtd\": \"<number>\",\n    \"lastActivityDate\": \"<string>\",\n    \"lineOfBusiness\": \"<string>\",\n    \"maturityDate\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"openingDayBalance\": \"<number>\",\n    \"productName\": \"<string>\",\n    \"routingTransitNumber\": \"<string>\",\n    \"status\": \"<string>\",\n    \"transactionsIncluded\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad013915-f2bb-43c9-aac2-27d140cea23b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upload",
+                    "addAccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "fdxUser"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"10002\",\n    \"accountNumber\": \"7000003223\",\n    \"accountNumberDisplay\": \"CHECKING\",\n    \"accountType\": \"CHECKING\",\n    \"annualPercentageYield\": 0.45,\n    \"availableBalance\": 4984.46,\n    \"balanceAsOf\": \"2020-12-07T01:06:15.649-0500\",\n    \"balanceType\": \"ASSET\",\n    \"currency\": {\n      \"currencyCode\": \"USD\",\n      \"currencyRate\": null,\n      \"originalCurrencyCode\": \"USD\"\n    },\n    \"currentBalance\": 4984.46,\n    \"description\": \"My Checking Acc XXXX3223\",\n    \"displayName\": \"******3223\",\n    \"fiAttributes\": [\n      {\n        \"name\": \"interestPaidLastYear\",\n        \"value\": \"14.08\"\n      },\n      {\n        \"name\": \"interestPayoutFrequency\",\n        \"value\": \"Annually (And At Maturity)\"\n      }\n    ],\n    \"interestYtd\": 14.15,\n    \"lastActivityDate\": \"2020-11-09T00:00:00.000-0500\",\n    \"lineOfBusiness\": \"RETAIL\",\n    \"maturityDate\": \"2020-11-09T00:00:00.000-0500\",\n    \"nickname\": \"My Checking Acc XXXX3223\",\n    \"openingDayBalance\": 500,\n    \"productName\": \"Cash Management\",\n    \"routingTransitNumber\": \"256074974\",\n    \"status\": \"OPEN\",\n    \"transactionsIncluded\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": 401,\n  \"error Message\": \"UNAUTHORIZED\",\n  \"code\": \"200\",\n  \"message\": \"SUCCESS\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ad562801-3c1f-4b08-a15e-edeaa9043454",
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Upload Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic Client Registration, Token, Introspection, Authorize API\n\nContact Support:\n Name: API Support\n Email: apisupport@mastercard.com",
+      "type": "text/plain"
+    }
+  }
+}

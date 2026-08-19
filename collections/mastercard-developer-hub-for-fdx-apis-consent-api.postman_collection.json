@@ -1,0 +1,632 @@
+{
+  "item": [
+    {
+      "id": "3b45c3c7-29b9-4f45-832b-f4c896d90473",
+      "name": "Consent",
+      "description": {
+        "content": "Return consent and save consent for user.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0434ab47-2540-4594-b1ca-af893d2649f1",
+          "name": "Mastercard Developer Hub for FDX APIs Get Consent by consent Id",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get Consent by consent Id",
+            "description": {
+              "content": "Return particular consent response by consent id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "consent",
+                ":consentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "consentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "755fd3a3-55c6-4b1d-87be-f8aa41e01748",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent",
+                    ":consentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": \"fdxuser\",\n  \"allAccountIds\": [\n    \"10001\",\n    \"20001\",\n    \"3746272\",\n    \"5326884\"\n  ],\n  \"accountIds\": [\n    \"10001\"\n  ],\n  \"consentShareDurationSeconds\": 600,\n  \"consentId\": \"eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2915d67b-e2bb-4fa3-967c-8e4b768afcfb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent",
+                    ":consentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "798b111c-90c4-4da8-a3a0-a34f792377fa",
+          "name": "Mastercard Developer Hub for FDX APIs Update Consent by consent Id",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Update Consent by consent Id",
+            "description": {
+              "content": "Return updated consent response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "consent",
+                ":consentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "consentId",
+                  "description": "(Required) This field indicate the Consent ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountIds\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"consentShareDurationSeconds\": \"<number>\",\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f9db5a4-0acd-4608-beab-3daf59a5d210",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent",
+                    ":consentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consentId",
+                      "description": "(Required) This field indicate the Consent ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    20001\n  ],\n  \"consentShareDurationSeconds\": 600,\n  \"userId\": \"fdxuser\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerId\": \"fdxuser\",\n  \"consentId\": \"eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7\",\n  \"endDate\": 1720607740194\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a0a0e6d-e866-4288-b0fc-0bf46d37480a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent",
+                    ":consentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consentId",
+                      "description": "(Required) This field indicate the Consent ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    20001\n  ],\n  \"consentShareDurationSeconds\": 600,\n  \"userId\": \"fdxuser\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "145e1c1b-dc72-403e-8e30-4b06f1486c2c",
+          "name": "Mastercard Developer Hub for FDX APIs Register Consent",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Register Consent",
+            "description": {
+              "content": "Save user consent into db",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "consent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountIds\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"consentShareDurationSeconds\": \"<number>\",\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0047b24e-67af-42e3-889a-daa91b319eb1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    10001\n  ],\n  \"consentShareDurationSeconds\": 600,\n  \"userId\": \"fdxuser\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerId\": \"fdxuser\",\n  \"consentId\": \"eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7\",\n  \"endDate\": 1720607740194\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a04866c-9a3b-4f34-aad3-ba3f26ab9df4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    10001\n  ],\n  \"consentShareDurationSeconds\": 600,\n  \"userId\": \"fdxuser\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "239ad6ef-1802-4ef7-a016-0d90b49bad00",
+          "name": "Mastercard Developer Hub for FDX APIs Get Account by user Id",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get Account by user Id",
+            "description": {
+              "content": "Return user account response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "consent",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) This field indicate the user id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ffc37eb-1e8b-4c10-a061-96773ec3a866",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "UUID"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"page\": {\n      \"nextOffset\": \"10\",\n      \"total\": 50\n    },\n    \"links\": {\n      \"next\": {\n        \"href\": \"href link\"\n      }\n    },\n    \"accounts\": [\n      {\n        \"errorCode\": 401,\n        \"errorMessage\": \"UNAUTHORIZED\",\n        \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n        \"accountType\": \"CHECKING\",\n        \"nickname\": \"My Checking Acc XXXX3223\",\n        \"status\": \"OPEN\",\n        \"balanceAsOf\": \"2019-07-31 12:00:00+00:00\",\n        \"accountNumber\": \"7000003223\",\n        \"accountNumberDisplay\": \"3223\",\n        \"productName\": \"Cash Management\",\n        \"description\": \"My Checking Acc XXXX3223\",\n        \"accountOpenDate\": \"2019-07-31 12:00:00+00:00\",\n        \"accountCloseDate\": \"2019-07-31 12:00:00+00:00\",\n        \"currentBalance\": 4984.46,\n        \"openingDayBalance\": 500,\n        \"principalBalance\": 100,\n        \"availableCashBalance\": 100,\n        \"accountId\": \"10001\"\n      },\n      {\n        \"errorCode\": 401,\n        \"errorMessage\": \"UNAUTHORIZED\",\n        \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n        \"accountType\": \"CHECKING\",\n        \"nickname\": \"My Checking Acc XXXX3223\",\n        \"status\": \"OPEN\",\n        \"balanceAsOf\": \"2019-07-31 12:00:00+00:00\",\n        \"accountNumber\": \"7000003223\",\n        \"accountNumberDisplay\": \"3223\",\n        \"productName\": \"Cash Management\",\n        \"description\": \"My Checking Acc XXXX3223\",\n        \"accountOpenDate\": \"2019-07-31 12:00:00+00:00\",\n        \"accountCloseDate\": \"2019-07-31 12:00:00+00:00\",\n        \"currentBalance\": 4984.46,\n        \"openingDayBalance\": 500,\n        \"principalBalance\": 100,\n        \"availableCashBalance\": 100,\n        \"accountId\": \"10001\"\n      }\n    ]\n  },\n  {\n    \"page\": {\n      \"nextOffset\": \"10\",\n      \"total\": 50\n    },\n    \"links\": {\n      \"next\": {\n        \"href\": \"href link\"\n      }\n    },\n    \"accounts\": [\n      {\n        \"errorCode\": 401,\n        \"errorMessage\": \"UNAUTHORIZED\",\n        \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n        \"accountType\": \"CHECKING\",\n        \"nickname\": \"My Checking Acc XXXX3223\",\n        \"status\": \"OPEN\",\n        \"balanceAsOf\": \"2019-07-31 12:00:00+00:00\",\n        \"accountNumber\": \"7000003223\",\n        \"accountNumberDisplay\": \"3223\",\n        \"productName\": \"Cash Management\",\n        \"description\": \"My Checking Acc XXXX3223\",\n        \"accountOpenDate\": \"2019-07-31 12:00:00+00:00\",\n        \"accountCloseDate\": \"2019-07-31 12:00:00+00:00\",\n        \"currentBalance\": 4984.46,\n        \"openingDayBalance\": 500,\n        \"principalBalance\": 100,\n        \"availableCashBalance\": 100,\n        \"accountId\": \"10001\"\n      },\n      {\n        \"errorCode\": 401,\n        \"errorMessage\": \"UNAUTHORIZED\",\n        \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n        \"accountType\": \"CHECKING\",\n        \"nickname\": \"My Checking Acc XXXX3223\",\n        \"status\": \"OPEN\",\n        \"balanceAsOf\": \"2019-07-31 12:00:00+00:00\",\n        \"accountNumber\": \"7000003223\",\n        \"accountNumberDisplay\": \"3223\",\n        \"productName\": \"Cash Management\",\n        \"description\": \"My Checking Acc XXXX3223\",\n        \"accountOpenDate\": \"2019-07-31 12:00:00+00:00\",\n        \"accountCloseDate\": \"2019-07-31 12:00:00+00:00\",\n        \"currentBalance\": 4984.46,\n        \"openingDayBalance\": 500,\n        \"principalBalance\": 100,\n        \"availableCashBalance\": 100,\n        \"accountId\": \"10001\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad54c325-4d2e-4606-8f95-222c3a25749d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "UUID"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2241db5b-1054-46f6-b9b7-cf5b317539ad",
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Consent API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic Client Registration, Token, Introspection, Authorize API\n\nContact Support:\n Name: API Support\n Email: apisupport@mastercard.com",
+      "type": "text/plain"
+    }
+  }
+}

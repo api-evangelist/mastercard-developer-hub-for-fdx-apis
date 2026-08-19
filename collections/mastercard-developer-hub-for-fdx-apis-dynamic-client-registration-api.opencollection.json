@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Dynamic Client Registration API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dynamic Client Registration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Client Registration Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/fdx/v6/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request to Register Client"
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Get Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/fdx/v6/register/:clientId",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "dh-fdx-client-registrar-2",
+                "type": "path",
+                "description": "Client Identifier. Uniquely identifies a Client"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a specific client data identified with clientId"
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Update Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/fdx/v6/register/:clientId",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "dh-fdx-client-registrar-2",
+                "type": "path",
+                "description": "Client Identifier. Uniquely identifies a Client"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update data for a specific client identified with clientId"
+        },
+        {
+          "info": {
+            "name": "Mastercard Developer Hub for FDX APIs Delete Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/fdx/v6/register/:clientId",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "dh-fdx-client-registrar-2",
+                "type": "path",
+                "description": "Client Identifier. Uniquely identifies a Client"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete data for a specific client identified with clientId"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1016 @@
+{
+  "item": [
+    {
+      "id": "ae445928-e0c0-44cf-a7f4-a761cfa0a028",
+      "name": "Data Resource APIs",
+      "description": {
+        "content": "Return list of account, account details,transactions,contact details, payments info and statements details of user.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d200b699-94be-4ead-80eb-0f8edc04f9df",
+          "name": "Mastercard Developer Hub for FDX APIs Get all accounts of user.",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get all accounts of user.",
+            "description": {
+              "content": "Return list of user accounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0c38d61-b7ac-4c8b-8431-5a45bb5f07e2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"page\": {\n    \"nextOffset\": \"2\",\n    \"total\": 3\n  },\n  \"links\": {\n    \"next\": {\n      \"href\": \"/accounts?offSet=2&limit=10\"\n    }\n  },\n  \"accounts\": [\n    {\n      \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n      \"accountId\": \"10001\",\n      \"nickname\": \"My Checking Acc XXXX3223\",\n      \"status\": \"OPEN\",\n      \"balanceAsOf\": \"2017-11-05T13:15:30.751Z\",\n      \"currentBalance\": 13300.35,\n      \"openingDayBalance\": 500\n    },\n    {\n      \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n      \"accountId\": \"10002\",\n      \"nickname\": \"My Checking Acc XXXX4443\",\n      \"status\": \"OPEN\",\n      \"balanceAsOf\": \"2017-11-05T13:15:30.751Z\",\n      \"currentBalance\": 332.22,\n      \"openingDayBalance\": 100\n    },\n    {\n      \"accountCategory\": \"LOAN_ACCOUNT\",\n      \"accountId\": \"20001\",\n      \"nickname\": \"My Mortgage Acc XXXX9979\",\n      \"description\": \"My Mortgage Acc XXXX9979\",\n      \"status\": \"OPEN\",\n      \"balanceAsOf\": \"2017-11-05T13:15:30.751Z\",\n      \"principalBalance\": 133000.35,\n      \"loanTerm\": 30,\n      \"nextPaymentDate\": \"2017-12-01\",\n      \"nextPaymentAmount\": 2333.32\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c46589a-ceb2-463c-868d-f641f8e336bc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39e0c9d7-b5a4-4037-8a17-61f39c9dbe3b",
+          "name": "Mastercard Developer Hub for FDX APIs Get account details by account id.",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get account details by account id.",
+            "description": {
+              "content": "Return in-depth account details for particular account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "accounts",
+                ":accountId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) This field indicate the account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ad2f55a-340f-4959-9181-c1c3c6b1551f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountId\": \"10001\",\n  \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n  \"accountType\": \"CHECKING\",\n  \"displayName\": \"******3223\",\n  \"status\": \"OPEN\",\n  \"productName\": \"Cash Management\",\n  \"currency\": {\n    \"currencyRate\": null,\n    \"currencyCode\": \"USD\",\n    \"originalCurrencyCode\": \"USD\"\n  },\n  \"interestYtd\": 14.15,\n  \"maturityDate\": \"2020-11-09T00:00:00.000-0500\",\n  \"annualPercentageYield\": 0.45,\n  \"description\": \"My Checking Acc XXXX3223\",\n  \"nickname\": \"My Checking Acc XXXX3223\",\n  \"lineOfBusiness\": \"RETAIL\",\n  \"accountNumber\": \"7000003223\",\n  \"accountNumberDisplay\": \"3223\",\n  \"routingTransitNumber\": \"256074974\",\n  \"balanceType\": \"ASSET\",\n  \"lastActivityDate\": \"2020-11-09T00:00:00.000-0500\",\n  \"transactionsIncluded\": false,\n  \"balanceAsOf\": \"2020-12-07T01:06:15.649-0500\",\n  \"currentBalance\": 4984.46,\n  \"availableBalance\": 4984.46,\n  \"openingDayBalance\": 500,\n  \"fiAttributes\": [\n    {\n      \"name\": \"interestPaidLastYear\",\n      \"value\": \"14.08\"\n    },\n    {\n      \"name\": \"interestPayoutFrequency\",\n      \"value\": \"Annually (And At Maturity)\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f1158d8-3885-49df-9dc2-4b5ad5afd38c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e81b418-69f6-4a2f-b1dd-1c9344260498",
+          "name": "Mastercard Developer Hub for FDX APIs Get transaction details by account id.",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get transaction details by account id.",
+            "description": {
+              "content": "Return list of transaction details for particular account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "accounts",
+                ":accountId",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) This field indicate the account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "This field indicate the startTime transaction",
+                "key": "startTime",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "This field indicate the endTime of transaction",
+                "key": "endTime",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88cb1962-18dd-41da-80c0-35f507b065d4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "This field indicate the startTime transaction",
+                    "key": "startTime",
+                    "value": "18-04-2024"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "This field indicate the endTime of transaction",
+                    "key": "endTime",
+                    "value": "30-07-2024"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"page\": {\n    \"total\": 4\n  },\n  \"transactions\": [\n    {\n      \"accountId\": \"10001\",\n      \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n      \"transactionId\": \"12455\",\n      \"postedTimestamp\": \"2019-07-31T12:00:00.000Z\",\n      \"transactionTimestamp\": \"2019-07-31T12:00:00.000Z\",\n      \"description\": \"INTEREST PAYMENT\",\n      \"status\": \"POSTED\",\n      \"amount\": 0.01,\n      \"transactionType\": \"POSCREDIT\"\n    },\n    {\n      \"accountId\": \"10001\",\n      \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n      \"transactionId\": \"45322\",\n      \"postedTimestamp\": \"2019-02-28T12:00:00.000Z\",\n      \"transactionTimestamp\": \"2019-02-28T12:00:00.000Z\",\n      \"description\": \"INTEREST PAYMENT\",\n      \"status\": \"POSTED\",\n      \"amount\": 0.03,\n      \"transactionType\": \"POSCREDIT\"\n    },\n    {\n      \"accountId\": \"10001\",\n      \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n      \"transactionId\": \"4322777\",\n      \"postedTimestamp\": \"2019-02-26T12:00:00.000Z\",\n      \"transactionTimestamp\": \"2019-02-26T12:00:00.000Z\",\n      \"description\": \"ALLY BANK TRANSFER WEB ID: 3770527921\",\n      \"status\": \"POSTED\",\n      \"amount\": -300,\n      \"transactionType\": \"POSDEBIT\"\n    },\n    {\n      \"accountId\": \"10001\",\n      \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n      \"transactionId\": \"5705141948\",\n      \"postedTimestamp\": \"2019-02-26T12:00:00.000Z\",\n      \"transactionTimestamp\": \"2019-02-26T12:00:00.000Z\",\n      \"description\": \"VENMO CASHOUT\",\n      \"debitCreditMemo\": \"CREDIT\",\n      \"status\": \"POSTED\",\n      \"amount\": 101.72,\n      \"transactionType\": \"POSCREDIT\",\n      \"checkNumber\": 45400222,\n      \"payee\": \"Test User\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb2c0fd5-7b97-4a5a-8c6f-fb017a4a3010",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "This field indicate the startTime transaction",
+                    "key": "startTime",
+                    "value": "18-04-2024"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "This field indicate the endTime of transaction",
+                    "key": "endTime",
+                    "value": "30-07-2024"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce59bfc9-81a0-40bf-9f24-912293275e9f",
+          "name": "Mastercard Developer Hub for FDX APIs Get statements details by account id.",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get statements details by account id.",
+            "description": {
+              "content": "Return list of statements details for particular account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "accounts",
+                ":accountId",
+                "statements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) This field indicate the account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d326654-4936-4f00-b592-4b07f935e2c6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId",
+                    "statements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"errorCode\": 401,\n  \"errorMessage\": \"UNAUTHORIZED\",\n  \"page\": {\n    \"nextOffset\": \"10\",\n    \"total\": 50\n  },\n  \"links\": {\n    \"next\": {\n      \"href\": \"href link\"\n    }\n  },\n  \"statements\": [\n    {\n      \"accountId\": \"10001\",\n      \"statementId\": \"30001\",\n      \"statementDate\": \"2024-07-31 12:00:00+00:00\",\n      \"description\": \"MONTHLY_STATMENT\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"accountId\": \"10001\",\n      \"statementId\": \"30001\",\n      \"statementDate\": \"2024-07-31 12:00:00+00:00\",\n      \"description\": \"MONTHLY_STATMENT\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7561a242-dddf-41c6-8703-20fc4f8a9ea4",
+          "name": "Mastercard Developer Hub for FDX APIs Get statements details by account id and statement Id.",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get statements details by account id and statement Id.",
+            "description": {
+              "content": "Return statements response for particular account in pdf format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "accounts",
+                ":accountId",
+                "statements",
+                ":statementId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) This field indicate the account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "statementId",
+                  "description": "(Required) This field indicate the Statement ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e350be71-fcc8-425d-8f8c-ae9cc31bc8e3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId",
+                    "statements",
+                    ":statementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "statementId",
+                      "description": "(Required) This field indicate the Statement ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e44ff42b-a093-4bbd-8329-0a668bf7c545",
+          "name": "Mastercard Developer Hub for FDX APIs Get payment networks details by account id.",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get payment networks details by account id.",
+            "description": {
+              "content": "Return payment networks details for particular account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "accounts",
+                ":accountId",
+                "payment-networks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) This field indicate the account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4972fd0-2396-4f35-b46e-f909dc038d00",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId",
+                    "payment-networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"bankId\": \"121000358\",\n    \"identifier\": \"7000003223\",\n    \"accountId\": \"10001\",\n    \"identifierType\": \"ACCOUNT_NUMBER\",\n    \"type\": \"US_ACH\",\n    \"transferIn\": true,\n    \"transferOut\": true,\n    \"transferLimits\": {\n      \"out\": {\n        \"day\": {\n          \"resetsOn\": \"2023-08-09T00:00:00.000Z\",\n          \"transferMaxAmount\": 10000,\n          \"transferRemainingAmount\": 8356,\n          \"maxOccurrence\": 6,\n          \"remainingOccurrence\": 5\n        },\n        \"month\": {\n          \"resetsOn\": \"2023-09-01T00:00:00.000Z\",\n          \"transferMaxAmount\": 50000,\n          \"transferRemainingAmount\": 35200\n        },\n        \"transaction\": {\n          \"transferMaxAmount\": 5000,\n          \"transferRemainingAmount\": 4990\n        }\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb78f4dc-189c-4008-984f-3b5463a700ad",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId",
+                    "payment-networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03a63629-6f9b-4b5f-a817-d3953762a84e",
+          "name": "Mastercard Developer Hub for FDX APIs Get contact details by account id.",
+          "request": {
+            "name": "Mastercard Developer Hub for FDX APIs Get contact details by account id.",
+            "description": {
+              "content": "Return in-depth contact details for particular account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "v6",
+                "accounts",
+                ":accountId",
+                "contact"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) This field indicate the account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ce20afd-7b6d-48e4-a609-8eed64691433",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId",
+                    "contact"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountId\": \"10001\",\n  \"holders\": [\n    {\n      \"customerId\": \"customer0000001\",\n      \"relationship\": \"SECONDARY\",\n      \"name\": {\n        \"first\": \"Ernest\",\n        \"middle\": \"Miller\",\n        \"last\": \"Hemingway\",\n        \"suffix\": \"IV\"\n      }\n    },\n    {\n      \"customerId\": \"customer0000002\",\n      \"relationship\": \"PRIMARY_JOINT\",\n      \"name\": {\n        \"first\": \"Maya\",\n        \"last\": \"Angel\",\n        \"middle\": \"Annie\"\n      }\n    }\n  ],\n  \"emails\": [\n    \"ernest.m.hemingway@domain.com\",\n    \"m.angelou@domain.tld\"\n  ],\n  \"addresses\": [\n    {\n      \"type\": \"HOME\",\n      \"line1\": \"1850 N Clark St\",\n      \"line2\": \"no. 103\",\n      \"city\": \"Chicago\",\n      \"region\": \"IL\",\n      \"postalCode\": \"60614\",\n      \"country\": \"US\"\n    },\n    {\n      \"type\": \"HOME\",\n      \"line1\": \"2014 N Main St\",\n      \"city\": \"San Francisco\",\n      \"region\": \"CA\",\n      \"postalCode\": \"94105\",\n      \"country\": \"US\"\n    }\n  ],\n  \"telephones\": [\n    {\n      \"type\": \"HOME\",\n      \"country\": \"1\",\n      \"number\": \"3127771926\"\n    },\n    {\n      \"type\": \"CELL\",\n      \"country\": \"53\",\n      \"number\": \"45915607\"\n    },\n    {\n      \"type\": \"HOME\",\n      \"country\": \"1\",\n      \"number\": \"4157771926\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "feaaa509-a00d-4f59-a66c-b82038e25d73",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "v6",
+                    "accounts",
+                    ":accountId",
+                    "contact"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) This field indicate the account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) This field indicate the Access Token id",
+                    "key": "Authorization",
+                    "value": "Token Id"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"401\",\n  \"error\": \"We have encountered some internal error in processing your request.\",\n  \"errorDescription\": \"Request validation failed. Either authorization code is blank or invalid.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3ba9054e-457d-46c5-8b0f-98c329fd9abc",
+    "name": "Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Data Resource APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic Client Registration, Token, Introspection, Authorize API\n\nContact Support:\n Name: API Support\n Email: apisupport@mastercard.com",
+      "type": "text/plain"
+    }
+  }
+}
