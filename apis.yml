@@ -6,6 +6,20 @@ description: The Financial Data Exchange (FDX) is a nonprofit industry standards
   banking, gives consumers more control over who can access their financial data. The open banking industry is founded on
   the principles of interoperability, which are being advanced by forthcoming rulemaking from the The Consumer Financial Protection
   Bureau (CFPB).
+deliveryModel:
+  model: open-core
+  license: Apache-2.0
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
