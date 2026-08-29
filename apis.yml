@@ -324,6 +324,9 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
 common:
+- type: CapabilityMap
+  url: capabilities/mastercard-developer-hub-for-fdx-apis-capability-edges.yml
+  name: Mastercard Developer Hub for FDX APIs Business Capability Map
 - type: IssueTracker
   url: https://github.com/Mastercard/Fdx-Mock-Auth-Server/issues
 - type: License
