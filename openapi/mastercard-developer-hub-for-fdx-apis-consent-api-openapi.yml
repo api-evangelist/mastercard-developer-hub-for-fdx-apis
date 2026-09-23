@@ -1,15 +1,21 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Consent API
-  version: 1.0.0
-  description: Dynamic Client Registration, Token, Introspection, Authorize API
+  title: Mastercard Developer Hub for FDX APIs Fdx Resource Consent…
+  description: FDX Mock Resource Server API reference for developers
+  termsOfService: https://mastercard.com
   contact:
     name: API Support
-    email: apisupport@mastercard.com
     url: https://developer.mastercard.com/support
+    email: apisupport@mastercard.com
+  license:
+    name: Mastercard Product
+    url: https://mastercard.com
+  version: 1.0.0
 servers:
-- url: http://localhost:8080
+- url: http://localhost:9090
   description: Localhost URL
+security:
+- apiKey: []
 tags:
 - name: Consent
   description: Return consent and save consent for user.
@@ -295,6 +301,29 @@ paths:
                 errorDescription: Request validation failed. Either authorization code is blank or invalid.
 components:
   schemas:
+    Next:
+      type: object
+      properties:
+        href:
+          type: string
+          description: This field indicate href
+          example: href link
+    AccountConsentResp:
+      type: object
+      properties:
+        customerId:
+          type: string
+          description: This field indicate customer Id
+          example: '12345'
+        consentId:
+          type: string
+          description: This field indicate consent Id
+          example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
+        endDate:
+          type: string
+          description: 'This field indicate endDate '
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
     Links:
       type: object
       properties:
@@ -302,50 +331,19 @@ components:
           $ref: '#/components/schemas/Next'
       description: This field indicate links object
       example: links object
-    AccountConsent:
+    Accounts:
       type: object
       properties:
-        errorCode:
-          type: integer
-          description: This field indicate the error code of application
-          format: int32
-          readOnly: true
-          example: 401
-        error Message:
-          type: string
-          description: This field indicate the error message
-          readOnly: true
-          example: UNAUTHORIZED
-        userId:
-          type: string
-          description: This field indicate user Id
-          example: fdxuser
-        allAccountIds:
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        accounts:
           type: array
-          description: This field indicate all account Id
-          example: '[''10001'',''20001'',''3746272'',''5326884'']'
+          description: This field indicate list of accounts object
+          example: list of accounts object
           items:
-            type: string
-            description: This field indicate all account Id
-            example: '[''10001'',''20001'',''3746272'',''5326884'']'
-        accountIds:
-          type: array
-          description: This field indicate account Id which consent given by user
-          example: '[''10001'']'
-          items:
-            type: string
-            description: This field indicate account Id which consent given by user
-            example: '[''10001'']'
-        consentShareDurationSeconds:
-          type: integer
-          description: This field indicate consent Expiry date
-          format: int64
-          example: 600
-        consentId:
-          type: string
-          description: This field indicate consent Id
-          example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
-      description: This field indicate the Account Consent POJO
+            $ref: '#/components/schemas/AccountListResponsePojo'
     AccountListResponsePojo:
       type: object
       properties:
@@ -433,26 +431,6 @@ components:
           example: '10001'
       description: This field indicate list of accounts object
       example: list of accounts object
-    Accounts:
-      type: object
-      properties:
-        page:
-          $ref: '#/components/schemas/Page'
-        links:
-          $ref: '#/components/schemas/Links'
-        accounts:
-          type: array
-          description: This field indicate list of accounts object
-          example: list of accounts object
-          items:
-            $ref: '#/components/schemas/AccountListResponsePojo'
-    Next:
-      type: object
-      properties:
-        href:
-          type: string
-          description: This field indicate href
-          example: href link
     Page:
       type: object
       properties:
@@ -467,23 +445,53 @@ components:
           example: 50
       description: This field indicate page object
       example: page object
-    AccountConsentResp:
+    AccountConsent:
       type: object
       properties:
-        customerId:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        error Message:
           type: string
-          description: This field indicate customer Id
-          example: '12345'
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        userId:
+          type: string
+          description: This field indicate user Id
+          example: fdxuser
+        allAccountIds:
+          type: array
+          description: This field indicate all account Id
+          example: '[''10001'',''20001'',''3746272'',''5326884'']'
+          items:
+            type: string
+            description: This field indicate all account Id
+            example: '[''10001'',''20001'',''3746272'',''5326884'']'
+        accountIds:
+          type: array
+          description: This field indicate account Id which consent given by user
+          example: '[''10001'']'
+          items:
+            type: string
+            description: This field indicate account Id which consent given by user
+            example: '[''10001'']'
+        consentShareDurationSeconds:
+          type: integer
+          description: This field indicate consent Expiry date
+          format: int64
+          example: 600
         consentId:
           type: string
           description: This field indicate consent Id
           example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
-        endDate:
-          type: string
-          description: 'This field indicate endDate '
-          format: date-time
-          example: 2024-07-31 12:00:00+00:00
+      description: This field indicate the Account Consent POJO
   securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
+    apiKey:
+      type: apiKey
+      description: Authorization Token to access Secured API!
+      name: Authorization
+      in: header

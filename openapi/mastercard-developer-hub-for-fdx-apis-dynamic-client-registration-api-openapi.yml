@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Dynamic Client Registration API
+  title: Mastercard Developer Hub for FDX APIs FDX Authorization…
   version: 1.0.0
   description: Dynamic Client Registration, Token, Introspection, Authorize API
   contact:
@@ -12,7 +12,7 @@ servers:
   description: Localhost URL
 tags:
 - name: Dynamic Client Registration
-  description: As per [RFC 7591 - OAuth 2.0 Dynamic Client Registration Protocol (ietf.org)](https://datatracker.ietf.org/doc/html/rfc7591)
+  description: As per RFC 7591 - OAuth 2.0 Dynamic Client Registration Protocol (ietf.org)
 paths:
   /fdx/v6/register:
     post:
@@ -76,147 +76,6 @@ paths:
       security:
       - bearerAuth: []
 components:
-  schemas:
-    Client:
-      type: object
-      properties:
-        client_id:
-          $ref: '#/components/schemas/client_id'
-        client_id_issued_at:
-          $ref: '#/components/schemas/client_id_issued_at'
-        client_name:
-          $ref: '#/components/schemas/client_name'
-        redirect_uris:
-          $ref: '#/components/schemas/redirect_uris'
-        grant_types:
-          $ref: '#/components/schemas/grant_types'
-        response_types:
-          $ref: '#/components/schemas/response_types'
-        scope:
-          $ref: '#/components/schemas/scope'
-        token_endpoint_auth_method:
-          $ref: '#/components/schemas/token_endpoint_auth_method'
-        id_token_signed_response_alg:
-          $ref: '#/components/schemas/id_token_signed_response_alg'
-        registration_client_uri:
-          $ref: '#/components/schemas/registration_client_uri'
-        jwks_uri:
-          $ref: '#/components/schemas/jwks_uri'
-        token_endpoint_auth_signing_alg:
-          $ref: '#/components/schemas/token_endpoint_auth_signing_alg'
-    jwks_uri:
-      type: string
-      example: https://www.jsonkeeper.com/b/3FJT
-      description: URL string referencing the client's JSON Web Key (JWK) Set [RFC7517] document, which contains the client's public keys
-    id_token_signed_response_alg:
-      type: string
-      example: PS256
-      description: Algorithm with which an id_token is to be signed
-    grant_types:
-      type: array
-      items:
-        type: string
-        example: client_credentials
-      example:
-      - client_credentials
-      - authorization_code
-      - refresh_token
-      description: Array of OAuth 2.0 grants made available to the Data Recipient
-    client_id:
-      type: string
-      example: dh-fdx-client-registrar-2
-      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
-    id_token_encrypted_response_enc:
-      type: string
-      example: A256GCM
-      description: JWE enc algorithm with which an id_token is to be encrypted.
-    client_id_issued_at:
-      type: number
-      description: Time at which the client_id was issued (measured in unix seconds)
-    redirect_uris:
-      type: array
-      description: Array of redirection URI strings for use in redirect-based flows
-      items:
-        type: string
-        example: https://oauth.pstmn.io/v1/browser-callback
-      example:
-      - https://oauth.pstmn.io/v1/browser-callback
-    token_endpoint_auth_method:
-      type: string
-      description: Requested authentication method for the token endpoint.
-      example: private_key_jwt
-    client_name:
-      type: string
-      description: Human-readable string name of the client application
-      example: 11TestName1221
-    CreateClient:
-      type: object
-      properties:
-        client_id:
-          $ref: '#/components/schemas/client_id'
-        client_id_issued_at:
-          $ref: '#/components/schemas/client_id_issued_at'
-        client_name:
-          $ref: '#/components/schemas/client_name'
-        redirect_uris:
-          $ref: '#/components/schemas/redirect_uris'
-        grant_types:
-          $ref: '#/components/schemas/grant_types'
-        response_types:
-          $ref: '#/components/schemas/response_types'
-        scope:
-          $ref: '#/components/schemas/scope'
-        token_endpoint_auth_method:
-          $ref: '#/components/schemas/token_endpoint_auth_method'
-        id_token_signed_response_alg:
-          $ref: '#/components/schemas/id_token_signed_response_alg'
-        registration_client_uri:
-          $ref: '#/components/schemas/registration_client_uri'
-        jwks_uri:
-          $ref: '#/components/schemas/jwks_uri'
-        token_endpoint_auth_signing_alg:
-          $ref: '#/components/schemas/token_endpoint_auth_signing_alg'
-        registration_access_token:
-          $ref: '#/components/schemas/registration_access_token'
-    response_types:
-      type: array
-      items:
-        type: string
-        example: code
-      example:
-      - code
-      description: Array of OAuth 2.0 response type strings. Default value is code
-    registration_access_token:
-      type: string
-      description: String containing a unique DCR access token to be used in subsequent operations to manage the Data Recipient
-    request_object_signing_alg:
-      type: string
-      example: PS256
-      description: Algorithm which the client expects to sign the request object if a request object will be part of the authorization request sent to the Data Holder
-    id_token_encrypted_response_alg:
-      type: string
-      example: RSA-OAEP
-      description: JWE alg algorithm with which an id_token is to be encrypted.
-    scope:
-      type: string
-      description: String containing a space-separated list of scope values that the client can use when requesting access tokens.
-      example: client.create client.read fdx:transactions:read fdx:accountbasic:read openid fdx:customerpersonal:read fdx:accountdetailed:read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
-    token_endpoint_auth_signing_alg:
-      type: string
-      example: PS256
-      description: The algorithm used for signing the JWT
-    registration_client_uri:
-      type: string
-      description: Fully qualified URI for subsequent DCR calls (GET, PUT, DELETE) for managing the Data Recipient registration
-  parameters:
-    clientId:
-      name: clientId
-      example: dh-fdx-client-registrar-2
-      description: Client Identifier. Uniquely identifies a Client
-      in: path
-      required: true
-      schema:
-        type: string
   requestBodies:
     ModifyClientRequest:
       required: true
@@ -320,33 +179,139 @@ components:
                 scope: client.create client.read fdx:transactions:read fdx:accountbasic:read openid fdx:customerpersonal:read fdx:accountdetailed:read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
                 token_endpoint_auth_method: private_key_jwt
                 token_endpoint_auth_signing_alg: PS256
+  schemas:
+    Client:
+      type: object
+      properties:
+        client_id:
+          $ref: '#/components/schemas/client_id'
+        client_id_issued_at:
+          $ref: '#/components/schemas/client_id_issued_at'
+        client_name:
+          $ref: '#/components/schemas/client_name'
+        redirect_uris:
+          $ref: '#/components/schemas/redirect_uris'
+        grant_types:
+          $ref: '#/components/schemas/grant_types'
+        response_types:
+          $ref: '#/components/schemas/response_types'
+        scope:
+          $ref: '#/components/schemas/scope'
+        token_endpoint_auth_method:
+          $ref: '#/components/schemas/token_endpoint_auth_method'
+        id_token_signed_response_alg:
+          $ref: '#/components/schemas/id_token_signed_response_alg'
+        registration_client_uri:
+          $ref: '#/components/schemas/registration_client_uri'
+        jwks_uri:
+          $ref: '#/components/schemas/jwks_uri'
+        token_endpoint_auth_signing_alg:
+          $ref: '#/components/schemas/token_endpoint_auth_signing_alg'
+    request_object_signing_alg:
+      type: string
+      example: PS256
+      description: Algorithm which the client expects to sign the request object if a request object will be part of the authorization request sent to the Data Holder
+    client_name:
+      type: string
+      description: Human-readable string name of the client application
+      example: 11TestName1221
+    id_token_signed_response_alg:
+      type: string
+      example: PS256
+      description: Algorithm with which an id_token is to be signed
+    id_token_encrypted_response_alg:
+      type: string
+      example: RSA-OAEP
+      description: JWE alg algorithm with which an id_token is to be encrypted.
+    registration_access_token:
+      type: string
+      description: String containing a unique DCR access token to be used in subsequent operations to manage the Data Recipient
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
+    id_token_encrypted_response_enc:
+      type: string
+      example: A256GCM
+      description: JWE enc algorithm with which an id_token is to be encrypted.
+    scope:
+      type: string
+      description: String containing a space-separated list of scope values that the client can use when requesting access tokens.
+      example: client.create client.read fdx:transactions:read fdx:accountbasic:read openid fdx:customerpersonal:read fdx:accountdetailed:read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
+    jwks_uri:
+      type: string
+      example: https://www.jsonkeeper.com/b/3FJT
+      description: URL string referencing the client's JSON Web Key (JWK) Set [RFC7517] document, which contains the client's public keys
+    CreateClient:
+      type: object
+      properties:
+        client_id:
+          $ref: '#/components/schemas/client_id'
+        client_id_issued_at:
+          $ref: '#/components/schemas/client_id_issued_at'
+        client_name:
+          $ref: '#/components/schemas/client_name'
+        redirect_uris:
+          $ref: '#/components/schemas/redirect_uris'
+        grant_types:
+          $ref: '#/components/schemas/grant_types'
+        response_types:
+          $ref: '#/components/schemas/response_types'
+        scope:
+          $ref: '#/components/schemas/scope'
+        token_endpoint_auth_method:
+          $ref: '#/components/schemas/token_endpoint_auth_method'
+        id_token_signed_response_alg:
+          $ref: '#/components/schemas/id_token_signed_response_alg'
+        registration_client_uri:
+          $ref: '#/components/schemas/registration_client_uri'
+        jwks_uri:
+          $ref: '#/components/schemas/jwks_uri'
+        token_endpoint_auth_signing_alg:
+          $ref: '#/components/schemas/token_endpoint_auth_signing_alg'
+        registration_access_token:
+          $ref: '#/components/schemas/registration_access_token'
+    registration_client_uri:
+      type: string
+      description: Fully qualified URI for subsequent DCR calls (GET, PUT, DELETE) for managing the Data Recipient registration
+    token_endpoint_auth_signing_alg:
+      type: string
+      example: PS256
+      description: The algorithm used for signing the JWT
+    response_types:
+      type: array
+      items:
+        type: string
+        example: code
+      example:
+      - code
+      description: Array of OAuth 2.0 response type strings. Default value is code
+    grant_types:
+      type: array
+      items:
+        type: string
+        example: client_credentials
+      example:
+      - client_credentials
+      - authorization_code
+      - refresh_token
+      description: Array of OAuth 2.0 grants made available to the Data Recipient
+    token_endpoint_auth_method:
+      type: string
+      description: Requested authentication method for the token endpoint.
+      example: private_key_jwt
+    redirect_uris:
+      type: array
+      description: Array of redirection URI strings for use in redirect-based flows
+      items:
+        type: string
+        example: https://oauth.pstmn.io/v1/browser-callback
+      example:
+      - https://oauth.pstmn.io/v1/browser-callback
+    client_id_issued_at:
+      type: number
+      description: Time at which the client_id was issued (measured in unix seconds)
   responses:
-    GetClient:
-      description: Successful get client response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Client'
-          examples:
-            App created Successfully:
-              value:
-                client_id: 1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
-                client_id_issued_at: 1719555632
-                client_name: 11TestName1221
-                redirect_uris:
-                - https://oauth.pstmn.io/v1/browser-callback
-                grant_types:
-                - refresh_token
-                - client_credentials
-                - authorization_code
-                response_types:
-                - code
-                scope: fdx:transactions:read fdx:accountbasic:read openid client.create fdx:customerpersonal:read fdx:accountdetailed:read client.read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
-                token_endpoint_auth_method: private_key_jwt
-                id_token_signed_response_alg: RS256
-                registration_client_uri: http://localhost:8080/connect/register?client_id=1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
-                jwks_uri: https://www.jsonkeeper.com/b/3FJT
-                token_endpoint_auth_signing_alg: PS256
     ModifyClient:
       description: Successful response after modification
       content:
@@ -368,6 +333,32 @@ components:
                 response_types:
                 - code
                 scope: client.create client.read
+                token_endpoint_auth_method: private_key_jwt
+                id_token_signed_response_alg: RS256
+                registration_client_uri: http://localhost:8080/connect/register?client_id=1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
+                jwks_uri: https://www.jsonkeeper.com/b/3FJT
+                token_endpoint_auth_signing_alg: PS256
+    GetClient:
+      description: Successful get client response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Client'
+          examples:
+            App created Successfully:
+              value:
+                client_id: 1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
+                client_id_issued_at: 1719555632
+                client_name: 11TestName1221
+                redirect_uris:
+                - https://oauth.pstmn.io/v1/browser-callback
+                grant_types:
+                - refresh_token
+                - client_credentials
+                - authorization_code
+                response_types:
+                - code
+                scope: fdx:transactions:read fdx:accountbasic:read openid client.create fdx:customerpersonal:read fdx:accountdetailed:read client.read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
                 token_endpoint_auth_method: private_key_jwt
                 id_token_signed_response_alg: RS256
                 registration_client_uri: http://localhost:8080/connect/register?client_id=1GvkBUKMqKuj7DukoDWFcdhqbmBQBZdpz847-8kY3Ck
@@ -404,6 +395,15 @@ components:
               value:
                 error: We have encountered some internal error in processing your request.
                 errorDescription: '400 : "{"error_description":"OpenID Client Registration Error: An error occurred reading the OpenID Client Registration: redirect_uris cannot be null","error":"invalid_request","error_uri":"https://openid.net/specs/openid-connect-registration-1_0.html#RegistrationError"}"'
+  parameters:
+    clientId:
+      name: clientId
+      example: dh-fdx-client-registrar-2
+      description: Client Identifier. Uniquely identifies a Client
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
