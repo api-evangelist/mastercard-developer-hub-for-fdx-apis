@@ -301,49 +301,6 @@ paths:
                 errorDescription: Request validation failed. Either authorization code is blank or invalid.
 components:
   schemas:
-    Next:
-      type: object
-      properties:
-        href:
-          type: string
-          description: This field indicate href
-          example: href link
-    AccountConsentResp:
-      type: object
-      properties:
-        customerId:
-          type: string
-          description: This field indicate customer Id
-          example: '12345'
-        consentId:
-          type: string
-          description: This field indicate consent Id
-          example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
-        endDate:
-          type: string
-          description: 'This field indicate endDate '
-          format: date-time
-          example: 2024-07-31 12:00:00+00:00
-    Links:
-      type: object
-      properties:
-        next:
-          $ref: '#/components/schemas/Next'
-      description: This field indicate links object
-      example: links object
-    Accounts:
-      type: object
-      properties:
-        page:
-          $ref: '#/components/schemas/Page'
-        links:
-          $ref: '#/components/schemas/Links'
-        accounts:
-          type: array
-          description: This field indicate list of accounts object
-          example: list of accounts object
-          items:
-            $ref: '#/components/schemas/AccountListResponsePojo'
     AccountListResponsePojo:
       type: object
       properties:
@@ -431,6 +388,26 @@ components:
           example: '10001'
       description: This field indicate list of accounts object
       example: list of accounts object
+    Accounts:
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        accounts:
+          type: array
+          description: This field indicate list of accounts object
+          example: list of accounts object
+          items:
+            $ref: '#/components/schemas/AccountListResponsePojo'
+    Links:
+      type: object
+      properties:
+        next:
+          $ref: '#/components/schemas/Next'
+      description: This field indicate links object
+      example: links object
     Page:
       type: object
       properties:
@@ -489,6 +466,29 @@ components:
           description: This field indicate consent Id
           example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
       description: This field indicate the Account Consent POJO
+    Next:
+      type: object
+      properties:
+        href:
+          type: string
+          description: This field indicate href
+          example: href link
+    AccountConsentResp:
+      type: object
+      properties:
+        customerId:
+          type: string
+          description: This field indicate customer Id
+          example: '12345'
+        consentId:
+          type: string
+          description: This field indicate consent Id
+          example: eb1a3f4b-9974-4c80-8364-c4ec8c6ff9f7
+        endDate:
+          type: string
+          description: 'This field indicate endDate '
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
   securitySchemes:
     apiKey:
       type: apiKey

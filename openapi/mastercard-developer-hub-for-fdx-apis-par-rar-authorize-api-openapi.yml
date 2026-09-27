@@ -29,19 +29,11 @@ paths:
       security:
       - {}
 components:
-  responses:
-    PAR:
-      description: Successful response containing request_uri
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Par'
-          examples:
-            Successful response:
-              value:
-                expires_in: 90
-                request_uri: urn:ietf:params:oauth2:8df8d6a2-72c4-49e6-8f12-e846bb01a6c2
   schemas:
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
     Par:
       type: object
       properties:
@@ -57,10 +49,18 @@ components:
       type: string
       example: refresh_token OR client_credentials OR authorization_code
       description: The grant type(s) supported by the Authorisation Server.
-    client_id:
-      type: string
-      example: dh-fdx-client-registrar-2
-      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
+  responses:
+    PAR:
+      description: Successful response containing request_uri
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Par'
+          examples:
+            Successful response:
+              value:
+                expires_in: 90
+                request_uri: urn:ietf:params:oauth2:8df8d6a2-72c4-49e6-8f12-e846bb01a6c2
   requestBodies:
     PARRequestBody:
       required: true

@@ -29,52 +29,7 @@ paths:
       security:
       - {}
 components:
-  requestBodies:
-    IntrospectRequestBody:
-      required: true
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              client_assertion:
-                type: string
-                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-                description: The encoded assertion JWT.
-              client_assertion_type:
-                type: string
-                example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-                description: This MUST be set to urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-              client_id:
-                $ref: '#/components/schemas/client_id'
-              token:
-                type: string
-                example: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6niRNe00ygCF_o0Ky6upoZWJ
-                description: Token to be introspected
-              token_type_hint:
-                type: string
-                example: refresh_token
-                description: Indicates the type of token being passed. Valid values are access_token, id_token, refresh_token, and device_secret.
-          examples:
-            Introspection - AccessToken:
-              value:
-                client_assertion: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-                client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-                client_id: dh-fdx-client-registrar-2
-                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-                token_type_hint: access_token
-            Introspection - RefreshToken:
-              value:
-                client_assertion: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-                client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-                client_id: dh-fdx-client-registrar-2
-                token: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6niRNe00ygCF_o0Ky6upoZWJ
-                token_type_hint: refresh_token
   schemas:
-    client_id:
-      type: string
-      example: dh-fdx-client-registrar-2
-      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
     TokenIntrospection:
       type: object
       properties:
@@ -125,6 +80,51 @@ components:
           type: string
           description: The type of token.
           example: Bearer
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
+  requestBodies:
+    IntrospectRequestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              client_assertion:
+                type: string
+                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                description: The encoded assertion JWT.
+              client_assertion_type:
+                type: string
+                example: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+                description: This MUST be set to urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+              client_id:
+                $ref: '#/components/schemas/client_id'
+              token:
+                type: string
+                example: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6niRNe00ygCF_o0Ky6upoZWJ
+                description: Token to be introspected
+              token_type_hint:
+                type: string
+                example: refresh_token
+                description: Indicates the type of token being passed. Valid values are access_token, id_token, refresh_token, and device_secret.
+          examples:
+            Introspection - AccessToken:
+              value:
+                client_assertion: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+                client_id: dh-fdx-client-registrar-2
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                token_type_hint: access_token
+            Introspection - RefreshToken:
+              value:
+                client_assertion: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+                client_id: dh-fdx-client-registrar-2
+                token: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6niRNe00ygCF_o0Ky6upoZWJ
+                token_type_hint: refresh_token
   responses:
     Introspect:
       description: Introspection response as per token type
