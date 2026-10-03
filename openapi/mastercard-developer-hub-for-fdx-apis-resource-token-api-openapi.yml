@@ -29,52 +29,6 @@ paths:
       security:
       - {}
 components:
-  schemas:
-    Token:
-      type: object
-      properties:
-        access_token:
-          type: string
-          description: The access token string as issued by the authorization server.
-          example: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6niRNe00ygCF_o0Ky6upoZWJ
-        scope:
-          type: string
-          description: The scopes contained in the access token.
-          example: client.read
-        token_type:
-          type: string
-          description: The type of token.
-          example: refresh_token
-        expires_in:
-          type: number
-          description: The expiration time of the access token in seconds.
-          example: 3600
-    client_id:
-      type: string
-      example: dh-fdx-client-registrar-2
-      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
-    grant_type:
-      type: string
-      example: refresh_token OR client_credentials OR authorization_code
-      description: The grant type(s) supported by the Authorisation Server.
-    scope:
-      type: string
-      description: String containing a space-separated list of scope values that the client can use when requesting access tokens.
-      example: client.create client.read fdx:transactions:read fdx:accountbasic:read openid fdx:customerpersonal:read fdx:accountdetailed:read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
-  responses:
-    CreateToken:
-      description: The access token was successfully created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Token'
-          examples:
-            Successful Token Response:
-              value:
-                access_token: eyJraWQiOiI5OWJjMzNlZS1hMDRkODktOGFlMC01ZGViZDIxNDVhYWIiLCJ0eXAiOiJhdCtqd3QiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiZW50LXJlZ2lzdHJhci0yIiwiYXVkIjoiZGgtZmR4LWNsaWVudC1yZWdpc3RyYXItMiIc2NvcGUiOlsiY2xpZW50LnJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9mZHgtbW9jay1hdXRob3JpemF0aW9uLXNlcnZlci5kZXYuZmluaS5jaXR5IiwiZXhwIjoxNzIwNjExNjAyLCJpYXQiOjE3MjA2MTEzMDIsImp0aSI6ImQ2NzcxZjU1LTU2YzAtNDU0Yi04ZjY3LWZmODUzYjdkZTZiMCJ9.lyANAqFMYkcTOtv0G6v1y83LniEQPvZVrzr9d2DbPB3Uqk-0yB8CoM-Z8REOfL0dMVtxRLAyrUKLCNVXcMHljaliXoOfy6J3-VfJoLYZkV9IjL5uVhfkOITnfWYPf9wyFmnIBJEpY57qAsZhyLpe7x_uw9Jcjb9w2zV1qnyFEcn-VPHJb0Wg2FIC5bSB1RoptWRYt_X9Gaxm1bSBg5gSiJr2LKereB_P3pmvqrD3E5I-_GWt3Iw5q6vUqnu4P9EUT0Eri8Ez3Q3oJMn6xTiBd5DORe0w45zLdyqiIK4-qTiVAGGmPfb4fGZzU-Pa0abE2jVt03hITzwUtBvWgMi4Cw
-                scope: client.read
-                token_type: Bearer
-                expires_in: 299
   requestBodies:
     CreateTokenRequest:
       required: true
@@ -134,6 +88,52 @@ components:
                 grant_type: refresh_token
                 redirect_uri: https://oauth.pstmn.io/v1/browser-callback
                 refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+  schemas:
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
+    scope:
+      type: string
+      description: String containing a space-separated list of scope values that the client can use when requesting access tokens.
+      example: client.create client.read fdx:transactions:read fdx:accountbasic:read openid fdx:customerpersonal:read fdx:accountdetailed:read fdx:investments:read fdx:paymentsupport:read fdx:accountpayments:read fdx:bills:read fdx:images:read fdx:rewards:read fdx:tax:read fdx:statements:read fdx:customercontact:read
+    grant_type:
+      type: string
+      example: refresh_token OR client_credentials OR authorization_code
+      description: The grant type(s) supported by the Authorisation Server.
+    Token:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: The access token string as issued by the authorization server.
+          example: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6niRNe00ygCF_o0Ky6upoZWJ
+        scope:
+          type: string
+          description: The scopes contained in the access token.
+          example: client.read
+        token_type:
+          type: string
+          description: The type of token.
+          example: refresh_token
+        expires_in:
+          type: number
+          description: The expiration time of the access token in seconds.
+          example: 3600
+  responses:
+    CreateToken:
+      description: The access token was successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Token'
+          examples:
+            Successful Token Response:
+              value:
+                access_token: eyJraWQiOiI5OWJjMzNlZS1hMDRkODktOGFlMC01ZGViZDIxNDVhYWIiLCJ0eXAiOiJhdCtqd3QiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiZW50LXJlZ2lzdHJhci0yIiwiYXVkIjoiZGgtZmR4LWNsaWVudC1yZWdpc3RyYXItMiIc2NvcGUiOlsiY2xpZW50LnJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9mZHgtbW9jay1hdXRob3JpemF0aW9uLXNlcnZlci5kZXYuZmluaS5jaXR5IiwiZXhwIjoxNzIwNjExNjAyLCJpYXQiOjE3MjA2MTEzMDIsImp0aSI6ImQ2NzcxZjU1LTU2YzAtNDU0Yi04ZjY3LWZmODUzYjdkZTZiMCJ9.lyANAqFMYkcTOtv0G6v1y83LniEQPvZVrzr9d2DbPB3Uqk-0yB8CoM-Z8REOfL0dMVtxRLAyrUKLCNVXcMHljaliXoOfy6J3-VfJoLYZkV9IjL5uVhfkOITnfWYPf9wyFmnIBJEpY57qAsZhyLpe7x_uw9Jcjb9w2zV1qnyFEcn-VPHJb0Wg2FIC5bSB1RoptWRYt_X9Gaxm1bSBg5gSiJr2LKereB_P3pmvqrD3E5I-_GWt3Iw5q6vUqnu4P9EUT0Eri8Ez3Q3oJMn6xTiBd5DORe0w45zLdyqiIK4-qTiVAGGmPfb4fGZzU-Pa0abE2jVt03hITzwUtBvWgMi4Cw
+                scope: client.read
+                token_type: Bearer
+                expires_in: 299
   securitySchemes:
     bearerAuth:
       type: http

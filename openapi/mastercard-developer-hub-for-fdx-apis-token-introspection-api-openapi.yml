@@ -30,6 +30,10 @@ paths:
       - {}
 components:
   schemas:
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
     TokenIntrospection:
       type: object
       properties:
@@ -80,10 +84,6 @@ components:
           type: string
           description: The type of token.
           example: Bearer
-    client_id:
-      type: string
-      example: dh-fdx-client-registrar-2
-      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
   requestBodies:
     IntrospectRequestBody:
       required: true
