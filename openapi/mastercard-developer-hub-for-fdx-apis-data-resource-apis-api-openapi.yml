@@ -462,6 +462,229 @@ paths:
                 errorDescription: Request validation failed. Either authorization code is blank or invalid.
 components:
   schemas:
+    AccountListResponsePojo:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        accountCategory:
+          type: string
+          description: This field indicate account Category
+          example: DEPOSIT_ACCOUNT
+        accountType:
+          type: string
+          description: This field indicate type of account
+          example: CHECKING
+        nickname:
+          type: string
+          description: This field indicate nickname of customer
+          example: My Checking Acc XXXX3223
+        status:
+          type: string
+          description: This field indicate status of account
+          example: OPEN
+        balanceAsOf:
+          type: string
+          description: This field indicate balance date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountNumber:
+          type: string
+          description: This field indicate accountNumber
+          example: '7000003223'
+        accountNumberDisplay:
+          type: string
+          description: This field indicate last four digit of accountNumber
+          example: '3223'
+        productName:
+          type: string
+          description: This field indicate productName
+          example: Cash Management
+        description:
+          type: string
+          description: This field indicate description of account
+          example: My Checking Acc XXXX3223
+        accountOpenDate:
+          type: string
+          description: This field indicate account open date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountCloseDate:
+          type: string
+          description: This field indicate account close date
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        currentBalance:
+          type: number
+          description: This field indicate current balance of account
+          format: double
+          example: 4984.46
+        openingDayBalance:
+          type: number
+          description: This field indicate opening day balance
+          format: double
+          example: 500
+        principalBalance:
+          type: number
+          description: This field indicate principal balance
+          format: double
+          example: 100
+        availableCashBalance:
+          type: number
+          description: This field indicate available cash balance
+          format: double
+          example: 100
+        accountId:
+          type: string
+          description: This field indicate institution account Id
+          example: '10001'
+      description: This field indicate list of accounts object
+      example: list of accounts object
+    DeliveryAddress:
+      type: object
+      properties:
+        line1:
+          type: string
+          description: This field indicate line1 of delivery address
+          example: 1850 N Clark St
+        line2:
+          type: string
+          description: This field indicate line2 of delivery address
+          example: no. 103
+        line3:
+          type: string
+          description: This field indicate line3 of delivery address
+          example: st.134
+        city:
+          type: string
+          description: This field indicate city of delivery address
+          example: Chicago
+        state:
+          type: string
+          description: This field indicate state of delivery address
+          example: IL
+        zip:
+          type: string
+          description: This field indicate zip of delivery address
+          example: '60614'
+        country:
+          type: string
+          description: This field indicate country of delivery address
+          example: US
+        postalCode:
+          type: string
+          description: This field indicate postalCode of delivery address
+          example: '60614'
+        type:
+          type: string
+          description: This field indicate type of delivery address. Possible values are MAILING,MAIN,STATEMENT,PREVIOUS,BUSINESS,HOME
+          example: HOME
+      description: This field indicate list of addresses
+      example: '[''list of address'']'
+    TransactionsDetails:
+      type: object
+      properties:
+        accountCategory:
+          type: string
+          description: This field indicate timestamp of transaction
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        accountId:
+          type: string
+          description: This field indicate account Id
+          example: '10001'
+        transactionId:
+          type: string
+          description: This field indicate transaction Id
+          example: '12455'
+        transactionType:
+          type: string
+          description: This field indicate transaction type
+          example: POSCREDIT
+        referenceTransactionId:
+          type: string
+          description: This field indicate reference transaction id
+          example: '34555'
+        postedTimestamp:
+          type: string
+          description: This field indicate posted timestamp
+          format: date-time
+          example: 2019-07-31 12:00:00+00:00
+        transactionTimestamp:
+          type: string
+          format: date-time
+          description: This field indicate transaction timestamp
+          example: 2019-07-31 12:00:00+00:00
+        description:
+          type: string
+          description: This field indicate description
+          example: INTEREST PAYMENT
+        memo:
+          type: string
+          description: This field indicate memo
+          example: DEBIT
+        debitCreditMemo:
+          type: string
+          description: This field indicate debit credit memo
+          example: DEBIT
+        category:
+          type: string
+          description: This field indicate account Category
+          example: DEPOSIT_ACCOUNT
+        subCategory:
+          type: string
+          description: This field indicate Category
+          example: CHECKING
+        reference:
+          type: string
+          description: This field indicate account sub Category
+          example: DEPOSIT_ACCOUNT
+        status:
+          type: string
+          description: This field indicate transaction status
+          example: POSTED
+        amount:
+          type: number
+          description: This field indicate transaction amount
+          format: double
+          example: 4000
+        foreignAmount:
+          type: number
+          description: This field indicate foreign amount
+          format: double
+          example: 2000
+        foreignCurrency:
+          type: string
+          description: This field indicate foreign currency
+          example: USD
+        imageIds:
+          type: array
+          description: This field indicate imageId
+          example: DEPOSIT_ACCOUNT
+          items:
+            type: string
+            description: This field indicate imageId
+            example: DEPOSIT_ACCOUNT
+        payee:
+          type: string
+          description: This field indicate payee name
+          example: Test User
+        checkNumber:
+          type: integer
+          description: This field indicate checknumber
+          format: int32
+          example: 45400222
+        paymentDetails:
+          $ref: '#/components/schemas/PaymentDetails'
     AccountDescriptor:
       type: object
       properties:
@@ -606,92 +829,128 @@ components:
           type: string
           description: This field indicate institution account Id
           example: '10001'
-    PaymentDetails:
+    TransferLimits:
       type: object
       properties:
-        principalAmount:
-          type: number
-          description: This field indicate principalAmount
-          format: double
-          example: 4000.0
-        interestAmount:
-          type: number
-          description: This field indicate interestAmount
-          format: double
-          example: 200.0
-        insuranceAmount:
-          type: number
-          description: This field indicate insuranceAmount
-          format: double
-          example: 3000000
-        escrowAmount:
-          type: number
-          description: This field indicate escrowAmount
-          format: double
-          example: 10003
-        pmiAmount:
-          type: number
-          description: This field indicate pmiAmount
-          format: double
-          example: 2000
-        feesAmount:
-          type: number
-          description: This field indicate feesAmount
-          format: double
-          example: 200.0
-    Page:
+        out:
+          $ref: '#/components/schemas/TransferDataOut'
+    Accounts:
       type: object
       properties:
-        nextOffset:
-          type: string
-          description: This field indicate next offset
-          example: '10'
-        total:
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        accounts:
+          type: array
+          description: This field indicate list of accounts object
+          example: list of accounts object
+          items:
+            $ref: '#/components/schemas/AccountListResponsePojo'
+    Transactions:
+      type: object
+      properties:
+        errorCode:
           type: integer
-          description: This field indicate total
+          description: This field indicate the error code of application
           format: int32
-          example: 50
-      description: This field indicate page object
-      example: page object
-    AccountPaymentNetwork:
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        transactions:
+          type: array
+          description: This field indicate list of transactions object
+          example: list of transactions object
+          items:
+            $ref: '#/components/schemas/TransactionsDetails'
+    TransferDetails:
+      type: object
+      properties:
+        resetsOn:
+          type: string
+          description: This field indicate resetsOn
+          example: 'TRUE'
+        transferMaxAmount:
+          type: number
+          description: This field indicate transfer max amount
+          format: double
+          example: 20000
+        transferRemainingAmount:
+          type: number
+          description: This field indicate transfer remaining amount
+          format: double
+          example: 4000
+        maxOccurrence:
+          type: integer
+          description: This field indicate maxOccurrence
+          format: int32
+          example: 1
+        remainingOccurrence:
+          type: integer
+          description: This field indicate remainingOccurrence
+          format: int32
+          example: 0
+    TransferDataOut:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/TransferDetails'
+        week:
+          $ref: '#/components/schemas/TransferDetails'
+        month:
+          $ref: '#/components/schemas/TransferDetails'
+        year:
+          $ref: '#/components/schemas/TransferDetails'
+        transaction:
+          $ref: '#/components/schemas/TransferDetails'
+    Links:
+      type: object
+      properties:
+        next:
+          $ref: '#/components/schemas/Next'
+      description: This field indicate links object
+      example: links object
+    Next:
+      type: object
+      properties:
+        href:
+          type: string
+          description: This field indicate href
+          example: href link
+    Statement:
       type: object
       properties:
         accountId:
           type: string
           description: This field indicate account Id
           example: '10001'
-        bankId:
+        statementId:
           type: string
-          description: This field indicate bank Id
-          example: '34567'
-        identifier:
+          description: This field indicate statement Id
+          example: '30001'
+        statementDate:
           type: string
-          description: This field indicate identifier Id
-          example: '56660'
-        identifierType:
+          description: This field indicate statementDate
+          format: date-time
+          example: 2024-07-31 12:00:00+00:00
+        description:
           type: string
-          description: This field indicate identifierType
-          example: TEST
-        type:
+          description: This field indicate description
+          example: MONTHLY_STATMENT
+        status:
           type: string
-          description: This field indicate type
-          example: Payment
-        transferIn:
-          type: boolean
-          description: 'This field indicate transferIn '
-          example: false
-        transferOut:
-          type: boolean
-          description: 'This field indicate transferOut '
-          example: false
-        supportsRequestForPayment:
-          type: boolean
-          description: This field indicate supportsRequestForPayment Id
-          example: false
-        transferLimits:
-          $ref: '#/components/schemas/TransferLimits'
-      description: This field indicate list of paymentNetworks object
-      example: list of paymentNetworks object
+          description: This field indicate status
+          example: AVAILABLE
+      description: This field indicate list of statements object
+      example: list of statements object
     AccountHolders:
       type: object
       properties:
@@ -736,32 +995,138 @@ components:
           example: 2019-07-31 12:00:00+00:00
       description: This field indicate list of holders
       example: list of holders
-    Statement:
+    AccountPaymentNetworkList:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        page:
+          $ref: '#/components/schemas/Page'
+        paymentNetworks:
+          type: array
+          description: This field indicate list of paymentNetworks object
+          example: list of paymentNetworks object
+          items:
+            $ref: '#/components/schemas/AccountPaymentNetwork'
+    PaymentDetails:
+      type: object
+      properties:
+        principalAmount:
+          type: number
+          description: This field indicate principalAmount
+          format: double
+          example: 4000.0
+        interestAmount:
+          type: number
+          description: This field indicate interestAmount
+          format: double
+          example: 200.0
+        insuranceAmount:
+          type: number
+          description: This field indicate insuranceAmount
+          format: double
+          example: 3000000
+        escrowAmount:
+          type: number
+          description: This field indicate escrowAmount
+          format: double
+          example: 10003
+        pmiAmount:
+          type: number
+          description: This field indicate pmiAmount
+          format: double
+          example: 2000
+        feesAmount:
+          type: number
+          description: This field indicate feesAmount
+          format: double
+          example: 200.0
+    AccountPaymentNetwork:
       type: object
       properties:
         accountId:
           type: string
           description: This field indicate account Id
           example: '10001'
-        statementId:
+        bankId:
           type: string
-          description: This field indicate statement Id
-          example: '30001'
-        statementDate:
+          description: This field indicate bank Id
+          example: '34567'
+        identifier:
           type: string
-          description: This field indicate statementDate
-          format: date-time
-          example: 2024-07-31 12:00:00+00:00
-        description:
+          description: This field indicate identifier Id
+          example: '56660'
+        identifierType:
           type: string
-          description: This field indicate description
-          example: MONTHLY_STATMENT
-        status:
+          description: This field indicate identifierType
+          example: TEST
+        type:
           type: string
-          description: This field indicate status
-          example: AVAILABLE
-      description: This field indicate list of statements object
-      example: list of statements object
+          description: This field indicate type
+          example: Payment
+        transferIn:
+          type: boolean
+          description: 'This field indicate transferIn '
+          example: false
+        transferOut:
+          type: boolean
+          description: 'This field indicate transferOut '
+          example: false
+        supportsRequestForPayment:
+          type: boolean
+          description: This field indicate supportsRequestForPayment Id
+          example: false
+        transferLimits:
+          $ref: '#/components/schemas/TransferLimits'
+      description: This field indicate list of paymentNetworks object
+      example: list of paymentNetworks object
+    Statements:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: This field indicate the error code of application
+          format: int32
+          readOnly: true
+          example: 401
+        errorMessage:
+          type: string
+          description: This field indicate the error message
+          readOnly: true
+          example: UNAUTHORIZED
+        page:
+          $ref: '#/components/schemas/Page'
+        links:
+          $ref: '#/components/schemas/Links'
+        statements:
+          type: array
+          description: This field indicate list of statements object
+          example: list of statements object
+          items:
+            $ref: '#/components/schemas/Statement'
+    Page:
+      type: object
+      properties:
+        nextOffset:
+          type: string
+          description: This field indicate next offset
+          example: '10'
+        total:
+          type: integer
+          description: This field indicate total
+          format: int32
+          example: 50
+      description: This field indicate page object
+      example: page object
     AccountContact:
       type: object
       properties:
@@ -806,28 +1171,19 @@ components:
           example: '[''list of telephones'']'
           items:
             $ref: '#/components/schemas/TelephoneNumber'
-    AccountPaymentNetworkList:
+    TelephoneNumber:
       type: object
       properties:
-        errorCode:
-          type: integer
-          description: This field indicate the error code of application
-          format: int32
-          readOnly: true
-          example: 401
-        errorMessage:
+        type:
           type: string
-          description: This field indicate the error message
-          readOnly: true
-          example: UNAUTHORIZED
-        page:
-          $ref: '#/components/schemas/Page'
-        paymentNetworks:
-          type: array
-          description: This field indicate list of paymentNetworks object
-          example: list of paymentNetworks object
-          items:
-            $ref: '#/components/schemas/AccountPaymentNetwork'
+          description: This field indicate country of telephone number
+          example: US
+        number:
+          type: string
+          description: This field indicate telephone number
+          example: +1-34567-2456
+      description: This field indicate list of telephones
+      example: '[''list of telephones'']'
     AccountHolderName:
       type: object
       properties:
@@ -857,362 +1213,6 @@ components:
           example: IV
       description: This field indicate name pojo
       example: name pojo
-    TransferLimits:
-      type: object
-      properties:
-        out:
-          $ref: '#/components/schemas/TransferDataOut'
-    Transactions:
-      type: object
-      properties:
-        errorCode:
-          type: integer
-          description: This field indicate the error code of application
-          format: int32
-          readOnly: true
-          example: 401
-        errorMessage:
-          type: string
-          description: This field indicate the error message
-          readOnly: true
-          example: UNAUTHORIZED
-        page:
-          $ref: '#/components/schemas/Page'
-        links:
-          $ref: '#/components/schemas/Links'
-        transactions:
-          type: array
-          description: This field indicate list of transactions object
-          example: list of transactions object
-          items:
-            $ref: '#/components/schemas/TransactionsDetails'
-    Statements:
-      type: object
-      properties:
-        errorCode:
-          type: integer
-          description: This field indicate the error code of application
-          format: int32
-          readOnly: true
-          example: 401
-        errorMessage:
-          type: string
-          description: This field indicate the error message
-          readOnly: true
-          example: UNAUTHORIZED
-        page:
-          $ref: '#/components/schemas/Page'
-        links:
-          $ref: '#/components/schemas/Links'
-        statements:
-          type: array
-          description: This field indicate list of statements object
-          example: list of statements object
-          items:
-            $ref: '#/components/schemas/Statement'
-    TransferDataOut:
-      type: object
-      properties:
-        day:
-          $ref: '#/components/schemas/TransferDetails'
-        week:
-          $ref: '#/components/schemas/TransferDetails'
-        month:
-          $ref: '#/components/schemas/TransferDetails'
-        year:
-          $ref: '#/components/schemas/TransferDetails'
-        transaction:
-          $ref: '#/components/schemas/TransferDetails'
-    Accounts:
-      type: object
-      properties:
-        page:
-          $ref: '#/components/schemas/Page'
-        links:
-          $ref: '#/components/schemas/Links'
-        accounts:
-          type: array
-          description: This field indicate list of accounts object
-          example: list of accounts object
-          items:
-            $ref: '#/components/schemas/AccountListResponsePojo'
-    DeliveryAddress:
-      type: object
-      properties:
-        line1:
-          type: string
-          description: This field indicate line1 of delivery address
-          example: 1850 N Clark St
-        line2:
-          type: string
-          description: This field indicate line2 of delivery address
-          example: no. 103
-        line3:
-          type: string
-          description: This field indicate line3 of delivery address
-          example: st.134
-        city:
-          type: string
-          description: This field indicate city of delivery address
-          example: Chicago
-        state:
-          type: string
-          description: This field indicate state of delivery address
-          example: IL
-        zip:
-          type: string
-          description: This field indicate zip of delivery address
-          example: '60614'
-        country:
-          type: string
-          description: This field indicate country of delivery address
-          example: US
-        postalCode:
-          type: string
-          description: This field indicate postalCode of delivery address
-          example: '60614'
-        type:
-          type: string
-          description: This field indicate type of delivery address. Possible values are MAILING,MAIN,STATEMENT,PREVIOUS,BUSINESS,HOME
-          example: HOME
-      description: This field indicate list of addresses
-      example: '[''list of address'']'
-    Next:
-      type: object
-      properties:
-        href:
-          type: string
-          description: This field indicate href
-          example: href link
-    TransactionsDetails:
-      type: object
-      properties:
-        accountCategory:
-          type: string
-          description: This field indicate timestamp of transaction
-          format: date-time
-          example: 2019-07-31 12:00:00+00:00
-        accountId:
-          type: string
-          description: This field indicate account Id
-          example: '10001'
-        transactionId:
-          type: string
-          description: This field indicate transaction Id
-          example: '12455'
-        transactionType:
-          type: string
-          description: This field indicate transaction type
-          example: POSCREDIT
-        referenceTransactionId:
-          type: string
-          description: This field indicate reference transaction id
-          example: '34555'
-        postedTimestamp:
-          type: string
-          description: This field indicate posted timestamp
-          format: date-time
-          example: 2019-07-31 12:00:00+00:00
-        transactionTimestamp:
-          type: string
-          format: date-time
-          description: This field indicate transaction timestamp
-          example: 2019-07-31 12:00:00+00:00
-        description:
-          type: string
-          description: This field indicate description
-          example: INTEREST PAYMENT
-        memo:
-          type: string
-          description: This field indicate memo
-          example: DEBIT
-        debitCreditMemo:
-          type: string
-          description: This field indicate debit credit memo
-          example: DEBIT
-        category:
-          type: string
-          description: This field indicate account Category
-          example: DEPOSIT_ACCOUNT
-        subCategory:
-          type: string
-          description: This field indicate Category
-          example: CHECKING
-        reference:
-          type: string
-          description: This field indicate account sub Category
-          example: DEPOSIT_ACCOUNT
-        status:
-          type: string
-          description: This field indicate transaction status
-          example: POSTED
-        amount:
-          type: number
-          description: This field indicate transaction amount
-          format: double
-          example: 4000
-        foreignAmount:
-          type: number
-          description: This field indicate foreign amount
-          format: double
-          example: 2000
-        foreignCurrency:
-          type: string
-          description: This field indicate foreign currency
-          example: USD
-        imageIds:
-          type: array
-          description: This field indicate imageId
-          example: DEPOSIT_ACCOUNT
-          items:
-            type: string
-            description: This field indicate imageId
-            example: DEPOSIT_ACCOUNT
-        payee:
-          type: string
-          description: This field indicate payee name
-          example: Test User
-        checkNumber:
-          type: integer
-          description: This field indicate checknumber
-          format: int32
-          example: 45400222
-        paymentDetails:
-          $ref: '#/components/schemas/PaymentDetails'
-    TelephoneNumber:
-      type: object
-      properties:
-        type:
-          type: string
-          description: This field indicate country of telephone number
-          example: US
-        number:
-          type: string
-          description: This field indicate telephone number
-          example: +1-34567-2456
-      description: This field indicate list of telephones
-      example: '[''list of telephones'']'
-    TransferDetails:
-      type: object
-      properties:
-        resetsOn:
-          type: string
-          description: This field indicate resetsOn
-          example: 'TRUE'
-        transferMaxAmount:
-          type: number
-          description: This field indicate transfer max amount
-          format: double
-          example: 20000
-        transferRemainingAmount:
-          type: number
-          description: This field indicate transfer remaining amount
-          format: double
-          example: 4000
-        maxOccurrence:
-          type: integer
-          description: This field indicate maxOccurrence
-          format: int32
-          example: 1
-        remainingOccurrence:
-          type: integer
-          description: This field indicate remainingOccurrence
-          format: int32
-          example: 0
-    AccountListResponsePojo:
-      type: object
-      properties:
-        errorCode:
-          type: integer
-          description: This field indicate the error code of application
-          format: int32
-          readOnly: true
-          example: 401
-        errorMessage:
-          type: string
-          description: This field indicate the error message
-          readOnly: true
-          example: UNAUTHORIZED
-        accountCategory:
-          type: string
-          description: This field indicate account Category
-          example: DEPOSIT_ACCOUNT
-        accountType:
-          type: string
-          description: This field indicate type of account
-          example: CHECKING
-        nickname:
-          type: string
-          description: This field indicate nickname of customer
-          example: My Checking Acc XXXX3223
-        status:
-          type: string
-          description: This field indicate status of account
-          example: OPEN
-        balanceAsOf:
-          type: string
-          description: This field indicate balance date
-          format: date-time
-          example: 2019-07-31 12:00:00+00:00
-        accountNumber:
-          type: string
-          description: This field indicate accountNumber
-          example: '7000003223'
-        accountNumberDisplay:
-          type: string
-          description: This field indicate last four digit of accountNumber
-          example: '3223'
-        productName:
-          type: string
-          description: This field indicate productName
-          example: Cash Management
-        description:
-          type: string
-          description: This field indicate description of account
-          example: My Checking Acc XXXX3223
-        accountOpenDate:
-          type: string
-          description: This field indicate account open date
-          format: date-time
-          example: 2019-07-31 12:00:00+00:00
-        accountCloseDate:
-          type: string
-          description: This field indicate account close date
-          format: date-time
-          example: 2019-07-31 12:00:00+00:00
-        currentBalance:
-          type: number
-          description: This field indicate current balance of account
-          format: double
-          example: 4984.46
-        openingDayBalance:
-          type: number
-          description: This field indicate opening day balance
-          format: double
-          example: 500
-        principalBalance:
-          type: number
-          description: This field indicate principal balance
-          format: double
-          example: 100
-        availableCashBalance:
-          type: number
-          description: This field indicate available cash balance
-          format: double
-          example: 100
-        accountId:
-          type: string
-          description: This field indicate institution account Id
-          example: '10001'
-      description: This field indicate list of accounts object
-      example: list of accounts object
-    Links:
-      type: object
-      properties:
-        next:
-          $ref: '#/components/schemas/Next'
-      description: This field indicate links object
-      example: links object
   securitySchemes:
     apiKey:
       type: apiKey

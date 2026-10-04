@@ -36,48 +36,6 @@ paths:
           $ref: '#/components/responses/AuthorizeURL'
 components:
   parameters:
-    ResponseType:
-      name: response_type
-      in: query
-      schema:
-        type: string
-        example: code
-      description: The type of response requested. `code` for an authorization code or `token` for an implicit token.
-    RequestJWT:
-      name: request
-      in: query
-      schema:
-        type: string
-        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-      description: JWT request object for non par flow
-    RedirectUri:
-      name: redirect_uri
-      in: query
-      schema:
-        type: string
-        example: https://oauth.pstmn.io/v1/browser callback
-      description: The URI to which the authorization server will redirect the user after granting or denying access.
-    Scope:
-      name: scope
-      in: query
-      schema:
-        type: string
-        example: fdx:transactions:read%20fdx:accountbasic:read%20openid%20fdx:customerpersonal:read%20fdx:accountdetailed:read%20fdx:investments:read%20fdx:paymentsupport:read%20fdx:accountpayments:read%20fdx:bills:read%20fdx:images:read%20fdx:rewards:read%20fdx:tax:read%20fdx:statements:read%20fdx:customercontact:read
-      description: The scope of access requested by the client. For example, `read` or `write`.
-    clientIdQuery:
-      name: client_id
-      in: query
-      schema:
-        type: string
-        example: dh fdx client registrar 2
-      description: The client identifier issued to the client during the registration process.
-    RequestUri:
-      name: request_uri
-      in: query
-      schema:
-        type: string
-        example: urn:ietf:params:oauth2:61fa4c96 3f76 422e 83b4 00e4bad98549
-      description: The URI generated from PAR endpoint.
     CodeChallengeMethod:
       name: code_challenge_method
       in: query
@@ -85,13 +43,27 @@ components:
         type: string
         example: S256
       description: The method used to generate the code challenge (e.g., `plain` or `S256`).
-    State:
-      name: state
+    RedirectUri:
+      name: redirect_uri
       in: query
       schema:
         type: string
-        example: state
-      description: A client generated value used to maintain state between the request and callback to prevent CSRF attacks.
+        example: https://oauth.pstmn.io/v1/browser callback
+      description: The URI to which the authorization server will redirect the user after granting or denying access.
+    RequestJWT:
+      name: request
+      in: query
+      schema:
+        type: string
+        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+      description: JWT request object for non par flow
+    clientIdQuery:
+      name: client_id
+      in: query
+      schema:
+        type: string
+        example: dh fdx client registrar 2
+      description: The client identifier issued to the client during the registration process.
     CodeChallenge:
       name: code_challenge
       in: query
@@ -99,6 +71,34 @@ components:
         type: string
         example: nZYZ UOfWV7Nkkll19ALM6mrcC7eXVWUMPYpQQ
       description: A code challenge used in the PKCE (Proof Key for Code Exchange) flow, if applicable.
+    Scope:
+      name: scope
+      in: query
+      schema:
+        type: string
+        example: fdx:transactions:read%20fdx:accountbasic:read%20openid%20fdx:customerpersonal:read%20fdx:accountdetailed:read%20fdx:investments:read%20fdx:paymentsupport:read%20fdx:accountpayments:read%20fdx:bills:read%20fdx:images:read%20fdx:rewards:read%20fdx:tax:read%20fdx:statements:read%20fdx:customercontact:read
+      description: The scope of access requested by the client. For example, `read` or `write`.
+    RequestUri:
+      name: request_uri
+      in: query
+      schema:
+        type: string
+        example: urn:ietf:params:oauth2:61fa4c96 3f76 422e 83b4 00e4bad98549
+      description: The URI generated from PAR endpoint.
+    ResponseType:
+      name: response_type
+      in: query
+      schema:
+        type: string
+        example: code
+      description: The type of response requested. `code` for an authorization code or `token` for an implicit token.
+    State:
+      name: state
+      in: query
+      schema:
+        type: string
+        example: state
+      description: A client generated value used to maintain state between the request and callback to prevent CSRF attacks.
   responses:
     AuthorizeURL:
       description: This url will be launched by client for user authentication. No response applicable.
