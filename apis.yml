@@ -269,6 +269,12 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Mastercard/Fdx-Mock-Resource-Server
 common:
+- type: Plans
+  url: plans/mastercard-developer-hub-for-fdx-apis-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/mastercard-developer-hub-for-fdx-apis-rate-limits.yml
+- type: FinOps
+  url: finops/mastercard-developer-hub-for-fdx-apis-finops.yml
 - type: Website
   url: https://mastercard.com
 - type: CapabilityMap
