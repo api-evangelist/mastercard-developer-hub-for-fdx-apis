@@ -2,11 +2,14 @@
   "repo": "mastercard-developer-hub-for-fdx-apis",
   "feeds": [
     {
-      "source": "https://forum.developer.mastercard.com/s/",
-      "error": "URLError"
+      "source": "https://developer.mastercard.com/blog",
+      "feed_url": "https://developer.mastercard.com/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 0,
   "agent_pulled": "2026-07-04"
 }
