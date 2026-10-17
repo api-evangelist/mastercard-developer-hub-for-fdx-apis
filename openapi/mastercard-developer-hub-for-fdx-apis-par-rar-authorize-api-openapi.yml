@@ -29,38 +29,6 @@ paths:
       security:
       - {}
 components:
-  responses:
-    PAR:
-      description: Successful response containing request_uri
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Par'
-          examples:
-            Successful response:
-              value:
-                expires_in: 90
-                request_uri: urn:ietf:params:oauth2:8df8d6a2-72c4-49e6-8f12-e846bb01a6c2
-  schemas:
-    client_id:
-      type: string
-      example: dh-fdx-client-registrar-2
-      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
-    Par:
-      type: object
-      properties:
-        expires_in:
-          type: number
-          description: The expiration time of the request_uri in seconds.
-          example: 3600
-        request_uri:
-          type: string
-          example: urn:ietf:params:oauth2:eb6b74fb-2249-499a-9889-3e1c485e687b
-          description: The request URI corresponding to the authorization request posted. This URI is a single-use reference to the respective request data in the subsequent authorization request.
-    grant_type:
-      type: string
-      example: refresh_token OR client_credentials OR authorization_code
-      description: The grant type(s) supported by the Authorisation Server.
   requestBodies:
     PARRequestBody:
       required: true
@@ -103,6 +71,38 @@ components:
                 grant_type: client_credentials
                 request: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                 response_type: code
+  schemas:
+    Par:
+      type: object
+      properties:
+        expires_in:
+          type: number
+          description: The expiration time of the request_uri in seconds.
+          example: 3600
+        request_uri:
+          type: string
+          example: urn:ietf:params:oauth2:eb6b74fb-2249-499a-9889-3e1c485e687b
+          description: The request URI corresponding to the authorization request posted. This URI is a single-use reference to the respective request data in the subsequent authorization request.
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
+    grant_type:
+      type: string
+      example: refresh_token OR client_credentials OR authorization_code
+      description: The grant type(s) supported by the Authorisation Server.
+  responses:
+    PAR:
+      description: Successful response containing request_uri
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Par'
+          examples:
+            Successful response:
+              value:
+                expires_in: 90
+                request_uri: urn:ietf:params:oauth2:8df8d6a2-72c4-49e6-8f12-e846bb01a6c2
   securitySchemes:
     bearerAuth:
       type: http

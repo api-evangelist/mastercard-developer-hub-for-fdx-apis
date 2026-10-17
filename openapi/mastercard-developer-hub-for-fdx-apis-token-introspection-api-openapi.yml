@@ -30,10 +30,6 @@ paths:
       - {}
 components:
   schemas:
-    client_id:
-      type: string
-      example: dh-fdx-client-registrar-2
-      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
     TokenIntrospection:
       type: object
       properties:
@@ -84,6 +80,35 @@ components:
           type: string
           description: The type of token.
           example: Bearer
+    client_id:
+      type: string
+      example: dh-fdx-client-registrar-2
+      description: OAuth 2.0 client identifier.  Unique ID representing Data Recipient and Identity Chain combination
+  responses:
+    Introspect:
+      description: Introspection response as per token type
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TokenIntrospection'
+          examples:
+            Successful response:
+              value:
+                active: true
+                sub: dh-fdx-client-registrar-2
+                aud:
+                - dh-fdx-client-registrar-2
+                nbf: 1720612247
+                scope: client.read
+                iss: http://localhost:8080
+                exp: 1720612547
+                iat: 1720612247
+                jti: b39bf7e9-92ae-4649-a1f0-87983285fe1
+                client_id: dh-fdx-client-registrar-2
+                token_type: Bearer
+            Invalid client_assertion:
+              value:
+                active: false
   requestBodies:
     IntrospectRequestBody:
       required: true
@@ -125,31 +150,6 @@ components:
                 client_id: dh-fdx-client-registrar-2
                 token: Oki4J36pUhrrQvdLOy8_IqXSdELszmp2VbZ0bNJqAoLSFXIn633SjltVgxQoTZ84bWXnom66AkRFdtVr8HOqi3yaYxCZ-6niRNe00ygCF_o0Ky6upoZWJ
                 token_type_hint: refresh_token
-  responses:
-    Introspect:
-      description: Introspection response as per token type
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TokenIntrospection'
-          examples:
-            Successful response:
-              value:
-                active: true
-                sub: dh-fdx-client-registrar-2
-                aud:
-                - dh-fdx-client-registrar-2
-                nbf: 1720612247
-                scope: client.read
-                iss: http://localhost:8080
-                exp: 1720612547
-                iat: 1720612247
-                jti: b39bf7e9-92ae-4649-a1f0-87983285fe1
-                client_id: dh-fdx-client-registrar-2
-                token_type: Bearer
-            Invalid client_assertion:
-              value:
-                active: false
   securitySchemes:
     bearerAuth:
       type: http
