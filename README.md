@@ -1,4 +1,4 @@
-# Mastercard Developer Hub for FDX APIs (mastercard-fdx)
+# Mastercard Developer Hub for FDX APIs
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,99 +66,135 @@
 
 The Financial Data Exchange (FDX) is a nonprofit industry standards body that created the FDX API, a technical standard for user-permissioned financial data sharing. The FDX API standard, like other data sharing methods used in open banking, gives consumers more control over who can access their financial data. The open banking industry is founded on the principles of interoperability, which are being advanced by forthcoming rulemaking from the The Consumer Financial Protection Bureau (CFPB).
 
-**URL:** [Visit APIs.json URL](https://github.com/api-search/mastercard-developer-hub-for-fdx-apis/apis.yml)
+**Areas:** Banking · FDX · Open Banking
 
-## Scope
+## Mastercard Developer Hub for FDX APIs on APIs.io
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+Everything profiled for Mastercard Developer Hub for FDX APIs is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mastercard-developer-hub-for-fdx-apis/](https://apis.io/providers/mastercard-developer-hub-for-fdx-apis/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (10)
 
- - Banking, Open Banking, FDX
+- [Mastercard Developer Hub for FDX APIs Application Check Controller API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-application-check-controller-api/) — health check and check the status application
+- [Mastercard Developer Hub for FDX APIs Consent API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-consent-api/) — Return consent and save consent for user.
+- [Mastercard Developer Hub for FDX APIs Data Resource APIs API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-data-resource-apis-api/) — Return list of account, account details,transactions,contact details, payments info and statements details of user.
+- [Mastercard Developer Hub for FDX APIs Dynamic Client Registration API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-dynamic-client-registration-api/) — As per [RFC 7591 - OAuth 2.0 Dynamic Client Registration Protocol (ietf.org)](https://datatracker.ietf.org/doc/html/rfc7591)
+- [Mastercard Developer Hub for FDX APIs Non PAR Authorize API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-non-par-authorize-api/) — [https://datatracker.ietf.org/doc/html/rfc6749](https://datatracker.ietf.org/doc/html/rfc6749)
+- [Mastercard Developer Hub for FDX APIs PAR+RAR Authorize API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-par-rar-authorize-api/) — Please refer RFC - [RFC 9126 - OAuth 2.0 Pushed Authorization Requests (ietf.org)](https://datatracker.ietf.org/doc/html/rfc9126) and [RFC 9396 - OAuth 2.0…
+- [Mastercard Developer Hub for FDX APIs Resource Token API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-resource-token-api/) — API to generate OAuth 2.0 token.
+- [Mastercard Developer Hub for FDX APIs Token Introspection API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-token-introspection-api/) — API to check whether the OAuth Token is currently active.
+- [Mastercard Developer Hub for FDX APIs Upload Data API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-upload-data-api/) — Upload accounts and transaction for user.
+- [Mastercard Developer Hub for FDX APIs User APIs API](https://apis.io/apis/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-user-apis-api/) — Return user response.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-10-25 00:00:00+00:00 
-- **Modified:** 2026-04-28 
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Mastercard FDX Authorization API
-Dynamic Client Registration, Token, Introspection, Authorize API.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-**Human URL:** [http://example.com](http://example.com)
+- [Mastercard Developer Hub For Fdx Apis Agentic Access](https://apis.io/agentic-access/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-agentic-access/)
 
+#### Collections (10)
 
-#### Tags:
+Postman and Open Collection request collections.
 
- - FDX, Authorization
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-application-check-controller-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Consent API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-consent-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Data Resource APIs API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-data-resource-apis-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Dynamic Client Registration API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-dynamic-client-registration-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Non PAR Authorize API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-non-par-authorize-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller PAR+RAR Authorize API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-par-rar-authorize-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Resource Token API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-resource-token-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Token Introspection API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-token-introspection-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller Upload Data API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-upload-data-api/)
+- [Mastercard Developer Hub for FDX APIs FDX Authorization Server Application Check Controller User APIs API](https://apis.io/collections/mastercard-developer-hub-for-fdx-apis/open-mastercard-developer-hub-for-fdx-apis-user-apis-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#authorization-server)
-- [OpenAPI](openapi/fdx-authorization-api-openapi.yaml)
-- [MockServer](https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-authorization-server)
-- [GitHubRepository](https://github.com/Mastercard/Fdx-Mock-Auth-Server)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Mastercard FDX Resource API
-FDX Mock Resource Server API reference for developers.
+- [Mastercard Developer Hub For Fdx Apis Authentication](https://apis.io/security/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-authentication/)
+- [Mastercard Developer Hub For Fdx Apis Domain Security](https://apis.io/security/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-domain-security/)
 
-**Human URL:** [http://example.com](http://example.com)
+#### Plans and pricing (1)
 
+Published plans, tiers and prices.
 
-#### Tags:
+- [Mastercard Developer Hub For Fdx Apis Plans Pricing](https://apis.io/plans/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-plans-pricing/)
 
- - FDX, Payments
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://developer.mastercard.com/fdx-dev-hub/documentation/api-reference/#resource-server)
-- [OpenAPI](openapi/fdx-resource-api-openapi.yaml)
-- [MockServer](https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#fdx-mock-resource-server)
-- [GitHubRepository](https://github.com/Mastercard/Fdx-Mock-Resource-Server)
+- [Mastercard Developer Hub For Fdx Apis Rate Limits](https://apis.io/rate-limits/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-rate-limits/)
 
-## Common Properties
+#### FinOps (1)
 
-- [Portal](https://developer.mastercard.com/fdx-dev-hub/documentation)
-- [SequenceDiagrams](https://developer.mastercard.com/fdx-dev-hub/documentation/sequence-diagrams/)
-- [UserJourney](https://developer.mastercard.com/fdx-dev-hub/documentation/user-exp/)
-- [Implementation Checklist](https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/)
-- [Signup](https://developer.mastercard.com/account/sign-up)
-- [Login](https://developer.mastercard.com/account/log-in)
-- [Authentication](https://developer.mastercard.com/fdx-dev-hub/documentation/auth-server/#oauth-20-vs-openid-connect-oidc)
-- [DynamicClientRegistration](https://developer.mastercard.com/fdx-dev-hub/documentation/auth-server/#dynamic-client-registration)
-- [Simulator](https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#run-in-postman)
-- [FAPI](https://openid.net/wg/fapi/)
-- [FDX](https://financialdataexchange.org/)
-- [OpenID](https://openid.net/specs/openid-connect-core-1_0.html)
-- [OAuth20AuthorizationServerMetadata](https://datatracker.ietf.org/doc/html/rfc8414)
-- [OAuth20AuthorizationFramework](https://datatracker.ietf.org/doc/html/rfc6749)
-- [OAuth20DynamicClientRegistrationProtocol](https://datatracker.ietf.org/doc/html/rfc7591)
-- [ProofKeyforCodeExchangebyOAuth PublicClients](https://datatracker.ietf.org/doc/html/rfc7636)
-- [OAuth20PushedAuthorizationRequests](https://datatracker.ietf.org/doc/html/rfc9126)
-- [OAuth20RichAuthorizationRequests](https://datatracker.ietf.org/doc/html/rfc9396)
-- [RuninPostman](https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#run-in-postman)
-- [PostmanCollection](https://www.postman.com/ma-fdx-dev-hub/fdx-developer-hub/collection/p928zhg/mastercard-developer-hub-for-fdx-apis)
-- [PostmanWorkspace](https://www.postman.com/ma-fdx-dev-hub/fdx-developer-hub/overview)
-- [DockerContainer](https://developer.mastercard.com/fdx-dev-hub/documentation/how-to-run/#instructions-for-building-a-docker-image)
-- [Resources](https://developer.mastercard.com/fdx-dev-hub/documentation/links-resources/)
-- [ErrorCodes](https://developer.mastercard.com/fdx-dev-hub/documentation/code-and-formats/)
-- [Enumerators](https://developer.mastercard.com/fdx-dev-hub/documentation/fdx-enums/)
-- [TestUserProfiles](https://developer.mastercard.com/fdx-dev-hub/documentation/implementation-checklist/#test-user-profiles)
-- [Status](https://developer.mastercard.com/api-status)
-- [ReleaseHistory](https://developer.mastercard.com/fdx-dev-hub/documentation/release-history/)
-- [FAQ](https://developer.mastercard.com/fdx-dev-hub/documentation/support/#faq)
+What the API costs to run, by operation.
+
+- [Mastercard Developer Hub For Fdx Apis Finops](https://apis.io/finops/mastercard-developer-hub-for-fdx-apis/mastercard-developer-hub-for-fdx-apis-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://mastercard.com)
 - [Support](https://developer.mastercard.com/support)
-- [Forum](https://forum.developer.mastercard.com/s/)
 - [Blog](https://developer.mastercard.com/blog)
-- [TermsOfService](https://developer.mastercard.com/terms-of-use)
-- [PrivacyPolicy](https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy.html)
-- [Regulations](https://www.consumerfinance.gov/about-us/newsroom/cfpb-proposes-rule-to-jumpstart-competition-and-accelerate-shift-to-open-banking/)
+- [Terms of service](https://developer.mastercard.com/terms-of-use)
+- [Privacy policy](https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy.html)
+- [Status](https://developer.mastercard.com/api-status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 36.7** — thin · rubric 0.24.0 · scored 2026-10-17
 
-**Email:** info@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 46.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 35.5 |
+
+**Agent readiness 23.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.5** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mastercard-developer-hub-for-fdx-apis/](https://apis.io/providers/mastercard-developer-hub-for-fdx-apis/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Mastercard Developer Hub for FDX APIs: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mastercard-developer-hub-for-fdx-apis/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
